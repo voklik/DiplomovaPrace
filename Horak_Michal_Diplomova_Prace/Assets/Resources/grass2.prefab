@@ -1,0 +1,183 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5653473690738846913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2964638144771256652}
+  - component: {fileID: 1574347386501641605}
+  - component: {fileID: 6395802513485651386}
+  m_Layer: 7
+  m_Name: grass2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2964638144771256652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653473690738846913}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.488421, y: 2.179, z: 5.982857}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 8120826231121200644}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1574347386501641605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653473690738846913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 081d07f01b5df254ebc8c37804d40262, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: -1
+  typeEntity: 0
+  typeEater: 0
+  type: 4
+  age: 0
+  mature_age: 30
+  isMature: 0
+  kind: Entity
+  hp: 100
+  foodValue: 10
+  regen_hp: 100
+  max_hp: 100
+  energy: 0
+  energy_regen: 1
+  max_energy: 100
+  ageForDie: 360
+  timeToDie: 0
+  isEatable: 1
+  gname: Entity generated
+  isLive: 1
+  isMale: 1
+  CollisionObject: []
+  myKindSpotted: []
+  plantSpoted: []
+  animalsSpoted: []
+  iWasSpottedBy: []
+  waterSpot: []
+  earthSpot: []
+  range: 100
+  canReproduce: 1
+  reproduce_cooldown_left: 60
+  reproduce_cooldown: 60
+  reproduce_count_children: 0
+  poisonous: 0
+  hp_poison: 0
+  hp_poison_notmature: 0
+  targetCollider: {fileID: 0}
+  bodyCollider: {fileID: 0}
+--- !u!195 &6395802513485651386
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653473690738846913}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!1001 &8072894056440863607
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2964638144771256652}
+    m_Modifications:
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.488421
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.179
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.982857
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 52449114845462867, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+      propertyPath: m_Name
+      value: grass Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6243734953195257201, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+    - {fileID: 2679866484070313670, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+--- !u!4 &8120826231121200644 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 52449114845240691, guid: 27881e551410bc845b1029d860f6bc8f, type: 3}
+  m_PrefabInstance: {fileID: 8072894056440863607}
+  m_PrefabAsset: {fileID: 0}

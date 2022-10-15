@@ -1,0 +1,2 @@
+S:\unity projekty\Test2_Sum\obj\Debug\NavMeshComponentsEditor.csprojAssemblyReference.cache
+S:\unity projekty\Test2_Sum\obj\Debug\NavMeshComponentsEditor.csproj.CoreCompileInputs.cache

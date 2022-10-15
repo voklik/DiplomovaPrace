@@ -1,0 +1,215 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!54 &-5630719260389804888
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821252722535833004}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-3062495039339960136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821252722535833004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 280bb294e007c60478cc5dd93d9e9170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: -1
+  typeEntity: 0
+  typeEater: 0
+  type: 4
+  age: 0
+  mature_age: 30
+  isMature: 0
+  kind: Entity
+  hp: 100
+  foodValue: 10
+  regen_hp: 100
+  max_hp: 100
+  energy: 0
+  energy_regen: 1
+  max_energy: 100
+  ageForDie: 360
+  timeToDie: 0
+  isEatable: 1
+  gname: Entity generated
+  isLive: 1
+  isMale: 1
+  CollisionObject: []
+  myKindSpotted: []
+  plantSpoted: []
+  animalsSpoted: []
+  iWasSpottedBy: []
+  waterSpot: []
+  earthSpot: []
+  range: 100
+  canReproduce: 1
+  reproduce_cooldown_left: 60
+  reproduce_cooldown: 60
+  reproduce_count_children: 0
+  poisonous: 0
+  hp_poison: 0
+  hp_poison_notmature: 0
+  targetCollider: {fileID: 0}
+  bodyCollider: {fileID: 0}
+  stav: 6
+  hunger: 65
+  max_hunger: 100
+  hunger_perSec: 0.3
+  thirsty: 0
+  max_thirsty: 100
+  thirsty_perSec: 0.3
+  sleepnes: 65
+  max_sleepnes: 100
+  sleepnes_perSec: 0.3
+  strenght: 20
+  isPregnant: 0
+  pregnancyTimeToBornDefault: 120
+  pregnancyTimeToBorn: 120
+  isRunning: 0
+  isTargeted: 0
+  targetRange: 2
+  target: {fileID: 0}
+  lasttarget: {fileID: 0}
+  targetAttackingMe: {fileID: 0}
+  targetAttackingPartner: {fileID: 0}
+  targetRandomTerrain: {fileID: 0}
+  targetWater: {fileID: 0}
+  targetFood: {fileID: 0}
+  partnerMaxRange: 20
+  partner: {fileID: 0}
+  father: {fileID: 0}
+  mother: {fileID: 0}
+  childrens: []
+  foodSpoted: []
+  plantspoted: []
+  TheyAreGoForMe: []
+  closestWaterSpot: {fileID: 0}
+  closestAnimalSpot: {fileID: 0}
+  closestPlantSpot: {fileID: 0}
+--- !u!195 &815902270099233377
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6821252722535833004}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 2
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!1001 &5938168611987726589
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 20.404593
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.5143704
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 28.241608
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_Name
+      value: sheep
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_TagString
+      value: animal
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1151388028547126963, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+      propertyPath: m_Name
+      value: grp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+--- !u!1 &6821252722535833004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f199c68ef9afb3e47b3dd1b692440cf9, type: 3}
+  m_PrefabInstance: {fileID: 5938168611987726589}
+  m_PrefabAsset: {fileID: 0}
