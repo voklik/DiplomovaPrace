@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{CC668EE3-A2DE-4FC4-BD63-9A2272D29437}</ProjectGuid>
+    <ProjectGuid>{1A4E1D16-889C-8CC0-0862-16C4947CBBDA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -104,6 +104,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\2mapaSumu\others\ItemID.cs" />
+    <Compile Include="Assets\FpsControl.cs" />
     <Compile Include="Assets\2mapaSumu\Behaviour Tree\nodes\Partnership\PartnerIsReadyForChildren.cs" />
     <Compile Include="Assets\2mapaSumu\UI\PauseSystem.cs" />
     <Compile Include="Assets\InformationInfoBox.cs" />
@@ -168,7 +169,6 @@
     <Compile Include="Assets\2mapaSumu\Behaviour Tree\nodes\Hunger\Eat.cs" />
     <Compile Include="Assets\2mapaSumu\Entities\Animals\Wolf.cs" />
     <Compile Include="Assets\2mapaSumu\BodyCollider\TargetCollider.cs" />
-    <Compile Include="Assets\FpsControl.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -795,11 +795,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="NavMeshComponentsEditor.csproj">
-      <Project>{6DB477E9-A6C6-5A61-5E1B-1729E36FF836}</Project>
+      <Project>{61B70FA2-5067-FABA-8252-CD0D2CE89FD1}</Project>
       <Name>NavMeshComponentsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="NavMeshComponents.csproj">
-      <Project>{43718C8D-BF93-6F3F-D950-0082E701FDB2}</Project>
+      <Project>{F3204A55-985B-7CFC-4A89-847E26CA7330}</Project>
       <Name>NavMeshComponents</Name>
     </ProjectReference>
   </ItemGroup>
