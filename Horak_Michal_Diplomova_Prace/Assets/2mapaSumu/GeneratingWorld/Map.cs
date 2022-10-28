@@ -58,11 +58,17 @@ public class Map : MonoBehaviour
         WorldGenerateSettings.BaseMaxHeight = maxheight * height_y;
         WorldGenerateSettings.baseHeight = WorldGenerateSettings.BaseMaxHeight * 0.2f;
         if (Wolf.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace != 0)
+        {
             wolfPopulation = Wolf.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace;
+        }
         if (Sheep.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace != 0)
-            sheepPopulation = Wolf.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace;
+        { 
+            sheepPopulation = Sheep.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace; 
+        }
         if (Grass.PlantDefaultValues.EntityDefaultValues.PocatecniPopulace != 0)
-            grassPopulation = Wolf.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace;
+        {   
+            grassPopulation = Grass.PlantDefaultValues.EntityDefaultValues.PocatecniPopulace; 
+        }
         GenerateNoiseMap();
 
         Renderer renderer = GetComponent<Renderer>();
