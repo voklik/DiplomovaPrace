@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -64,6 +65,15 @@ public class CameraControl : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, MinY, MaxY);
         pos.z = Mathf.Clamp(pos.z, -10, PanLimit.y + 10);
         transform.position = pos;
+
+        if (SceneView.lastActiveSceneView != null)
+        { Vector3 position = SceneView.lastActiveSceneView.pivot;
+            pos.z -= 10.0f;
+            SceneView.lastActiveSceneView.pivot = pos;
+            SceneView.lastActiveSceneView.Repaint();
+        }
+
+
     }
-  
+
 }

@@ -60,13 +60,13 @@ public class StatisticSystem : MonoBehaviour
     public static void AddStatisticEvent(StatisticEntity fromEntity, string thing)
     {
         StatisticEvent statisticEvent = new StatisticEvent(IDCounter++, thing, time.ToString(), fromEntity);
-        ListOfEvents.Add(statisticEvent);
+       // ListOfEvents.Add(statisticEvent);
     }
     public static void AddStatisticEvent(StatisticEntity fromEntity, string thing, StatisticEntity targetEntity)
     {
         Debug.LogWarning("Event");
         StatisticEvent statisticEvent = new StatisticEvent(IDCounter++, thing, time.ToString(), fromEntity, targetEntity);
-        ListOfEvents.Add(statisticEvent);
+       // ListOfEvents.Add(statisticEvent);
     }
     public static string StatisticEventLog()
     {

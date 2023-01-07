@@ -6,10 +6,10 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //Tøída, která reprezentuje ètvercovou plochu + Provádí nastavení barvy plochy
     private TerenDetail terenDetail;
-
-    public void CreateDetail(Vector3 a, Vector3 b, Vector3 c, Vector3 d, Vector2 position)
+    public void CreateDetail(Vector3 a, Vector3 b, Vector3 c, Vector3 d, Vector2 position, bool underground = false)
     {
-        terenDetail = new TerenDetail(a, b, c, d, position);
+        terenDetail = new TerenDetail(a, b, c, d, position,underground);
+
     }
 
     public void SetInit(GameObject waterPrefabPlane)
@@ -88,6 +88,10 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             b.name = "WaterPlane";
             b.transform.localPosition = new Vector3(a.x * 1, WorldGenerateSettings.BaseMaxHeight * 0.58f, a.z * 1+0.8f);
             b.tag = "water";
+        }
+        if(terenDetail.podklad)
+        {
+            gameObject.GetComponent<Renderer>().material.color = MaterialStorage.Underground;
         }
     }
   

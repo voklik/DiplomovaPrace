@@ -124,8 +124,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1886}
     - Class: 114
-      Script: {instanceID: 2022}
-    - Class: 114
       Script: {instanceID: 2092}
     - Class: 114
       Script: {instanceID: 2118}
@@ -186,7 +184,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3878}
     - Class: 114
-      Script: {instanceID: 17458}
+      Script: {instanceID: 17580}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1227,4 +1225,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Simulation.unity
-  playerPath: S:/unity projekty/Test2_Sum/EXPORT/app/Horak_Michal_Diplomova_Prace.exe
+  playerPath: S:/unity projekty/Test2_Sum/EXPORT/export aplikace 29102022/Horak_Michal_Diplomova_Prace.exe
