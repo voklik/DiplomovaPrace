@@ -169,6 +169,8 @@
     <Compile Include="Assets\2mapaSumu\Behaviour Tree\nodes\Hunger\Eat.cs" />
     <Compile Include="Assets\2mapaSumu\Entities\Animals\Wolf.cs" />
     <Compile Include="Assets\2mapaSumu\BodyCollider\TargetCollider.cs" />
+    <Compile Include="Assets\2mapaSumu\UI\CaptionsLibrary.cs" />
+    <Compile Include="Assets\2mapaSumu\UI\GetCaption.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
