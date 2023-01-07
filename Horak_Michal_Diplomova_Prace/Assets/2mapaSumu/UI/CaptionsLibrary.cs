@@ -38,7 +38,7 @@ public static class CaptionsLibrary
         {"timeHladInfo","Množství, které jedinec získá za èas. V simulaci se poèítá od 0, kdy není žádná potøeba k maximální hranici, kdy je urgentní potøeba"},
 
         {"timeZizen","Žízeò za èas"},
-        {"timeZizenIfo","Množství, které jedinec získá za èas. V simulaci se poèítá od 0, kdy není žádná potøebam k maximální hranici, kdy je urgentní potøeba"},
+        {"timeZizenInfo","Množství, které jedinec získá za èas. V simulaci se poèítá od 0, kdy není žádná potøebam k maximální hranici, kdy je urgentní potøeba"},
         {"timeSpanek","Potøeba spánku za èas"},
         {"timeSpanekInfo","Množství, které jedinec získá za èas. V simulaci se poèítá od 0, kdy není žádná potøebam k maximální hranici,  kdy je urgentní potøeba"},
         {"maxHlad","Max Hlad"},
