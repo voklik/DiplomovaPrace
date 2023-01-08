@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 46512483}
   - component: {fileID: 46512482}
   - component: {fileID: 46512481}
+  - component: {fileID: 46512487}
   m_Layer: 0
   m_Name: ButtonNextGrass
   m_TagString: Untagged
@@ -342,6 +343,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 46512479}
   m_CullTransparentMesh: 1
+--- !u!114 &46512487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46512479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnContinue
 --- !u!1 &58179451
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +757,7 @@ GameObject:
   - component: {fileID: 241067989}
   - component: {fileID: 241067993}
   - component: {fileID: 241067992}
+  - component: {fileID: 241067994}
   m_Layer: 0
   m_Name: ButtonBackMenuWolf
   m_TagString: Untagged
@@ -902,6 +917,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Window: {fileID: 870057948}
+--- !u!114 &241067994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241067987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnReturnToMenu
 --- !u!1 &269355787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1206,6 +1234,7 @@ GameObject:
   - component: {fileID: 387193979}
   - component: {fileID: 387193978}
   - component: {fileID: 387193977}
+  - component: {fileID: 387193983}
   m_Layer: 0
   m_Name: ButtonNextSheep
   m_TagString: Untagged
@@ -1410,6 +1439,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387193975}
   m_CullTransparentMesh: 1
+--- !u!114 &387193983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387193975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnContinue
 --- !u!1 &399230012
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,7 +1708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &445875650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1900,6 +1942,7 @@ GameObject:
   - component: {fileID: 555854921}
   - component: {fileID: 555854920}
   - component: {fileID: 555854919}
+  - component: {fileID: 555854923}
   m_Layer: 0
   m_Name: ButtonStartSimulation
   m_TagString: Untagged
@@ -2045,6 +2088,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555854917}
   m_CullTransparentMesh: 1
+--- !u!114 &555854923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555854917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnStartSimulation
 --- !u!1 &589556249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,8 +2255,8 @@ RectTransform:
   m_Father: {fileID: 498076581}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.76}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3067,7 +3123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &870057949
 Transform:
   m_ObjectHideFlags: 0
@@ -4234,6 +4290,7 @@ GameObject:
   - component: {fileID: 1254649121}
   - component: {fileID: 1254649120}
   - component: {fileID: 1254649119}
+  - component: {fileID: 1254649124}
   m_Layer: 0
   m_Name: ButtonBackMenuSheep
   m_TagString: Untagged
@@ -4393,6 +4450,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254649117}
   m_CullTransparentMesh: 1
+--- !u!114 &1254649124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254649117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnReturnToMenu
 --- !u!1 &1276922877
 GameObject:
   m_ObjectHideFlags: 0
@@ -5074,6 +5144,7 @@ GameObject:
   - component: {fileID: 1358631912}
   - component: {fileID: 1358631911}
   - component: {fileID: 1358631910}
+  - component: {fileID: 1358631915}
   m_Layer: 0
   m_Name: ButtonBackTrava
   m_TagString: Untagged
@@ -5233,6 +5304,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358631908}
   m_CullTransparentMesh: 1
+--- !u!114 &1358631915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358631908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnReturn
 --- !u!1 &1366124575
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,6 +5410,7 @@ GameObject:
   - component: {fileID: 1377038599}
   - component: {fileID: 1377038598}
   - component: {fileID: 1377038597}
+  - component: {fileID: 1377038602}
   m_Layer: 0
   m_Name: ButtonBackSheep
   m_TagString: Untagged
@@ -5485,6 +5570,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377038595}
   m_CullTransparentMesh: 1
+--- !u!114 &1377038602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377038595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnReturn
 --- !u!1 &1440612418
 GameObject:
   m_ObjectHideFlags: 0
@@ -5694,7 +5792,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 589745204}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.24
+  m_Size: 0.24000002
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5880,6 +5978,7 @@ GameObject:
   - component: {fileID: 1557628181}
   - component: {fileID: 1557628180}
   - component: {fileID: 1557628179}
+  - component: {fileID: 1557628184}
   m_Layer: 0
   m_Name: ButtonBackMenuWorld
   m_TagString: Untagged
@@ -6039,6 +6138,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1557628177}
   m_CullTransparentMesh: 1
+--- !u!114 &1557628184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557628177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnReturnToMenu
 --- !u!1 &1583976788
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,6 +6323,7 @@ GameObject:
   - component: {fileID: 1649406455}
   - component: {fileID: 1649406454}
   - component: {fileID: 1649406453}
+  - component: {fileID: 1649406458}
   m_Layer: 0
   m_Name: ButtonBackWorld
   m_TagString: Untagged
@@ -6370,6 +6483,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649406451}
   m_CullTransparentMesh: 1
+--- !u!114 &1649406458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1649406451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnReturn
 --- !u!1 &1656291076
 GameObject:
   m_ObjectHideFlags: 0
@@ -6733,6 +6859,7 @@ GameObject:
   - component: {fileID: 1750334549}
   - component: {fileID: 1750334548}
   - component: {fileID: 1750334547}
+  - component: {fileID: 1750334553}
   m_Layer: 0
   m_Name: ButtonNextWolf
   m_TagString: Untagged
@@ -6937,6 +7064,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750334545}
   m_CullTransparentMesh: 1
+--- !u!114 &1750334553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750334545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnContinue
 --- !u!1 &1761249209
 GameObject:
   m_ObjectHideFlags: 0
@@ -7060,6 +7200,7 @@ GameObject:
   - component: {fileID: 1776852056}
   - component: {fileID: 1776852055}
   - component: {fileID: 1776852054}
+  - component: {fileID: 1776852059}
   m_Layer: 0
   m_Name: ButtonBackMenuGrass
   m_TagString: Untagged
@@ -7219,6 +7360,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776852052}
   m_CullTransparentMesh: 1
+--- !u!114 &1776852059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1776852052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc6900784d04a44bdb1b19a2b9c23a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: btnReturnToMenu
 --- !u!1 &1791969214
 GameObject:
   m_ObjectHideFlags: 0

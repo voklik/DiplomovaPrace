@@ -17,10 +17,10 @@ public class WorldGenerateSettings : MonoBehaviour
 
     public void Awake()
     {
-        SMultiplier = GenerateSliderF("Multiplier", "Násobiè výšky", "urèuje výškový rozdíl mezi body", 1.6f, 1.6f, 10.0f);
-        SWidth = GenerateSliderI("SWidth", "Poèet blokù do šíøky", "Poèet bodù v møížce smìrem doprava", 40, 40, 100);
-        SDepth = GenerateSliderI("SDepth", "Poèet blokù do hloubky", "Poèet bodù v møížce smìrem nahoru", 40, 40, 100);
-        SSeed = GenerateSliderF("SSeed", "Semínko mapy - doporuèeno 270, anebo 435", "Semínko mapy, které rozhoduje podobu terénu. Nìkteré seedy nefungují a proto se doporuèuje seed 435,270, protože byly vyzkoušny", 435, 0, 1000);
+        SMultiplier = GenerateSliderF("Multiplier", "Multiplier", "MultiplierInfo", 1.6f, 1.6f, 10.0f);
+        SWidth = GenerateSliderI("SWidth", "SWidth", "SWidthInfo", 40, 40, 100);
+        SDepth = GenerateSliderI("SDepth", "SDepth", "SDepthInfo", 40, 40, 100);
+        SSeed = GenerateSliderF("Seed", "Seed", "SeedInfo", 435, 0, 1000);
     }
 
     private Slider GenerateSliderI(string nazev, string popisek, string infoPopisek, int hodnota, int min, int max)
@@ -54,7 +54,7 @@ public class WorldGenerateSettings : MonoBehaviour
         GameObject novy = Instantiate(entita, new Vector3(0, 0, 0), Quaternion.identity);
 
         novy.name = "Slider" + nazev;
-        novy.transform.Find("Name").GetComponent<Text>().text = popisek;
+        novy.transform.Find("Name").GetComponent<Text>().text = CaptionsLibrary.GetCaption(popisek);
         //novy.transform.Find("Name").GetComponent<Text>().text = popisek;
         novy.transform.Find("Name").GetComponent<Text>().fontSize = 20;
         novy.transform.Find("Name").GetComponent<Text>().supportRichText = true;
@@ -64,7 +64,8 @@ public class WorldGenerateSettings : MonoBehaviour
         slider.maxValue = max;
         slider.value = hodnota;
         InformationContainer infoContainer = novy.transform.Find("InfoBox").GetComponent<InformationContainer>();
-        infoContainer.text = infoPopisek;
+        infoContainer.text = CaptionsLibrary.GetCaption(infoPopisek
+            );
         slider.wholeNumbers = false;
         novy.transform.parent = gameObject.transform;
         // novy.transform.position = new Vector3(0, 0, 0);

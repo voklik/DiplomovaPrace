@@ -17,14 +17,14 @@ public class PauseSystem : MonoBehaviour
     void PauseGame()
     {
         Time.timeScale = 0;
-        text.text = "Unpause simulation";
+        text.text = CaptionsLibrary.GetCaption("UnpauseSimulation");
         isPaused = !isPaused;
     }
 
     void ResumeGame()
     {
         Time.timeScale = 1;
-        text.text = "Pause simulation";
+        text.text = CaptionsLibrary.GetCaption("PauseSimulation");
         isPaused = !isPaused;
     }
 }

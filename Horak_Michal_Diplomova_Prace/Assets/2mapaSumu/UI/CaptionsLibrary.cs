@@ -10,7 +10,10 @@ public static class CaptionsLibrary
         {"btnStart","Zahajit simulaci"},
         {"btnMenuTitle","Simulátor - Vlk, ovce a travina"},
         {"btnMenuExterminate","Ukonèit simulaci"},
-
+        {"btnStartSimulation","Spustit simulaci"},
+        {"btnReturn","Vrátit se zpìt"},
+        {"btnContinue","Pokraèovat"},
+        {"btnReturnToMenu","Vrátit se do menu"},
                 //MENU-Entity//
         {"populace","Poèáteèní populace"},
         {"populaceInfo","Kolik jedincù se bude generovat na zaèátku simulace"},
@@ -53,8 +56,32 @@ public static class CaptionsLibrary
         {"strenghtInfo","Urèuje sílu útoku jedince, kdy útoèí na jiná zvíøata (v obranì, èi pro potravu"},
        
 
+          //MENU-Svìt//
+        {"Multiplier","Násobiè výšky"},
+        {"MultiplierInfo","urèuje výškový rozdíl mezi body"},
+        {"SWidth","Poèet blokù do šíøky"},
+        {"SWidthInfo","Poèet bodù v møížce smìrem doprava"},
+        {"SDepth","Poèet blokù do hloubky"},
+        {"SDepthInfo","Poèet bodù v møížce smìrem nahoru"},
+        {"Seed","Semínko mapy - doporuèeno 270, anebo 435"},
+        {"SeedInfo","Semínko mapy, které rozhoduje podobu terénu. Nìkteré seedy nefungují a proto se doporuèuje seed 435,270, protože byly vyzkoušny"},
 
 
+
+         //Simulace-Svìt//        
+        {"ShowStatisticWindow","Zobrazit statistiku"},
+        {"BackToMenu","Zpátky do menu"},
+        {"PauseSimulation","Zapauzovat Simulaci"},
+        {"UnpauseSimulation","Odpauzovat Simulaci"},
+
+
+          //Simulace-StatisticMenu//        
+        {"ShowStatisticEvent","Zobrazit události"},
+        {"ShowAnimals","Zobrazit zvíøata"},
+        {"ShowKind","Zobrazit statistiky druhù"},
+        {"ShowPlants","Zobrazit rostliny"},
+        {"ResetStatWindow","Aktualizovat" },
+        {"CloseWindow","Zavøít okno"},
     };
 
     public static string GetCaption(string KeyCaption)
