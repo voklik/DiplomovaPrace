@@ -26,7 +26,7 @@ public class MakeChildren : Node
                 character.Vypis("Diglity diglity deee" + character.getPartner.name);
                 Animal partner = character.getPartner.GetComponent<Animal>();
 
-                if (character.getStav == Stav.Fucking)
+                if (character.getStav == Stav.Mating)
                     character.setStav(Stav.Nothing);
             partner.setIsPregnant(true);
                 SpawnHearth();
@@ -35,7 +35,7 @@ public class MakeChildren : Node
         }
         else
             {
-                if (character.getPartner.GetComponent<Animal>().getStav == Stav.Fucking)
+                if (character.getPartner.GetComponent<Animal>().getStav == Stav.Mating)
                     character.getPartner.GetComponent<Animal>().setStav(Stav.Nothing);
                 character.Vypis("Diglity diglity deee" + character.getPartner.name);
                 StatisticSystem.AddStatisticEvent(character.getPartner.GetComponent<Animal>().GetStatisticEntity(), "Making baby", character.GetStatisticEntity());

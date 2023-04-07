@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetailAnimal 
-{   
+public class DetailAnimal
+{
     int type;//1-meateater,2-planteater,3-alleater;
     float age;
     float mature_age;

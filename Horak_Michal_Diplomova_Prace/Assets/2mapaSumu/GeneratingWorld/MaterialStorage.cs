@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class MaterialStorage : MonoBehaviour
 {
-    //Pomocná tøída, kde se ukládají odkazi na rùzné objekty, aby se nemusely urèité èásty kódu objevovat na více místech
+    //Pomocná tøída, kde se ukládají odkazy na rùzné objekty, aby se nemusely urèité èásty kódu objevovat na více místech
     public static Color Sand, Stone, Earth, Underground;
 
-    public Color sand, stone, earth,underground;
+    public Color sand, stone, earth, underground;
 
     public static GameObject Water, TargetCollider, TextBoxt, BodyCollidera;
 

@@ -8,14 +8,14 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private TerenDetail terenDetail;
     public void CreateDetail(Vector3 a, Vector3 b, Vector3 c, Vector3 d, Vector2 position, bool underground = false)
     {
-        terenDetail = new TerenDetail(a, b, c, d, position,underground);
+        terenDetail = new TerenDetail(a, b, c, d, position, underground);
 
     }
 
     public void SetInit(GameObject waterPrefabPlane)
     {
         Vector3 a = terenDetail.vertex1;
-       // Debug.LogError(a.y+".§"+WorldGenerateSettings.Multiplier.ToString() + "-"+ (0.2 * WorldGenerateSettings.Multiplier).ToString());
+        // Debug.LogError(a.y+".§"+WorldGenerateSettings.Multiplier.ToString() + "-"+ (0.2 * WorldGenerateSettings.Multiplier).ToString());
         gameObject.tag = "terrain";
         //if (a.y > 0.2 * WorldGenerateSettings.Multiplier && a.y < 0.8 * WorldGenerateSettings.Multiplier)
 
@@ -30,11 +30,11 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             g.name = "EarthPoint" + gameObject.name;
             g.tag = "terrain";
             g.transform.localPosition = new Vector3(a.x * 1, a.y + 0.1f, a.z * 1);
-          //  Debug.LogError(a.y +"> "+1.4f * WorldGenerateSettings.baseHeight +"> Earth <" + 0.8 * WorldGenerateSettings.BaseMaxHeight);
+            //  Debug.LogError(a.y +"> "+1.4f * WorldGenerateSettings.baseHeight +"> Earth <" + 0.8 * WorldGenerateSettings.BaseMaxHeight);
         }
 
 
-        else if (a.y >= 0.85 * WorldGenerateSettings.BaseMaxHeight )
+        else if (a.y >= 0.85 * WorldGenerateSettings.BaseMaxHeight)
         {
             gameObject.GetComponent<Renderer>().material.color = MaterialStorage.Stone;
 
@@ -43,12 +43,12 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             g.name = "EarthPoint";// + gameObject.name;
             g.tag = "terrain";
             g.transform.localPosition = new Vector3(a.x * 1, a.y + 0.1f, a.z * 1);
-         //   Debug.LogError(a.y + "Stone >"+ 0.8 * WorldGenerateSettings.BaseMaxHeight);
+            //   Debug.LogError(a.y + "Stone >"+ 0.8 * WorldGenerateSettings.BaseMaxHeight);
         }
 
-        else if (a.y<WorldGenerateSettings.BaseMaxHeight * 0.6f)
+        else if (a.y < WorldGenerateSettings.BaseMaxHeight * 0.6f)
         {
-           // Debug.LogError(a.y + "Sand <" +WorldGenerateSettings.baseHeight);
+            // Debug.LogError(a.y + "Sand <" +WorldGenerateSettings.baseHeight);
             gameObject.GetComponent<Renderer>().material.color = MaterialStorage.Sand;
             // GameObject s = Instantiate(MaterialStorage.waterPointPreFab, new Vector3(gameObject.transform.position.x, a.y + 0.5f, gameObject.transform.position.z), Quaternion.identity);
 
@@ -68,7 +68,7 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             //s.tag = "water";
             GameObject g = Instantiate(MaterialStorage.waterPointPreFab, new Vector3(0, 0, 0), Quaternion.identity);
 
-           
+
             g.transform.parent = gameObject.transform;
             if (gameObject.name.EndsWith("1"))
             {
@@ -78,23 +78,23 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             else
             {
                 g.transform.localPosition = new Vector3(a.x * 1, WorldGenerateSettings.BaseMaxHeight * 0.6f, a.z * 1);
-               // g.transform.localPosition = new Vector3(+0.5f, a.y + 1.0f, (a.z * 1));
+                // g.transform.localPosition = new Vector3(+0.5f, a.y + 1.0f, (a.z * 1));
             }
             g.tag = "water";
             GameObject b = Instantiate(waterPrefabPlane, new Vector3(0, 0, 0), Quaternion.identity);
 
-            b.transform.localScale = new Vector3(0.20f,0, 0.30f);
+            b.transform.localScale = new Vector3(0.20f, 0, 0.30f);
             b.transform.parent = gameObject.transform;
             b.name = "WaterPlane";
-            b.transform.localPosition = new Vector3(a.x * 1, WorldGenerateSettings.BaseMaxHeight * 0.58f, a.z * 1+0.8f);
+            b.transform.localPosition = new Vector3(a.x * 1, WorldGenerateSettings.BaseMaxHeight * 0.58f, a.z * 1 + 0.8f);
             b.tag = "water";
         }
-        if(terenDetail.podklad)
+        if (terenDetail.podklad)
         {
             gameObject.GetComponent<Renderer>().material.color = MaterialStorage.Underground;
         }
     }
-  
+
 
     public void SetBanare(float height)
     {
@@ -130,7 +130,7 @@ public class Teren : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (Input.GetMouseButton(0))
         {
-         //   MaterialStorage.toolltipUI.DisplayInfo(terenDetail.vertex1.ToString());
+            //   MaterialStorage.toolltipUI.DisplayInfo(terenDetail.vertex1.ToString());
         }
     }
 }

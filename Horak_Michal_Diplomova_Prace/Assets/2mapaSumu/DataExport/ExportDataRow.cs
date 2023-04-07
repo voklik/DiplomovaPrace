@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExportDataRow 
+public class ExportDataRow
 {
+    /// <summary>
+    /// Tøída, která zapíše data do .csv
+    /// </summary>
 
     public List<string> Columns = new List<string>();
 

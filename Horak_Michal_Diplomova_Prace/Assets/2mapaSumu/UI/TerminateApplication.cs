@@ -9,7 +9,7 @@ public class TerminateApplication : MonoBehaviour
     {
         // Rozhoduje se, zda se vypne hra, èi v enginu se zruší probíhající testování
 #if UNITY_EDITOR
-      
+
         UnityEditor.EditorApplication.isPlaying = false;
 #else
          Application.Quit();

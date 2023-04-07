@@ -19,6 +19,7 @@ public class Wolf : Animal
         ageForDie = AnimalDefaultValues.EntityDefaultValues.AgeForDie;
         canReproduce = AnimalDefaultValues.EntityDefaultValues.CanReproduce;
         reproduce_cooldown = AnimalDefaultValues.EntityDefaultValues.Reproduce_cooldown;
+        setStrenght(AnimalDefaultValues.Strenght);
         setTimePregnancyDefault(AnimalDefaultValues.PregnancyTimeToBornDefault);
         setTimeHunger(AnimalDefaultValues.Hunger_perSec);
         setTimeThirsty(AnimalDefaultValues.Thirsty_perSec);

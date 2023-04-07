@@ -113,7 +113,7 @@ public class Entity : MonoBehaviour
         return new StatisticEntity(name, kind);
     }
 
-    public float GetType()
+    public new float GetType()
     {
         return type;
     }
@@ -199,10 +199,10 @@ public class Entity : MonoBehaviour
 
     public void Vypis(string x)
     {
-        // if(name.Contains("wolf"))
-        //Debug.Log(name + " > " + x);
-        // else if (x.Contains("jsem zranìn"))
-        //     Debug.Log(name + " > " + x);
+        if(name.Contains("wolf"))
+        Debug.Log(name + " > " + x);
+         else if (x.Contains("jsem zranìn"))
+           Debug.Log(name + " > " + x);
     }
 
     public void GetInCollision(GameObject g)

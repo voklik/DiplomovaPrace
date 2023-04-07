@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class InformationInfoBox : MonoBehaviour
 {   /*
-     *Tøída, která slouží pro zobrazení informace v inforbaèním oknì, když se najede na ikonu s informací.
+     *Tøída, která slouží pro zobrazení informace v informaèním oknì, když se najede na ikonu s informací.
      *Tato tøída existuje, protože ne všechny informace by se vešly do grafického okna, 
      *a když ano, tak by to bylo nepøehledné a ošklivé.
     */
     public static InformationInfoBox InformationInfoBoxStatic;// promìnná je statická, protože existuje pouze jedno informaèní okno ve scénì.
     void Start()
     {
-      //  InformationInfoBoxStatic = this;
+        //  InformationInfoBoxStatic = this;
     }
     void OnEnable()
     {

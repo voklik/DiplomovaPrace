@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class testera :MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class testera : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     //Detect if the Cursor starts to pass over the GameObject
     public void OnPointerEnter(PointerEventData pointerEventData)

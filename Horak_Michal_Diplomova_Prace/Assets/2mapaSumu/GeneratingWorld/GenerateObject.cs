@@ -89,7 +89,7 @@ public class GenerateObject : MonoBehaviour
 
             return GetPosition();
         }
-       
+
     }
 
     private static int CheckID(string kind, out bool isMale)

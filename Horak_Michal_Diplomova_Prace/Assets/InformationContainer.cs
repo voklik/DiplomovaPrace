@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InformationContainer : MonoBehaviour
 {
-    public string text;//Text pro InfoBox, kdy se najedé myší
+    public string text;//Text pro InfoBox, kdy se najede myší na herní objekt
 
     /// <summary>
     /// Metoda pøi najetí myší na tento objekt

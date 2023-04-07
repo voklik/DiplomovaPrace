@@ -7,14 +7,14 @@ public class StatisticSystem : MonoBehaviour
     static List<Entity> ListOfEntit = new List<Entity>();
     static List<StatisticEvent> ListOfEvents = new List<StatisticEvent>();
     static List<StatisticKindCoutner> CounterOfKinds = new List<StatisticKindCoutner>();
-    static List<StatisticKindCounterOverTime> CounterOverTimes= new List<StatisticKindCounterOverTime>();
+    static List<StatisticKindCounterOverTime> CounterOverTimes = new List<StatisticKindCounterOverTime>();
     static float time = 0.0f;
     static int IDCounter = 0;
     private void Update()
     {
         time += Time.deltaTime;
     }
-    
+
     public static void IAmLive(Entity entita)
     {
         bool founded = false;
@@ -51,7 +51,7 @@ public class StatisticSystem : MonoBehaviour
         }
         if (founded == false)
         {
-            CounterOfKinds.Add(new StatisticKindCoutner(entita.GetKind(), 0,1));
+            CounterOfKinds.Add(new StatisticKindCoutner(entita.GetKind(), 0, 1));
             CounterOverTimes.Add(new StatisticKindCounterOverTime(new StatisticKindCoutner(entita.GetKind(), 0, 1), time.ToString()));
 
         }
@@ -60,20 +60,20 @@ public class StatisticSystem : MonoBehaviour
     public static void AddStatisticEvent(StatisticEntity fromEntity, string thing)
     {
         StatisticEvent statisticEvent = new StatisticEvent(IDCounter++, thing, time.ToString(), fromEntity);
-       // ListOfEvents.Add(statisticEvent);
+        // ListOfEvents.Add(statisticEvent);
     }
     public static void AddStatisticEvent(StatisticEntity fromEntity, string thing, StatisticEntity targetEntity)
     {
         Debug.LogWarning("Event");
         StatisticEvent statisticEvent = new StatisticEvent(IDCounter++, thing, time.ToString(), fromEntity, targetEntity);
-       // ListOfEvents.Add(statisticEvent);
+        // ListOfEvents.Add(statisticEvent);
     }
     public static string StatisticEventLog()
     {
         string text = "";
         foreach (StatisticEvent item in ListOfEvents)
         {
-          text+=item.ToString()+"\n";
+            text += item.ToString() + "\n";
         }
         return text;
 
@@ -83,7 +83,7 @@ public class StatisticSystem : MonoBehaviour
         string text = "";
         foreach (StatisticKindCoutner item in CounterOfKinds)
         {
-            text += item.GetKind() + " Live: " + item.GetCountLive() + " Dead: " + item.GetCountDead()+"\n"; 
+            text += item.GetKind() + " Live: " + item.GetCountLive() + " Dead: " + item.GetCountDead() + "\n";
         }
         return text;
 
@@ -92,9 +92,10 @@ public class StatisticSystem : MonoBehaviour
     {
         string text = "";
         foreach (Entity item in ListOfEntit)
-        {if (item is Animal)
-              
-            text += item.GetEntityInformation() + "\n\n";
+        {
+            if (item is Animal)
+
+                text += item.GetEntityInformation() + "\n\n";
         }
         return text;
 
@@ -122,12 +123,13 @@ public class StatisticSystem : MonoBehaviour
     public static List<ExportDataRow> ExportRowsKindsOverTime()
     {
         List<ExportDataRow> export = new List<ExportDataRow>();
-        export.Add(new ExportDataRow(new List<string>() {"Time","Kind","Count of Lives", "Count of Deads" }));
+        export.Add(new ExportDataRow(new List<string>() { "Time", "Kind", "Count of Lives", "Count of Deads" }));
         foreach (StatisticKindCounterOverTime item in CounterOverTimes)
-        { List<string> columns = new List<string>();
+        {
+            List<string> columns = new List<string>();
 
             columns.Add(item.GetTime().ToString() + "#");
-            columns.Add(item.GetStatisticKindCoutner().GetKind()+ "#");
+            columns.Add(item.GetStatisticKindCoutner().GetKind() + "#");
             columns.Add(item.GetStatisticKindCoutner().GetCountLive().ToString() + "#");
             columns.Add(item.GetStatisticKindCoutner().GetCountDead().ToString());
 
@@ -159,7 +161,7 @@ public class StatisticSystem : MonoBehaviour
     public static List<ExportDataRow> ExportRowsAllLives()
     {//////////////////////////pozmìnit////////////////////////////
         List<ExportDataRow> export = new List<ExportDataRow>();
-        export.Add(new ExportDataRow(new List<string>() {"Time", "Entity", "name", "Kind" }));
+        export.Add(new ExportDataRow(new List<string>() { "Time", "Entity", "name", "Kind" }));
         foreach (StatisticKindCounterOverTime item in CounterOverTimes)
         {
             List<string> columns = new List<string>();
@@ -178,7 +180,7 @@ public class StatisticSystem : MonoBehaviour
     public static List<ExportDataRow> ExportRowsEvents()
     {
         List<ExportDataRow> export = new List<ExportDataRow>();
-        export.Add(new ExportDataRow(new List<string>() {"Time","ID","Event","From","Target"}));
+        export.Add(new ExportDataRow(new List<string>() { "Time", "ID", "Event", "From", "Target" }));
         foreach (StatisticEvent item in ListOfEvents)
         {
             List<string> columns = new List<string>();
@@ -189,7 +191,7 @@ public class StatisticSystem : MonoBehaviour
             columns.Add(item.GetThing() + "#");
             columns.Add(item.GetFromEntity().ToString() + "#");
             columns.Add(item.GetTargetEntity().ToString());
-           
+
 
             ExportDataRow row = new ExportDataRow(columns);
             export.Add(row);

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 public class Map : MonoBehaviour
 {
-    [SerializeField]  public NavMeshSurface nav;
+    [SerializeField] public NavMeshSurface nav;
     public GameObject navmesh;
     public RawImage img;
     [Header("Dimensions")]
@@ -22,10 +22,10 @@ public class Map : MonoBehaviour
     public float baseheight = 5, maxheight = 10;
     public float height_y = 5;
     private float lastGenerateTime;
-    [SerializeField] private float min=1, max = 0;
+    [SerializeField] private float min = 1, max = 0;
     [Header("Water")]
     public GameObject waterPreFab;
-   
+
     [Range(0.8f, 3)]
     public float waterHeight = 1.6f;
 
@@ -62,12 +62,12 @@ public class Map : MonoBehaviour
             wolfPopulation = Wolf.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace;
         }
         if (Sheep.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace != 0)
-        { 
-            sheepPopulation = Sheep.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace; 
+        {
+            sheepPopulation = Sheep.AnimalDefaultValues.EntityDefaultValues.PocatecniPopulace;
         }
         if (Grass.PlantDefaultValues.EntityDefaultValues.PocatecniPopulace != 0)
-        {   
-            grassPopulation = Grass.PlantDefaultValues.EntityDefaultValues.PocatecniPopulace; 
+        {
+            grassPopulation = Grass.PlantDefaultValues.EntityDefaultValues.PocatecniPopulace;
         }
         GenerateNoiseMap();
 
@@ -88,15 +88,15 @@ public class Map : MonoBehaviour
         }
         nav.buildHeightMesh = true;
         nav.BuildNavMesh();
-         camera.AddComponent<CameraControl>();
+        camera.AddComponent<CameraControl>();
         gameObject.GetComponent<GenerateObject>().GenerateEntityPopulation("wolf", wolfPopulation, Vector3.zero);
         gameObject.GetComponent<GenerateObject>().GenerateEntityPopulation("grass", grassPopulation, Vector3.zero);
         gameObject.GetComponent<GenerateObject>().GenerateEntityPopulation("sheep", sheepPopulation, Vector3.zero);
-    
+
     }
     private void GenerateWater()
     {
-         water = Instantiate(waterPreFab, new Vector3(width, (WorldGenerateSettings.BaseMaxHeight * 0.6f), height), Quaternion.identity);
+        water = Instantiate(waterPreFab, new Vector3(width, (WorldGenerateSettings.BaseMaxHeight * 0.6f), height), Quaternion.identity);
         water.name = "Water";
         water.transform.localScale = new Vector3(width / 4, WorldGenerateSettings.BaseMaxHeight * 0.6f, height / 4);
         //  BoxCollider col = water.GetComponent<BoxCollider>();
@@ -117,9 +117,9 @@ public class Map : MonoBehaviour
     }
     void GenerateNoiseMap()
     {
-     if(WorldGenerateSettings.Seed!=null)
+        if (WorldGenerateSettings.Seed != null)
         { randomSeed = WorldGenerateSettings.Seed; }
-        heightMap = GenerateNois.generate(width, height, scale, offset,baseheight,maxheight,randomSeed);
+        heightMap = GenerateNois.generate(width, height, scale, offset, baseheight, maxheight, randomSeed);
         Color[] pixels = new Color[width * height];
         int i = 0;
         for (int x = 0; x < width; x++)
@@ -127,7 +127,7 @@ public class Map : MonoBehaviour
             for (int y = 0; y < height; y++)
             {
                 pixels[i] = Color.Lerp(Color.black, Color.white, heightMap[x, y]);
-              //  Debug.LogError(pixels[i].ToString());
+                //  Debug.LogError(pixels[i].ToString());
                 i++;
             }
         }
@@ -136,11 +136,11 @@ public class Map : MonoBehaviour
         tex.filterMode = FilterMode.Point;
         tex.Apply();
         img.texture = tex;
-       
+
     }
-   
+
     private Vector3[] vertices;
-    public void GenerateTerrain(int width,int height,float multiplier)
+    public void GenerateTerrain(int width, int height, float multiplier)
     {
         //int xSize = 30;
         // int zSize = 30;
@@ -161,10 +161,10 @@ public class Map : MonoBehaviour
         float y3 = 0;
         float y4 = 0;
         GameObject g, s;
-     
+
         for (int z = 0; z < zSize; z++)
         {
-           // Debug.LogError(GenerateNois.map[0, z]);
+            // Debug.LogError(GenerateNois.map[0, z]);
             for (int x = 0; x < xSize; x++)
             {   //vlevo
                 //1vlevo nahoøe, 2vpravo  nahoøe, 3 vlevo dole, 4 vpravo dole ;
@@ -181,7 +181,7 @@ public class Map : MonoBehaviour
 
                     if (z == 0)
                     {
-                        
+
 
                         //y1 *= multiplier;
                         //y2 *= multiplier;
@@ -201,7 +201,7 @@ public class Map : MonoBehaviour
                         //y2 *= multiplier;
                         //y3 *= multiplier;
                         //y4 *= multiplier;3
-                         continue;
+                        continue;
                     }
                     else if (z == height - 1)
                     {
@@ -223,17 +223,17 @@ public class Map : MonoBehaviour
                     {
                         //vlevo
                         //1vlevo nahoøe, 2vpravo  nahoøe, 3 vlevo dole, 4 vpravo dole ;
-                         x1 = x + 0;
-                         x2 = x;
-                         z2 = z + 1;
-                         x3 = x + 1;
-                         z3 = z;
-                         x4 = x + 1;
-                         z4 = z + 1;
-                        y1 = GenerateNois.map[x1, z1-1];
-                        y2 = GenerateNois.map[x2, z2-1];
-                        y3 = GenerateNois.map[x3, z3-1];
-                        y4 = GenerateNois.map[x4, z4-1];
+                        x1 = x + 0;
+                        x2 = x;
+                        z2 = z + 1;
+                        x3 = x + 1;
+                        z3 = z;
+                        x4 = x + 1;
+                        z4 = z + 1;
+                        y1 = GenerateNois.map[x1, z1 - 1];
+                        y2 = GenerateNois.map[x2, z2 - 1];
+                        y3 = GenerateNois.map[x3, z3 - 1];
+                        y4 = GenerateNois.map[x4, z4 - 1];
                         if (y1 > max)
                             max = y1;
                         if (y1 < min)
@@ -243,14 +243,14 @@ public class Map : MonoBehaviour
                         y3 *= multiplier;
                         y4 *= multiplier;
                     }
-                   
+
 
                     s = Instantiate(preFab, new Vector3(x + 0.5f, 0, z), Quaternion.identity);
-                    s.GetComponent<TriangleDraw>().DrawPlane(x1, y1, z1, x2, y2, z2, x3, y3, z3,x4,y4,z4);
-                   // Debug.Log(y4.ToString());
+                    s.GetComponent<TriangleDraw>().DrawPlane(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
+                    // Debug.Log(y4.ToString());
                     s.name = "x:" + x + "-z:" + z + ":1";
                     s.AddComponent<Teren>();
-                    s.GetComponent<Teren>().CreateDetail(new Vector3(x1, y1, z1), new Vector3(x2, y2, z2), new Vector3(x3, y3, z3), new Vector3 (x4,y4,z4), new Vector2(x, z));
+                    s.GetComponent<Teren>().CreateDetail(new Vector3(x1, y1, z1), new Vector3(x2, y2, z2), new Vector3(x3, y3, z3), new Vector3(x4, y4, z4), new Vector2(x, z));
                     TerenCentral.addTerrain(s);
                     s.AddComponent<Rigidbody>();
                     s.GetComponent<Rigidbody>().useGravity = false;
@@ -263,18 +263,18 @@ public class Map : MonoBehaviour
                     MeshCollider mc = s.AddComponent<MeshCollider>() as MeshCollider;
                     mc.sharedMesh = mf.mesh;
                     mc.convex = false;
-                      s.AddComponent<NavMeshSurface>();
-                  //  if(x==0 && z>=1)
-                  //   Debug.LogError(s.name+" " + y1+" "+ GenerateNois.map[x1, z1 - 1]);
-                   // if (x == 1 && z >= 1)
-                       // Debug.LogError(s.name + " "+y2 + " " + GenerateNois.map[x1, z2 - 1]);
+                    s.AddComponent<NavMeshSurface>();
+                    //  if(x==0 && z>=1)
+                    //   Debug.LogError(s.name+" " + y1+" "+ GenerateNois.map[x1, z1 - 1]);
+                    // if (x == 1 && z >= 1)
+                    // Debug.LogError(s.name + " "+y2 + " " + GenerateNois.map[x1, z2 - 1]);
                     // s.AddComponent<NavMeshModifierVolume>();
                     MaterialStorage.Teren.Add(s);
                     if (z >= 1)
                     {
                         s.transform.localPosition = new Vector3(0.5f, s.transform.localPosition.y, s.transform.localPosition.z - 1 * z);
                     }
-                        s.transform.localScale = new Vector3(1, 1, 1);
+                    s.transform.localScale = new Vector3(1, 1, 1);
                 }
 
                 catch (Exception e)
@@ -323,8 +323,8 @@ public class Map : MonoBehaviour
 
             }
         }
-      
-       // Debug.Log(min + "   " + max);
+
+        // Debug.Log(min + "   " + max);
     }
 
     public void GenerateTerrainUnderground(int width, int height, float multiplier)
@@ -349,7 +349,7 @@ public class Map : MonoBehaviour
         float y4 = 0;
         GameObject g, s;
 
-        for (int z = 0; z <=zSize; z++)
+        for (int z = 0; z <= zSize; z++)
         {
             // Debug.LogError(GenerateNois.map[0, z]);
             for (int x = 0; x <= xSize; x++)
@@ -366,7 +366,7 @@ public class Map : MonoBehaviour
                 try
                 {
 
-                    if (x == 0  &&z!=0)
+                    if (x == 0 && z != 0)
                     {
                         x1 = x + 0;
                         x2 = x;
@@ -396,7 +396,7 @@ public class Map : MonoBehaviour
 
                         }
                         s.AddComponent<Teren>();
-                        s.GetComponent<Teren>().CreateDetail(new Vector3(x1, y1, z1), new Vector3(x2, y2, z2), new Vector3(x3, y3, z3), new Vector3(x4, y4, z4), new Vector2(x, z),true);
+                        s.GetComponent<Teren>().CreateDetail(new Vector3(x1, y1, z1), new Vector3(x2, y2, z2), new Vector3(x3, y3, z3), new Vector3(x4, y4, z4), new Vector2(x, z), true);
                         TerenCentral.addTerrain(s);
                         s.AddComponent<Rigidbody>();
                         s.GetComponent<Rigidbody>().useGravity = false;
@@ -421,8 +421,8 @@ public class Map : MonoBehaviour
                         z3 = z;
                         x4 = x + 1;
                         z4 = z + 1;
-                        y1 = GenerateNois.map[x1-1, z1];
-                        y2 = GenerateNois.map[x2-1, z2];
+                        y1 = GenerateNois.map[x1 - 1, z1];
+                        y2 = GenerateNois.map[x2 - 1, z2];
                         y3 = -5;
                         y4 = -5;
                         ////if (y1 > max)
@@ -458,7 +458,7 @@ public class Map : MonoBehaviour
                         s.transform.localScale = new Vector3(1, 1, 1);
                     }
 
-                    if (z == 0 )
+                    if (z == 0)
                     {
 
                         //1vlevo nahoøe, 2vpravo  nahoøe, 3 vlevo dole, 4 vpravo dole ;
@@ -472,7 +472,7 @@ public class Map : MonoBehaviour
                         //int z4 = z + 2;
                         x1 = x + 1;
                         z1 = z + 1;
-                        x2 = x+0;
+                        x2 = x + 0;
                         z2 = z + 1;
                         x3 = x + 1;
                         z3 = z;
@@ -515,7 +515,7 @@ public class Map : MonoBehaviour
                         s.transform.localPosition = new Vector3(0.5f, s.transform.localPosition.y + 0.26f, s.transform.localPosition.z - 1 * z);
                         s.transform.localScale = new Vector3(1, 1, 1);
                     }
-                    else if (z == zSize-1 )
+                    else if (z == zSize - 1)
                     {
                         //1vlevo nahoøe, 2vpravo  nahoøe, 3 vlevo dole, 4 vpravo dole ;
                         //int x1 = x + 0;
@@ -534,8 +534,8 @@ public class Map : MonoBehaviour
                         z3 = z;
                         x4 = x + 0;
                         z4 = z + 0;
-                        y1 = GenerateNois.map[x1, z1-1];
-                        y2 = GenerateNois.map[x2, z2-1];
+                        y1 = GenerateNois.map[x1, z1 - 1];
+                        y2 = GenerateNois.map[x2, z2 - 1];
                         y3 = -5;
                         y4 = -5;
                         //if (y1 > max)
@@ -547,13 +547,13 @@ public class Map : MonoBehaviour
                         y3 *= multiplier;
                         y4 *= multiplier;
                         // continue;
-                        if(x1==0 &&z1==0)
+                        if (x1 == 0 && z1 == 0)
                         {
 
                         }
                         s = Instantiate(preFab, new Vector3(x + 0.0f, 0, z), Quaternion.identity);
-                         s.GetComponent<TriangleDraw>().DrawPlane(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
-                         s.name = "Pozdzemi4 x:" + x + "-z:" + z + ":1";
+                        s.GetComponent<TriangleDraw>().DrawPlane(x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4);
+                        s.name = "Pozdzemi4 x:" + x + "-z:" + z + ":1";
                         s.AddComponent<Teren>();
                         s.GetComponent<Teren>().CreateDetail(new Vector3(x1, y1, z1), new Vector3(x2, y2, z2), new Vector3(x3, y3, z3), new Vector3(x4, y4, z4), new Vector2(x, z), true);
                         TerenCentral.addTerrain(s);
@@ -567,7 +567,7 @@ public class Map : MonoBehaviour
                         //mc.sharedMesh = mf.mesh;
                         //mc.convex = false;
                         s.AddComponent<NavMeshSurface>();
-                        MaterialStorage.Teren.Add(s);   
+                        MaterialStorage.Teren.Add(s);
                         s.transform.localPosition = new Vector3(0.5f, s.transform.localPosition.y + 0.26f, -1);
                         s.transform.localScale = new Vector3(1, 1, 1);
                     }
@@ -579,12 +579,12 @@ public class Map : MonoBehaviour
                     }
 
 
-                    
-                    
+
+
                 }
 
                 catch (Exception e)
-                { }               
+                { }
             }
         }
 

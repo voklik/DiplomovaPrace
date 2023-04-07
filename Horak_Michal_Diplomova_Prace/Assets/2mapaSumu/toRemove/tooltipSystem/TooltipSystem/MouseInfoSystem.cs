@@ -23,7 +23,7 @@ public class MouseInfoSystem : MonoBehaviour
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 LineRenderer lineRenderer = GetComponent<LineRenderer>();
-               // Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f, true);
+                // Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100, Color.red, 0.5f, true);
                 if (Physics.Raycast(ray, out hit, 100, (1 << LayerMask.NameToLayer("Animal"))))// | (1 << LayerMask.NameToLayer("Plant")))))
                 {
                     Debug.DrawLine(ray.origin, hit.transform.position, Color.green, 2, true);

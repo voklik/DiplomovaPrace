@@ -26,7 +26,7 @@ public class EntityDefaultValues
 
     public int PocatecniPopulace;
 
-  
+
 
     public EntityDefaultValues(int typeEater, float mature_age, float foodValue, float regen_hp, float max_hp, float energy_regen, float max_energy, float ageForDie, float range, bool canReproduce, float reproduce_cooldown, int pocatecniPopulace)
     {

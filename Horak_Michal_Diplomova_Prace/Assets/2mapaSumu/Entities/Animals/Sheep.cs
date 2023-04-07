@@ -23,7 +23,7 @@ public class Sheep : Animal
         setTimeHunger(AnimalDefaultValues.Hunger_perSec);
         setTimeThirsty(AnimalDefaultValues.Thirsty_perSec);
         setTimeSleep(AnimalDefaultValues.Sleepnes_perSec);
-
+        setStrenght(AnimalDefaultValues.Strenght);
     }
     public override void Start()
     {

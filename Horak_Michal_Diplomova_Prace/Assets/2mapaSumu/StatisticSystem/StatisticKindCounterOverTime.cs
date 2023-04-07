@@ -15,6 +15,6 @@ public class StatisticKindCounterOverTime
     }
     public StatisticKindCoutner GetStatisticKindCoutner()
     { return StatisticKindCoutner; }
-    public string  GetTime()
+    public string GetTime()
     { return Time; }
 }

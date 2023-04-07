@@ -19,7 +19,7 @@ public class TopSelector : Node
     /// <param name="priorita">Seznam Prioritních rozhodování (obrana atd)</param>
     /// <param name="osobníPotreby">Seznam rozhodovvni (osobni potøeby)</param>
     /// <param name="socialniPotreby">Seznam rozhodování (sociální potøeby)</param>
-    public TopSelector(Animal animal,int _id, List<Node> priorita, List<Node> osobníPotreby, List<Node> socialniPotreby)
+    public TopSelector(Animal animal, int _id, List<Node> priorita, List<Node> osobníPotreby, List<Node> socialniPotreby)
     {
         character = animal;
         id = _id;
@@ -49,14 +49,15 @@ public class TopSelector : Node
     /// </summary>
     /// <returns></returns>
     public override NodeState Evaluate()
-    {   
-    /*Hlavní a prvotní uzel.
-     * Existuje seznam priorit, které by mohou pøedstavovat vìtev hlavního uzlu. Vìtev se vždy projde celá a pokud
-     * není nalezen uzel, který by se aktuálnì zpracoval, tak se pøejde k další vìtvi.
-     */
+    {
+        /*Hlavní a prvotní uzel.
+         * Existuje seznam priorit, které by mohou pøedstavovat vìtev hlavního uzlu. Vìtev se vždy projde celá a pokud
+         * není nalezen uzel, který by se aktuálnì zpracoval, tak se pøejde k další vìtvi.
+         */
 
         foreach (var node in priority1)
-        { NodeState vysledek = node.Evaluate();
+        {
+            NodeState vysledek = node.Evaluate();
             character.Vypis("node " + node.GetNick() + " " + vysledek.ToString());
             switch (vysledek)
             {
@@ -112,7 +113,7 @@ public class TopSelector : Node
                     return _nodeState;
                 case NodeState.SUCCESS:
                     id = original_id;
-                   _nodeState = NodeState.SUCCESS;
+                    _nodeState = NodeState.SUCCESS;
                     return _nodeState;
                 case NodeState.FAILURE:
                     break;

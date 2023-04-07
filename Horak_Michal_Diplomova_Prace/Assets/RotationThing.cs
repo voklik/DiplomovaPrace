@@ -7,7 +7,7 @@ public class RotationThing : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 5);
-    }    
+    }
     void Update()
     {
         transform.Rotate(0, -1f, 0);

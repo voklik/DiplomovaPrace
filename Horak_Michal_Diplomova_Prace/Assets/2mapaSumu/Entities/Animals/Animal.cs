@@ -642,7 +642,7 @@ public abstract class Animal : Entity
                 }
             else  return -1000;
         }
-        else if (stav == Stav.Fucking)
+        else if (stav == Stav.Mating)
         {
             if (partner != null)
             {
@@ -709,7 +709,7 @@ public abstract class Animal : Entity
                 return targetRandomTerrain;
                 else return null;
         }
-        else if (stav == Stav.Fucking)
+        else if (stav == Stav.Mating)
         {
             if (partner != null)
                 return partner;
@@ -971,5 +971,5 @@ public abstract class Animal : Entity
 
 public enum Stav
 {
-    Going,Sleeping,Eating,Drinking,Attacking,Fucking,Nothing,Relax,GoingForWater,GoingForFood,GoingForPlace,GoingForFight,GoingforDefend, GoingforDefendPartner, FollowParty,GoRandom,
+    Going,Sleeping,Eating,Drinking,Attacking,Mating,Nothing,Relax,GoingForWater,GoingForFood,GoingForPlace,GoingForFight,GoingforDefend, GoingforDefendPartner, FollowParty,GoRandom,
 }

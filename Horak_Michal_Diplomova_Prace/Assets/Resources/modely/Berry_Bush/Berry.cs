@@ -12,7 +12,7 @@ public class Berry : Plant
         berrySpot = b;
     }
     // Update is called once per frame
-   
+
     void OnDestroy()
     {
         berrySpot.BerryIsDead();

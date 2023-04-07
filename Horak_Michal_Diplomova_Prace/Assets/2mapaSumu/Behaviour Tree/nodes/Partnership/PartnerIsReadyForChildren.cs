@@ -31,7 +31,7 @@ public class PartnerIsReadForChildren : Node
                     if (!partner.getIsPregnant()&& partner.GetCanReproduce()==true)
                     {
                         //  character.Vypis("Diglity diglity deee" + partner.name);
-                        character.setStav(Stav.Fucking);
+                        character.setStav(Stav.Mating);
                         return NodeState.SUCCESS;
                     }
 

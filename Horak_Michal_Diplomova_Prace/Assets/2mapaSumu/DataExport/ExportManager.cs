@@ -8,11 +8,14 @@ using System.Diagnostics;
 
 public class ExportManager : MonoBehaviour
 {
+    /// <summary>
+    /// Tøída, která se postará o o export, poud se stiskne mezerník
+    /// </summary>
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(CheckExistingFolder())
+            if (CheckExistingFolder())
             {
                 ExportAllLive();
                 ExportKinds();
@@ -22,7 +25,7 @@ public class ExportManager : MonoBehaviour
 
             }
 
-          //  testAdd();
+            //  testAdd();
         }
     }
     private string FolderName = @"\ExportFolder", FileName = "Export", TypeName = ".csv";
@@ -32,7 +35,7 @@ public class ExportManager : MonoBehaviour
         var path = Path.Combine(appDataPath, @"SimulatorExportDat\");
         if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
-      
+
         return Directory.Exists(path);
     }
 
@@ -71,14 +74,14 @@ public class ExportManager : MonoBehaviour
         Process.Start(startInfo);
     }
 
-    private void WriteCSV(List<ExportDataRow> list,string path,string fileName)
+    private void WriteCSV(List<ExportDataRow> list, string path, string fileName)
     {
-        string FinalFileName = path + "\\" + fileName + "_"+DateTime.Now.Hour.ToString()+"_"+DateTime.Now.Minute.ToString()+"_"+DateTime.Now.Second.ToString()+TypeName;
+        string FinalFileName = path + "\\" + fileName + "_" + DateTime.Now.Hour.ToString() + "_" + DateTime.Now.Minute.ToString() + "_" + DateTime.Now.Second.ToString() + TypeName;
 
         using (var w = new StreamWriter(FinalFileName))
         {
-           
-              
+
+
             foreach (ExportDataRow item in list)
             {
                 w.WriteLine(string.Join("&", item.CSVFormat()));
@@ -86,10 +89,10 @@ public class ExportManager : MonoBehaviour
 
             w.Flush();
         }
-           
 
-           
-            }
+
+
+    }
 
     public void ExportKindsOverTime()
     {
@@ -124,5 +127,5 @@ public class ExportManager : MonoBehaviour
 }
 
 
- 
+
 

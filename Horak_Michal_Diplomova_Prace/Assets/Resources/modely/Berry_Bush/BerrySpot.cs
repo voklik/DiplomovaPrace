@@ -13,23 +13,23 @@ public class BerrySpot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        prefabBerry =  Resources.Load<GameObject>("modely/Berry_Bush/Berry");
-       
+        prefabBerry = Resources.Load<GameObject>("modely/Berry_Bush/Berry");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-    if(berryisDead==true)
+        if (berryisDead == true)
         {
             leftTimeForNewBerry += Time.deltaTime;
-            if(leftTimeForNewBerry>= timeForNewBerry)
+            if (leftTimeForNewBerry >= timeForNewBerry)
             {
                 SpawnBerry();
                 leftTimeForNewBerry = 0.0f;
             }
 
-         }
+        }
     }
 
     public void BerryIsDead()

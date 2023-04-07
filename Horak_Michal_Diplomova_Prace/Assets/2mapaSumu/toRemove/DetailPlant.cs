@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetailPlant 
+public class DetailPlant
 {
     int type;//1-tree,2-plant,3-bush;
     float age;

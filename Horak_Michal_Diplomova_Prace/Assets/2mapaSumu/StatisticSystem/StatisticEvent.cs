@@ -30,7 +30,7 @@ public class StatisticEvent
         Time = time;
         FromEntity = fromEntity;
         TargetEntity = null;
-       
+
     }
 
     public override string ToString()
@@ -40,7 +40,7 @@ public class StatisticEvent
         text += "Time ( " + Time + " ) ";
         text += "From ( " + FromEntity.ToString() + " ) ";
         text += "Thing ( " + Thing + " ) ";
-        if (TargetEntity!=null)
+        if (TargetEntity != null)
         { text += "Target ( " + TargetEntity.ToString() + " ) "; }
 
         return text;

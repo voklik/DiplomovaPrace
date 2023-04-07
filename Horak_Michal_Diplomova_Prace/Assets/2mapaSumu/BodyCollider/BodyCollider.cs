@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BodyCollider : MonoBehaviour
 {
+    /// <summary>
+    /// Tøída, která slouží pro detekci kolize u entity. Jedná se o kolize na tìlo > Narazil jsem na kámen> tìlo nesmí jít do kamene.
+    /// Jedná se velice malou oblast
+    /// </summary>
+
     [SerializeField] Entity entity = null;
 
     private float radius = 10;
@@ -16,7 +21,7 @@ public class BodyCollider : MonoBehaviour
         sphereCollider = gameObject.GetComponent<SphereCollider>();
 
         if (sphereCollider == null)
-            sphereCollider=gameObject.AddComponent<SphereCollider>();
+            sphereCollider = gameObject.AddComponent<SphereCollider>();
         Wait(0.2f);
         transform.localPosition = transform.localPosition + Vector3.zero;
     }
@@ -67,24 +72,24 @@ public class BodyCollider : MonoBehaviour
 
         if (other.gameObject.name.Contains("Area"))
         {
-                   entity.Vypis("kolize " + other.gameObject.transform.parent.name);
+            entity.Vypis("kolize " + other.gameObject.transform.parent.name);
             entity.GetInCollision(other.gameObject.transform.parent.gameObject);
-         
+
         }
         else if (!other.gameObject.name.Contains("x:"))
         {
-                  entity.Vypis("AAAAkolize " + other.gameObject.name);
+            entity.Vypis("AAAAkolize " + other.gameObject.name);
             entity.GetInCollision(other.gameObject);
         }
 
     }
     private void OnTriggerExit(Collider other)
     {
-       
+
         if (entity != null)
-          
+
         {
-           // entity.Vypis("kolize konec" + other.name);
+            // entity.Vypis("kolize konec" + other.name);
             //entity.RemoveFromCollision(other.gameObject);
 
             if (other.gameObject.name.Contains("Area"))

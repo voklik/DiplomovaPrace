@@ -5,23 +5,21 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {//https://www.youtube.com/watch?v=cfjLQrMGEb4&ab_channel=Brackeys
-    [SerializeField] private  float PanSpeed = 20f;
-    [SerializeField] private  float PanBorderThickness = 10f;
-    [SerializeField] private  Vector2  PanLimit=Vector2.zero;
-    [SerializeField] float scroll;
-    [SerializeField] private  float ScrollSpeed = 20f;
-    [SerializeField] private  float MinY = 5f;
-    [SerializeField] private  float MaxY = 120f;
-  
-    // Start is called before the first frame update,
+    //Tøída, která dovoluje pohyb a rotaci s kamerou.
+    [SerializeField] private float PanSpeed = 20f;//Rychlost pohybu
+    [SerializeField] private float PanBorderThickness = 10f;
+    [SerializeField] private Vector2 PanLimit = Vector2.zero;//
+    [SerializeField] private float ScrollSpeed = 20f; // Rychlost zmìny výšky, které ovlivòuje koleèko myši.
+    [SerializeField] private float MinY = 5f;  //Minimální úroveò výšky kamery
+    [SerializeField] private float MaxY = 120f; // maximální úroveò výšky kamery
     void Start()
     {
-        
+
         MinY = WorldGenerateSettings.MaxHeinght + 20;
         MaxY = WorldGenerateSettings.MaxHeinght + 40;
-        PanLimit = new Vector2( WorldGenerateSettings.Width, WorldGenerateSettings.Depth);
-       // this.transform.position = new Vector3(PanLimit.x / 4,  Mathf.Clamp(transform.position.y, MinY, MaxY), PanLimit.y / 4);
-        gameObject.transform.position = new Vector3(WorldGenerateSettings.Width / 4, Mathf.Clamp(transform.position.y, MinY, MaxY),0);
+        PanLimit = new Vector2(WorldGenerateSettings.Width, WorldGenerateSettings.Depth);
+        // this.transform.position = new Vector3(PanLimit.x / 4,  Mathf.Clamp(transform.position.y, MinY, MaxY), PanLimit.y / 4);
+        gameObject.transform.position = new Vector3(WorldGenerateSettings.Width / 4, Mathf.Clamp(transform.position.y, MinY, MaxY), 0);
         transform.rotation = Quaternion.Euler(33, 0, 0);
     }
 
@@ -40,7 +38,7 @@ public class CameraControl : MonoBehaviour
         if (Input.GetKey("q"))
         {
             //rotace doleva
-           Vector3 rotateValue = new Vector3(0,  -20 * Time.unscaledDeltaTime, 0);
+            Vector3 rotateValue = new Vector3(0, -20 * Time.unscaledDeltaTime, 0);
             transform.eulerAngles = transform.eulerAngles - rotateValue;
         }
         if (Input.GetKeyDown("r"))
@@ -52,7 +50,7 @@ public class CameraControl : MonoBehaviour
         if (Input.GetKey("e"))
         {
             //rotace doprava
-            Vector3 rotateValue = new Vector3(0,  +20 * Time.unscaledDeltaTime, 0);
+            Vector3 rotateValue = new Vector3(0, +20 * Time.unscaledDeltaTime, 0);
             transform.eulerAngles = transform.eulerAngles - rotateValue;
         }
         if (Input.mouseScrollDelta.y > 0)
@@ -67,7 +65,8 @@ public class CameraControl : MonoBehaviour
         transform.position = pos;
 
         if (SceneView.lastActiveSceneView != null)
-        { Vector3 position = SceneView.lastActiveSceneView.pivot;
+        {
+            Vector3 position = SceneView.lastActiveSceneView.pivot;
             pos.z -= 10.0f;
             SceneView.lastActiveSceneView.pivot = pos;
             SceneView.lastActiveSceneView.Repaint();

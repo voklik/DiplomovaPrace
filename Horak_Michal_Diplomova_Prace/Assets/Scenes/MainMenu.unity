@@ -1139,6 +1139,7 @@ MonoBehaviour:
   x: 35
   y: 40
   isAnimal: 1
+  Strenght: 50
   Init: {fileID: 1750334547}
 --- !u!1 &385429998
 GameObject:
@@ -7726,6 +7727,7 @@ MonoBehaviour:
   x: 35
   y: 40
   isAnimal: 0
+  Strenght: 50
   Init: {fileID: 46512481}
 --- !u!114 &1877171633
 MonoBehaviour:
@@ -7958,6 +7960,7 @@ MonoBehaviour:
   x: 35
   y: 40
   isAnimal: 1
+  Strenght: 10
   Init: {fileID: 387193977}
 --- !u!114 &2106177741
 MonoBehaviour:

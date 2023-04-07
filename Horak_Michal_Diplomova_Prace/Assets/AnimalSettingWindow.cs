@@ -9,6 +9,7 @@ public class AnimalSettingWindow : MonoBehaviour
     public float x = 35, y = 40;//Nutnost, aby text zaèínal na zaèátku okna. Dùvodem je prvotní odsazení.
 
     public bool isAnimal = true;//Upravuje se zvíøe ?
+    public int Strenght = 50;//Síla útoku
 
     public InitEntitSet Init;
 
@@ -42,7 +43,7 @@ public class AnimalSettingWindow : MonoBehaviour
             Init.Max_thirsty = GenerateSliderF("maxZizen", "maxZizen", "maxZizenInfo", 100, 0, 150);
             Init.Max_sleepnes = GenerateSliderF("maxSpanek", "maxSpanek", "maxSpanekInfo", 100, 0, 150);
             Init.PregnancyTimeToBornDefault = GenerateSliderI("pregnancyTime", "pregnancyTime", "pregnancyTimeInfo", 20, 0, 150);
-            Init.Strenght = GenerateSliderI("strenght", "strenght", "strenghtInfo", 50, 0, 100);
+            Init.Strenght = GenerateSliderI("strenght", "strenght", "strenghtInfo", Strenght, 0, 100);
         }
         else if (isAnimal == false)
         {
@@ -71,7 +72,7 @@ public class AnimalSettingWindow : MonoBehaviour
         infoContainer.text = CaptionsLibrary.GetCaption(infoPopisek);
         slider.wholeNumbers = true;
         novy.transform.parent = gameObject.transform;
-        novy.transform.localPosition = new Vector3(x - 100, y + 420, 0);        
+        novy.transform.localPosition = new Vector3(x - 100, y + 420, 0);
         y -= 35;
         return slider;
     }

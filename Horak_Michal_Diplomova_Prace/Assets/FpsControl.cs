@@ -19,6 +19,6 @@ public class FpsControl : MonoBehaviour
     /// </summary>
     void Update()
     {
-        gameObject.GetComponent<Text>().text = "Èas " + Mathf.Round(StatisticSystem.GetTime() * 10.0f) / 10.0f+ "\nFPS limit: "+Application.targetFrameRate.ToString() + "\nFPS " + Mathf.Round(1.0f / Time.deltaTime * 10.0f) / 10.0f;
+        gameObject.GetComponent<Text>().text = "Èas " + Mathf.Round(StatisticSystem.GetTime() * 10.0f) / 10.0f + "\nFPS limit: " + Application.targetFrameRate.ToString() + "\nFPS " + Mathf.Round(1.0f / Time.deltaTime * 10.0f) / 10.0f;
     }
 }

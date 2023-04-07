@@ -7,7 +7,7 @@ public class MouseControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -18,7 +18,7 @@ public class MouseControl : MonoBehaviour
             int layer_mask = LayerMask.GetMask("Terrain");
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray, out hit,30,layer_mask))
+            if (Physics.Raycast(ray, out hit, 30, layer_mask))
             {
                 try
                 {
@@ -27,8 +27,8 @@ public class MouseControl : MonoBehaviour
                 }
                 catch (System.Exception)
                 {
-               //     MaterialStorage.toolltipUI.DisplayInfo("");
-                    return ;
+                    //     MaterialStorage.toolltipUI.DisplayInfo("");
+                    return;
                 }
             }
         }

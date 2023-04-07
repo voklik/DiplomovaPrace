@@ -5,7 +5,7 @@ public class WorldGenerateSettings : MonoBehaviour
 {
     // Tøída, která vyplní obsah okna s nastavením, než se zahajuje simulace.
     public float x = 35, y = 40;
-    public static float baseHeight,BaseMaxHeight;
+    public static float baseHeight, BaseMaxHeight;
     public static float Multiplier = 10;
 
     public static float MinHeight = 1, MaxHeinght = 0;
@@ -13,7 +13,7 @@ public class WorldGenerateSettings : MonoBehaviour
     public static int Width, Depth = 0;
     public static float Seed = 435;
 
-    public Slider SMultiplier, SWidth, SDepth,SSeed;
+    public Slider SMultiplier, SWidth, SDepth, SSeed;
 
     public void Awake()
     {
@@ -30,7 +30,7 @@ public class WorldGenerateSettings : MonoBehaviour
 
         novy.name = "Slider" + nazev;
         novy.transform.Find("Name").GetComponent<Text>().text = popisek;
-       // novy.transform.Find("Name").GetComponent<Text>().text = popisek;
+        // novy.transform.Find("Name").GetComponent<Text>().text = popisek;
         novy.transform.Find("Name").GetComponent<Text>().fontSize = 20;
         novy.transform.Find("Name").GetComponent<Text>().supportRichText = true;
         novy.transform.Find("Value").GetComponent<Text>().fontSize = 20;

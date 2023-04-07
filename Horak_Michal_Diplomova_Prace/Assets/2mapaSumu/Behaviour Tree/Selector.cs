@@ -8,7 +8,7 @@ public class Selector : Node
      *Pokud procházená vìtev vrátí False, tak se pøejde k další vìtvi. Pokud už nejsou vìtve, tak Selector vrátí Neúspìch.
      * Pokud Vìtev vrátí Úspìch, èi Probíhající, tak se tento stav vrátí (returne)
      */
-   
+
     protected List<Node> nodes = new List<Node>();//List s uzly
     /// <summary>
     /// Konsturkotr
@@ -42,13 +42,13 @@ public class Selector : Node
                     _nodeState = NodeState.RUNNING;
                     id = node.GetID;
                     if (original_id == 0)
-                    SwitchOnFirstPlace();
+                        SwitchOnFirstPlace();
                     return _nodeState;
                 case NodeState.SUCCESS:
                     id = original_id;
                     if (original_id == 0)
                         switchBackOnPlace();
-                  _nodeState = NodeState.SUCCESS;
+                    _nodeState = NodeState.SUCCESS;
                     return _nodeState;
                 case NodeState.FAILURE:
                     break;
@@ -58,54 +58,54 @@ public class Selector : Node
         }
         _nodeState = NodeState.FAILURE;
         return _nodeState;
-    } 
+    }
     /// <summary>
-         /// Prohodí se pozice "chování" na první pozici. Toto je z tohot dùvodu, aby se èinnost vždy dokonèila, když je "uspokojena".
-         ///Pøíkladem je Spánek, kdy by se jinak potøeba odstraòila na pod hranici potøebnosti a následnì by se èinnost ukonèila. 
-         ///Takto se èinnost provádí, dokud není potøeba odstranìna úplnì, pokud se neobjeví prioritnìjší potøeba.
-         /// </summary>
+    /// Prohodí se pozice "chování" na první pozici. Toto je z tohot dùvodu, aby se èinnost vždy dokonèila, když je "uspokojena".
+    ///Pøíkladem je Spánek, kdy by se jinak potøeba odstraòila na pod hranici potøebnosti a následnì by se èinnost ukonèila. 
+    ///Takto se èinnost provádí, dokud není potøeba odstranìna úplnì, pokud se neobjeví prioritnìjší potøeba.
+    /// </summary>
     public void SwitchOnFirstPlace()
     {
-       
-            if (id != nodes[0].GetID)
+
+        if (id != nodes[0].GetID)
+        {
+
+            Node item;
+
+            foreach (var node in nodes)
+
             {
 
-                Node item;
-
-                foreach (var node in nodes)
-
+                if (node.GetID == id)
                 {
+                    item = node;
+                    nodes.Remove(item);
+                    nodes.Insert(0, item);
+                    //id = original_id;
 
-                    if (node.GetID == id)
-                    {
-                        item = node;
-                        nodes.Remove(item);
-                        nodes.Insert(0, item);
-                        //id = original_id;
-
-                        return;
-
-                    }
+                    return;
 
                 }
+
             }
+        }
     }
-  /// <summary>
-  /// Vrátí dokonèení uzel na jeho pùvodní pozici
-  /// </summary>
-private void switchBackOnPlace()
+    /// <summary>
+    /// Vrátí dokonèení uzel na jeho pùvodní pozici
+    /// </summary>
+    private void switchBackOnPlace()
     {
-       
-          
-                Node item;
 
 
-                item = nodes[0];
-                nodes.Remove(item);
-                nodes.Insert(item.GetID - 1, item);
-                id = original_id;
+        Node item;
 
-        
+
+        item = nodes[0];
+        nodes.Remove(item);
+        nodes.Insert(item.GetID - 1, item);
+        id = original_id;
+
+
     }
     //TODO SMAZAT
     public string vypis()
@@ -117,7 +117,7 @@ private void switchBackOnPlace()
         }
         return x;
     }
-   
+
 }
 
 
