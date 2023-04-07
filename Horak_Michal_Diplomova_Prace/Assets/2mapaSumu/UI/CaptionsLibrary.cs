@@ -71,7 +71,7 @@ public static class CaptionsLibrary
          //Simulace-Svìt//        
         {"ShowStatisticWindow","Zobrazit statistiku"},
         {"BackToMenu","Zpátky do menu"},
-        {"PauseSimulation","Zapauzovat Simulaci"},
+        {"PauseSimulation","Zapauzovat simulaci"},
         {"UnpauseSimulation","Odpauzovat Simulaci"},
 
 
@@ -82,6 +82,39 @@ public static class CaptionsLibrary
         {"ShowPlants","Zobrazit rostliny"},
         {"ResetStatWindow","Aktualizovat" },
         {"CloseWindow","Zavøít okno"},
+
+
+        //Výpisy
+        {"Wolf","Vlk"},
+        {"Sheep","Ovce"},
+        {"Alleater","Všežravec"},
+        {"Meateater","Býložravec"},
+        {"Planteater","Rostli"},
+
+        {"Yes","Ano"},
+        {"No","Ne"},
+        {"Age","Vìk"},
+        {"Adult","Dospìlý"},
+        {"AdultInAge","Dospìlost ve vìku"},
+        {"Male","Samec"},
+        {"Female","Samice"},
+        {"HP","Životy"},
+
+        {"Animal","Zvíøe"},
+        {"Live","Žije"},
+        {"Dead","Nežije"},
+        {"Hungery","Hlad"},
+        {"Thirsty","Žízeò"},
+        {"Sleep","Spánek"},
+        {"PregnantYes","Tìhotenství: Ano - èas k porodu"},
+        {"PregnantNo","Tìhotenství: Ne"},
+        {"FemalePartner","Partnerka"},
+        {"MalePartner","Partner"},
+        {"Mother","Matka"},
+        {"Father","Otec"},
+        {"Children","Potomci"},
+        {"State","Stav"},
+        {"None","Žádné"},
     };
 
     public static string GetCaption(string KeyCaption)

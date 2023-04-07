@@ -925,26 +925,26 @@ public abstract class Animal : Entity
         string text = "";
      //   Debug.LogWarning("Info");
         text += kind + " " + name;
-        text += " \n" + "Vìk " +Mathf.Round(age*10)/10+ "\n";
-        text +="Dospìlý " + ((isMature) ? "ano " : "ne ") + "Dospìlost ve vìku "+mature_age + "\n";
-        text += (isMale) ? "Samec " : "Samice ";
-        text += " \n"+ "Zvíøe " + "\n";
-        text += (typeEntity == 1) ? (typeEater == 1) ? "masožravec" : (typeEater == 2) ? "rostlinožrout" : "všežrout" : "";
-        text += "\n" + "Životy : " + hp+" / "+max_hp+"\n";
-        text += "Hlad: " + Mathf.Round((hunger/max_hunger) * 1000)/ 1000 + "\n";
-        text += "Žízeò: " + Mathf.Round((thirsty / max_thirsty)*1000)/1000+ "\n";
-        text += "Spánek: " + Mathf.Round((sleepnes / max_sleepnes) * 1000)/ 1000 + "\n";
-        text += (isMale) ? "" :  (isPregnant) ? ("Tìhotenství: ano - èas k porodu" + pregnancyTimeToBorn + "\n") : "Tìhotenství: ne" + "\n";
+        text += " \n" + CaptionsLibrary.GetCaption("Age")+" " +Mathf.Round(age*10)/10+ "\n";
+        text += CaptionsLibrary.GetCaption("Adult")+" " + ((isMature) ? CaptionsLibrary.GetCaption("Yes") + " " : CaptionsLibrary.GetCaption("No") + " ") + CaptionsLibrary.GetCaption("AdultInAge") + " " +mature_age + "\n";
+        text += (isMale) ? CaptionsLibrary.GetCaption("Male") + " " : CaptionsLibrary.GetCaption("Female") ;
+        text += " \n"+ CaptionsLibrary.GetCaption("Animal") + "\n";
+        text += (typeEntity == 1) ? (typeEater == 1) ? CaptionsLibrary.GetCaption("Meateater")  : (typeEater == 2) ? CaptionsLibrary.GetCaption("Planteater")  : CaptionsLibrary.GetCaption("Alleater"): "?";
+        text += "\n" +CaptionsLibrary.GetCaption("HP") +" : " + hp+" / "+max_hp+"\n";
+        text += CaptionsLibrary.GetCaption("Hungery") + ": " + Mathf.Round((hunger/max_hunger) * 1000)/ 1000 + "\n";
+        text += CaptionsLibrary.GetCaption("Thirsty") + ": " + Mathf.Round((thirsty / max_thirsty)*1000)/1000+ "\n";
+        text += CaptionsLibrary.GetCaption("Sleep") + ": " + Mathf.Round((sleepnes / max_sleepnes) * 1000)/ 1000 + "\n";
+        text += (isMale) ? "" :  (isPregnant) ? (CaptionsLibrary.GetCaption("PregnantYes") + pregnancyTimeToBorn + "\n") : CaptionsLibrary.GetCaption("PregnantNo")+ "\n";
         string par,otec,matka,potomci="";
         if (partner != null)
         { par = partner.name; }
-        else par = "nežije ";
+        else par = CaptionsLibrary.GetCaption("Dead") ;
         if (father != null)
         { otec = father.name; }
-        else otec = "nežije ";
+        else otec = CaptionsLibrary.GetCaption("Dead");
         if (mother != null)
         { matka = mother.name; }
-        else matka = "nežije ";
+        else matka = CaptionsLibrary.GetCaption("Dead");
 
         if (childrens.Count != 0)
         {
@@ -954,14 +954,14 @@ public abstract class Animal : Entity
 
             }
         }
-        else potomci = "žádné";
-        text += (isMale) ? "Partnerka "+par : "Partner "+par;
+        else potomci = CaptionsLibrary.GetCaption("None");
+        text += (isMale) ? CaptionsLibrary.GetCaption("FemalePartner") + " " +par : CaptionsLibrary.GetCaption("MalePartner") + " " +par;
 
         
-        text += "\n"+"Otec : " + otec + "\n";
-        text += "Matka : " + matka + "\n";
-        text += "Potomci : " + potomci + "\n"; 
-        text += "Stav : " + stav.ToString() + "\n";
+        text += "\n"+ CaptionsLibrary.GetCaption("Father") + " : " + otec + "\n";
+        text += CaptionsLibrary.GetCaption("Mother") + " : " + matka + "\n";
+        text += CaptionsLibrary.GetCaption("Children") + " : " + potomci + "\n"; 
+        text += CaptionsLibrary.GetCaption("State") + " : " + stav.ToString() + "\n";
         return text;
     }
 

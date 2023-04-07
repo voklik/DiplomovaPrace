@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class UIStatWindow : MonoBehaviour
 {
     //Bìhem simulace je informaèní okno napravo a právì toto okno získává informace odtud
-    int typeInfo = 0;
 
     [SerializeField] private Text TextField;
 
@@ -16,14 +15,13 @@ public class UIStatWindow : MonoBehaviour
         {
             TextField.text = StatisticSystem.StatisticEventLog();
         }
-        typeInfo = 1;
         SetHeight();
     }
 
     public void SetWindowStatisticsEvent()
     {
         //Vypiš události entit > narození, nalezení partnera, smrt a atd.
-        typeInfo = 1;
+        
         if (TextField != null)
         {
             TextField.text = StatisticSystem.StatisticEventLog();
@@ -34,7 +32,6 @@ public class UIStatWindow : MonoBehaviour
     public void SetWindowListOfAnimal()
     {
         //Vypiš jenom zvíøata
-        typeInfo = 2;
         if (TextField != null)
         {
             TextField.text = StatisticSystem.StatisticLiveAnimal();
@@ -45,7 +42,6 @@ public class UIStatWindow : MonoBehaviour
     public void SetWindowListOfPlant()
     {
         //Vypiš jenom rostliny
-        typeInfo = 3;
         if (TextField != null)
         {
             TextField.text = StatisticSystem.StatisticLivePlants();
@@ -56,36 +52,9 @@ public class UIStatWindow : MonoBehaviour
     public void SetWindowKindStatistics()
     {
         //Vypiš stav druhù (kolik jich právì žije a kolik zemøelo)
-        typeInfo = 4;
         if (TextField != null)
         {
             TextField.text = StatisticSystem.StatisticKindLog();
-        }
-        SetHeight();
-    }
-
-    public void ResetInformation()
-    {
-        //obnoví informace v oknì
-        switch (typeInfo)
-        {
-            default:
-                SetWindowStatisticsEvent();
-                break;
-            case 1:
-                SetWindowStatisticsEvent();
-                break;
-            case 2:
-                SetWindowListOfAnimal();
-                break;
-            case 3:
-                SetWindowListOfPlant();
-                break;
-            case 4:
-                SetWindowKindStatistics();
-                break;
-
-
         }
         SetHeight();
     }

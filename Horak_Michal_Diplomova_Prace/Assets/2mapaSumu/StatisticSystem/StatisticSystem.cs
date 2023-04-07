@@ -57,16 +57,12 @@ public class StatisticSystem : MonoBehaviour
         }
         ListOfEntit.Remove(entita);
     }
-    public static void AddStatisticEvent(StatisticEntity fromEntity, string thing)
-    {
-        StatisticEvent statisticEvent = new StatisticEvent(IDCounter++, thing, time.ToString(), fromEntity);
-        // ListOfEvents.Add(statisticEvent);
-    }
+
     public static void AddStatisticEvent(StatisticEntity fromEntity, string thing, StatisticEntity targetEntity)
     {
         Debug.LogWarning("Event");
         StatisticEvent statisticEvent = new StatisticEvent(IDCounter++, thing, time.ToString(), fromEntity, targetEntity);
-        // ListOfEvents.Add(statisticEvent);
+        ListOfEvents.Add(statisticEvent);
     }
     public static string StatisticEventLog()
     {
@@ -120,85 +116,6 @@ public class StatisticSystem : MonoBehaviour
 
     }
 
-    public static List<ExportDataRow> ExportRowsKindsOverTime()
-    {
-        List<ExportDataRow> export = new List<ExportDataRow>();
-        export.Add(new ExportDataRow(new List<string>() { "Time", "Kind", "Count of Lives", "Count of Deads" }));
-        foreach (StatisticKindCounterOverTime item in CounterOverTimes)
-        {
-            List<string> columns = new List<string>();
-
-            columns.Add(item.GetTime().ToString() + "#");
-            columns.Add(item.GetStatisticKindCoutner().GetKind() + "#");
-            columns.Add(item.GetStatisticKindCoutner().GetCountLive().ToString() + "#");
-            columns.Add(item.GetStatisticKindCoutner().GetCountDead().ToString());
-
-            ExportDataRow row = new ExportDataRow(columns);
-            export.Add(row);
-        }
-
-        return export;
-    }
-    public static List<ExportDataRow> ExportRowsKindsActual()
-    {
-        List<ExportDataRow> export = new List<ExportDataRow>();
-        export.Add(new ExportDataRow(new List<string>() { "Kind", "Count of Lives", "Count of Deads" }));
-        foreach (StatisticKindCoutner item in CounterOfKinds)
-        {
-            List<string> columns = new List<string>();
-
-
-            columns.Add(item.GetKind() + "#");
-            columns.Add(item.GetCountLive().ToString() + "#");
-            columns.Add(item.GetCountDead().ToString());
-
-            ExportDataRow row = new ExportDataRow(columns);
-            export.Add(row);
-        }
-
-        return export;
-    }
-    public static List<ExportDataRow> ExportRowsAllLives()
-    {//////////////////////////pozmìnit////////////////////////////
-        List<ExportDataRow> export = new List<ExportDataRow>();
-        export.Add(new ExportDataRow(new List<string>() { "Time", "Entity", "name", "Kind" }));
-        foreach (StatisticKindCounterOverTime item in CounterOverTimes)
-        {
-            List<string> columns = new List<string>();
-
-            columns.Add(item.GetTime().ToString() + "#");
-            columns.Add(item.GetStatisticKindCoutner().GetKind() + "#");
-            columns.Add(item.GetStatisticKindCoutner().GetCountLive().ToString() + "#");
-            columns.Add(item.GetStatisticKindCoutner().GetCountDead().ToString());
-
-            ExportDataRow row = new ExportDataRow(columns);
-            export.Add(row);
-        }
-
-        return export;
-    }
-    public static List<ExportDataRow> ExportRowsEvents()
-    {
-        List<ExportDataRow> export = new List<ExportDataRow>();
-        export.Add(new ExportDataRow(new List<string>() { "Time", "ID", "Event", "From", "Target" }));
-        foreach (StatisticEvent item in ListOfEvents)
-        {
-            List<string> columns = new List<string>();
-
-
-            columns.Add(item.GetTime() + "#");
-            columns.Add(item.GetID() + "#");
-            columns.Add(item.GetThing() + "#");
-            columns.Add(item.GetFromEntity().ToString() + "#");
-            columns.Add(item.GetTargetEntity().ToString());
-
-
-            ExportDataRow row = new ExportDataRow(columns);
-            export.Add(row);
-        }
-
-        return export;
-    }
     public static float GetTime()
     {
         return time;
