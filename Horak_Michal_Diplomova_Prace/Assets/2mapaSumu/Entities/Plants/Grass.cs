@@ -19,8 +19,6 @@ public class Grass : Plant
         ageForDie = PlantDefaultValues.EntityDefaultValues.AgeForDie;
         canReproduce = PlantDefaultValues.EntityDefaultValues.CanReproduce;
         reproduce_cooldown = PlantDefaultValues.EntityDefaultValues.Reproduce_cooldown;
-       
-
     }
     public override void Start()
     {
@@ -32,7 +30,5 @@ public class Grass : Plant
         Vector3 pozice = transform.position;
         Destroy(agent);
         transform.position = pozice;
-        
-
     }
 }

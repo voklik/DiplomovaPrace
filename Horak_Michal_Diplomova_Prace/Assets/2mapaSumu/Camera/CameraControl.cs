@@ -23,7 +23,6 @@ public class CameraControl : MonoBehaviour
         transform.rotation = Quaternion.Euler(33, 0, 0);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 pos = transform.position;
@@ -58,7 +57,6 @@ public class CameraControl : MonoBehaviour
         if (Input.mouseScrollDelta.y < 0)
         { pos.y -= ScrollSpeed * Time.unscaledDeltaTime; }
 
-        //pos.y += scroll * ScrollSpeed * 100f * Time.deltaTime;
         pos.x = Mathf.Clamp(pos.x, -10, PanLimit.x + 10);
         pos.y = Mathf.Clamp(pos.y, MinY, MaxY);
         pos.z = Mathf.Clamp(pos.z, -10, PanLimit.y + 10);
@@ -66,7 +64,6 @@ public class CameraControl : MonoBehaviour
 
         if (SceneView.lastActiveSceneView != null)
         {
-            Vector3 position = SceneView.lastActiveSceneView.pivot;
             pos.z -= 10.0f;
             SceneView.lastActiveSceneView.pivot = pos;
             SceneView.lastActiveSceneView.Repaint();

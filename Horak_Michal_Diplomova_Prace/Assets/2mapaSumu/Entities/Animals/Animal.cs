@@ -43,13 +43,13 @@ public abstract class Animal : Entity
     [SerializeField] private float partnerMaxRange = 20.0f;
 
     public GameObject GetTargetWater() { return targetWater; }
-    public float getPartnerMaxRange { get { return partnerMaxRange; } }
+    public float GetPartnerMaxRange { get { return partnerMaxRange; } }
 
     public void SetPartnerMaxRange(float _range) { partnerMaxRange = _range; }
-    public GameObject getTargetAttackingMe { get { return targetAttackingMe; } }
+    public GameObject GetTargetAttackingMe { get { return targetAttackingMe; } }
 
     public void SetTargetAttackingMe(Entity enemy) { targetAttackingMe = enemy.gameObject; }
-    public GameObject getTargetAttackingPartner { get { return targetAttackingPartner; } }
+    public GameObject GetTargetAttackingPartner { get { return targetAttackingPartner; } }
 
     public void SetTargetAttackingPartner(Entity enemy) { targetAttackingPartner = enemy.gameObject; }
     public GameObject GetPartner { get { return partner; } }
@@ -567,7 +567,7 @@ public abstract class Animal : Entity
     public float GetHungerPercentage() { return (GetHunger() / GetHugerMax()); }
     public float GetThirstyPercentage() { return (GetThirsty() / GetThirstyMax()); }
     public float GetSlePercentage() { return (GetSleep() / GetSleepMax()); }
-    
+
     public void Drink()
     {
 

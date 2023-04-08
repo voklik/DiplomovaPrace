@@ -7,7 +7,7 @@ public class GenerateNois
     //Vytvoøí se 2D obrázek a náhodnì se vytvoøí šum. Tento šum slouží potom pøi generování terénu, kdy hodnota šumu urèuje výšku (souøadnici y)
     public static int width1, height1;
     public static float[,] map;
-    public static float[,] generate(int width, int height, float scale, Vector2 offset)
+    public static float[,] Generate(int width, int height, float scale, Vector2 offset)
     {
 
         width1 = width;

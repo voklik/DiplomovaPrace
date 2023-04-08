@@ -39,27 +39,23 @@ public class BodyCollider : MonoBehaviour
     }
 
 
-    public void setEntity(Entity e)
+    public void SetEntity(Entity e)
     {
         entity = e;
     }
 
 
-    public void setRange(float radius)
+    public void SetRange(float radius)
     {
 
         if (sphereCollider != null)
         {
             sphereCollider.radius = radius;
-
-
-
         }
         else
         {
             sphereCollider = gameObject.GetComponent<SphereCollider>();
             sphereCollider.radius = radius;
-
         }
     }
 

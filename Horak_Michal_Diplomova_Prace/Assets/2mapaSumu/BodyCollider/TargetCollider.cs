@@ -42,10 +42,10 @@ public class TargetCollider : MonoBehaviour
 
     public void Wait(float x)
     {
-        Waiter(x);
+        StartCoroutine(WaitSeconds(x));
     }
 
-    private IEnumerator Waiter(float sec)
+    private IEnumerator WaitSeconds(float sec)
     {
         yield return new WaitForSeconds(sec);
 
@@ -64,15 +64,11 @@ public class TargetCollider : MonoBehaviour
         if (sphereCollider != null)
         {
             sphereCollider.radius = a;
-
-
-
         }
         else
         {
             sphereCollider = gameObject.GetComponent<SphereCollider>();
             sphereCollider.radius = a;
-
         }
         radius = a;
     }
@@ -82,15 +78,12 @@ public class TargetCollider : MonoBehaviour
 
         if (entity != null)
         {
-            //   entity.Vypis("meet2" + other.gameObject.name);
             if (other.gameObject.name.Contains("Area"))
             {
-                //       entity.Vypis("meet21" + other.gameObject.transform.parent.name);
                 entity.GameobjectSpotted(other.gameObject.transform.parent.gameObject);
             }
             else
             {
-                //      entity.Vypis("meet22" + other.gameObject.name);
                 entity.GameobjectSpotted(other.gameObject);
             }
 
@@ -99,7 +92,7 @@ public class TargetCollider : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (entity != null)
-            entity.gameobjectEscaped(other.gameObject);
+            entity.GameobjectEscaped(other.gameObject);
 
     }
 }

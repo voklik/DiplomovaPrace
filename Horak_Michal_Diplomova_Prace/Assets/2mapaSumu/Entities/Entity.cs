@@ -81,10 +81,12 @@ public class Entity : MonoBehaviour
     [SerializeField] protected TargetCollider targetCollider;
 
     [SerializeField] protected BodyCollider bodyCollider;
+    protected float ReproduceCooldowntToPregnant = 0;          //Odpoèet k porodu
+    protected float ReproduceCooldowntToPregnantDefault = 60; // Mezièas, kdy samice nemùže být tìhotná.
 
     protected private NavMeshAgent agent;
 
-    //potøebuji i prázdné metody start a update, pro pøepsání v potomcích
+    //potøebuji i prázdné metody start a update, pro pøepsání v potomcích, protože ve výchozím stavu nejsou virtual
     public virtual void Start()
     {
     }
@@ -99,7 +101,6 @@ public class Entity : MonoBehaviour
         string text = "";
         Debug.LogWarning("Info");
         text += kind + "f " + name + " " + age + " ";
-
         text += (isMale) ? "samec" : "samice";
         text += (typeEntity == 1) ? "zvíøe" : text += (typeEntity == 2) ? "rostlina" : "error";
         text += (typeEntity == 1) ? (typeEater == 1) ? "masožravec" : text += (typeEater == 2) ? "rostlinožrout" : "všežrout" : "";
@@ -109,7 +110,6 @@ public class Entity : MonoBehaviour
     public StatisticEntity GetStatisticEntity()
     {
         //Slouží pro ukládání informací v systému statistik.
-
         return new StatisticEntity(name, kind);
     }
 
@@ -168,9 +168,6 @@ public class Entity : MonoBehaviour
         return isEatable;
     }
 
-    protected float ReproduceCooldowntToPregnant = 0;
-
-    protected float ReproduceCooldowntToPregnantDefault = 60;
 
     public void ResetReproduceCooldowntToPregnant()
     {
@@ -199,10 +196,9 @@ public class Entity : MonoBehaviour
 
     public void Vypis(string x)
     {
-        //if(name.Contains("wolf"))
+        //Zakomentováno, protože to bylo využito pro testovací úèely
+        //V pøípadì odkomentování mùže dojít velice rychle k zahlcení DebugLogu a bude se simulace zasekávat a zpomalovat
         //Debug.Log(name + " > " + x);
-        // else if (x.Contains("jsem zranìn"))
-        //   Debug.Log(name + " > " + x);
     }
 
     public void GetInCollision(GameObject g)
@@ -219,22 +215,15 @@ public class Entity : MonoBehaviour
             if (!CollisionObject.Contains(g))
                 CollisionObject.Add(g);
         }
-
-
-
         else if (g.tag == "water")
         {
             if (!CollisionObject.Contains(g))
                 CollisionObject.Add(g);
-
-
         }
         else if (this.typeEntity == 1 && g.tag == "terrain")
         {
             if (!CollisionObject.Contains(g))
                 CollisionObject.Add(g);
-
-
         }
     }
 
@@ -248,7 +237,6 @@ public class Entity : MonoBehaviour
     {
         //Zjištìní, zda entita je v kolizi s objektem G
         Vypis(" jsem v kolizi s " + g.name + " " + CollisionObject.Contains(g).ToString());
-
         if (CollisionObject.Contains(g))
             return true;
         else return false;
@@ -262,14 +250,11 @@ public class Entity : MonoBehaviour
 
         if (g.tag == "plant")
         {
-
             plantSpoted.Remove(g);
-
         }
         else if (g.tag == "animal")
         {
             animalsSpoted.Remove(g);
-
         }
         if (e.GetKind().Equals(kind))
         {
@@ -286,9 +271,7 @@ public class Entity : MonoBehaviour
         g.TryGetComponent<Entity>(out e);
         if (e != null)
         {
-
             Entity a = g.GetComponent<Entity>();
-
             if (!kind.Equals(e.kind))
             {
                 if (this.typeEntity == 1)
@@ -311,18 +294,14 @@ public class Entity : MonoBehaviour
                             Vypis(" zpozoroval " + g.name);
                             if (!animalsSpoted.Contains(g))
                                 animalsSpoted.Add(g);
-
                             a.IwasSpottedBy(gameObject);
                         }
-
                     }
-
                 }
                 else if (this.typeEntity == 2)
                 {//jenom pokud jde o stejný druh kytky > vymøení pøi urèitém poètu následnì 
                     if (a.GetKind().Equals(this.kind))
                     {
-
                         if (!plantSpoted.Contains(g))
                             plantSpoted.Add(g);
                         a.IwasSpottedBy(gameObject);
@@ -342,15 +321,11 @@ public class Entity : MonoBehaviour
         {//pokud jsem zvíøe a jedná se o bod vody
             if (!waterSpot.Contains(g))
                 waterSpot.Add(g);
-
-
         }
         else if (this.typeEntity == 1 && g.tag == "terrain" && g.name.Contains("EarthPoint"))
         {//pokud jsem zvíøe a jedná se o bod zemì
             if (!earthSpot.Contains(g))
                 earthSpot.Add(g);
-
-
         }
     }
 
@@ -361,7 +336,7 @@ public class Entity : MonoBehaviour
             iWasSpottedBy.Add(g);
     }
 
-    public void gameobjectEscaped(GameObject g)
+    public void GameobjectEscaped(GameObject g)
     {
         //nìkdo mi utekl z dohledu
         if (g.tag == "plant")
@@ -378,7 +353,6 @@ public class Entity : MonoBehaviour
     public void TakeDMG(float dmg)
     {
         //Dostal jsem zranìní
-
         hp -= dmg;
         CheckHP();
         Vypis("jsem zranìn +HP: " + hp);
@@ -402,10 +376,7 @@ public class Entity : MonoBehaviour
     {
         if (hp < 0)
         {
-
             DieAlready();
-
-
         }
     }
 
@@ -447,13 +418,11 @@ public class Entity : MonoBehaviour
 
     protected private void DieAlready()
     {
-
         if (transform.Find("grp") != null)
         {
             GameObject g = transform.Find("grp").gameObject;
             g.transform.rotation = Quaternion.Euler(-180, 0, 0);
             g.transform.localPosition = new Vector3(g.transform.localPosition.x, g.transform.localPosition.y + 1, g.transform.localPosition.z);
-
         }
         isLive = false;
         Destroy(gameObject, 20);
@@ -461,11 +430,12 @@ public class Entity : MonoBehaviour
 
     protected private void Wait(float x)
     {
-        //Metoda, která slouží pro to, aby entita poèkala nìjaký èas
-        Waiter(x);
+        StartCoroutine(
+                //Metoda, která slouží pro to, aby entita poèkala nìjaký èas
+                WaitSeconds(x));
     }
 
-    protected private IEnumerator Waiter(float sec)
+    protected private IEnumerator WaitSeconds(float sec)
     {
         yield return new WaitForSeconds(sec);
     }
@@ -487,10 +457,7 @@ public class Entity : MonoBehaviour
                 {
                     Entity entity = item.GetComponent<Entity>();
                     entity.SpottedByWasKilled(gameObject);
-
-
                 }
-
             }
     }
 
@@ -498,7 +465,6 @@ public class Entity : MonoBehaviour
     {
         //Prvotní nastavení bìhem inicializace
         StatisticSystem.IAmLive(this);
-
         //Zkusí se znièit pøípadný agent a znova vytvoøí. Tento postup slouží pro ovìøení, aby se nestala chyba
         DestroyImmediate(gameObject.GetComponent<NavMeshAgent>());
         agent = gameObject.AddComponent<NavMeshAgent>();
@@ -508,10 +474,6 @@ public class Entity : MonoBehaviour
             int areaMask = 1;
             agent.areaMask = areaMask;
         }
-
-
-
-
         targetCollider = Instantiate(MaterialStorage.TargetCollider, transform.position, Quaternion.identity).GetComponent<TargetCollider>();
         targetCollider.transform.parent = gameObject.transform;
         targetCollider.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f); //new Vector3(0.0f, 0.0f, 0.0f);
@@ -519,8 +481,6 @@ public class Entity : MonoBehaviour
         targetCollider.transform.localPosition = new Vector3(0, 0, 0);
         targetCollider.SetRange(range);
         targetCollider.SetEntity(this);
-
-
         bodyCollider = Instantiate(MaterialStorage.BodyCollidera, transform.position, Quaternion.identity).GetComponent<BodyCollider>();
         bodyCollider.transform.parent = gameObject.transform;
         bodyCollider.transform.localPosition = new Vector3(0.0f, 0.0f, 0.0f); //new Vector3(0.0f, 0.0f, 0.0f);
@@ -528,14 +488,13 @@ public class Entity : MonoBehaviour
         bodyCollider.transform.localPosition = new Vector3(0, 1, 0);
         if (this is Grass)
         {
-            bodyCollider.setRange(2);
+            bodyCollider.SetRange(2);
             bodyCollider.transform.localPosition = new Vector3(0, 0, 0);
         }
         else
-            bodyCollider.setRange(30);
-        bodyCollider.setEntity(this);
+            bodyCollider.SetRange(30);
+        bodyCollider.SetEntity(this);
         bodyCollider.gameObject.layer = (typeEntity == 1) ? 6 : 7;
-
         gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
         if (typeEntity == 2)
         {
@@ -543,8 +502,6 @@ public class Entity : MonoBehaviour
             agent.baseOffset = 0.1f;
         }
         InitHeight2();
-
-
         //Nìkdy mùže zlobit agent, kdy nepozná, že se pøesunul k meshi, proto se musí restartovat
         agent.enabled = false;
         agent.enabled = true;
@@ -564,8 +521,6 @@ public class Entity : MonoBehaviour
             catch (System.Exception)
             {
                 InitHeight2();
-
-
                 //Nìkdy mùže zlobit agent, kdy nepozná, že se pøesunul k meshi, proto se musí restartovat
                 agent.enabled = false;
                 agent.enabled = true;
@@ -576,10 +531,7 @@ public class Entity : MonoBehaviour
                 agent.speed = 0;
                 agent.isStopped = true;
             }
-
             agent.SetDestination(MaterialStorage.Teren[5].transform.position);
-            // gameObject.GetComponent<NavMeshAgent>().enabled = false;
-
         }
     }
 
@@ -589,38 +541,27 @@ public class Entity : MonoBehaviour
         GameObject pozice, pokus;
         for (int i = 0; i < 1000; i++)
         {
-
-
             pokus = MaterialStorage.Teren[Random.Range(1, MaterialStorage.Teren.Count - 1)];
-
             if (pokus.transform.Find("EarthPoint") != null)
             {
-
                 pozice = pokus.transform.Find("EarthPoint").gameObject;
-
                 NavMeshHit hit;
                 if (NavMesh.SamplePosition(pozice.transform.localPosition, out hit, 300.0f, NavMesh.AllAreas))
                 {
-
                     gameObject.transform.position = new Vector3(hit.position.x, hit.position.y, hit.position.z);
-                    //   Debug.LogError(gameObject.name + " " + pozice.transform.parent.name + " L " + pozice.transform.localPosition + " P " + pozice.transform.position + " Par " + pozice.transform.parent.position);
                     agent.Warp(new Vector3(hit.position.x, hit.position.y, hit.position.z));
-                    //         Debug.LogError(gameObject.name + " " + agent.isOnNavMesh);
                     return true;
-
                 }
-
             }
         }
         return false;
-        //   Debug.LogError("ne");
     }
 
 
 
     protected void InitHeight()
     {
-        //nepoužita
+        //nepoužita a pùvodní metoda
         //Metoda, která slouží pro to, aby pøi vytvoøení entity se nestalo to, že by ta entita nebyla pod terénem, èi nad terénem. 
         //Bohužel není 100% jisté, že se opraví taková chyba.
 
@@ -631,25 +572,18 @@ public class Entity : MonoBehaviour
         Vector3 fromPosition = transform.position;
         Vector3 toPosition = new Vector3(transform.position.x, -100, transform.position.z);
         Vector3 direction = toPosition - fromPosition;
-
         float min = 1;
         float max = 3;
         if (Physics.Raycast(fromPosition, direction, out hit, lenght, layerMask))
         {//zasáhl a je nad terénem
-
             if (hit.distance <= max && hit.distance >= min)
             {
-
                 Debug.DrawRay(fromPosition, direction, Color.yellow, 0.5f);
-
                 Debug.Log(gameObject.name + " Did Hit - hit distance :" + hit.distance + "   - object" + hit.collider.gameObject.name);
-
-
             }
             else
             {//je moc nad terénem
                 Debug.Log(gameObject.name + " Did  Hit - go down - hit distance :" + hit.distance + "   -" + transform.position.ToString());
-
                 float distant = 0;
                 if (hit.distance > max)
                 {
@@ -659,12 +593,10 @@ public class Entity : MonoBehaviour
                 {
                     distant = min;
                 }
-
                 transform.position = new Vector3(transform.position.x, transform.position.y + distant, transform.position.z);
                 fromPosition = transform.position;
                 toPosition = new Vector3(transform.position.x, +100, transform.position.z);
                 direction = toPosition - fromPosition;
-
                 if (Physics.Raycast(fromPosition, direction, out hit, lenght, layerMask))
                 {
                     if (hit.distance > max)
@@ -675,23 +607,17 @@ public class Entity : MonoBehaviour
                     {
                         distant = min;
                     }
-
                     transform.position = new Vector3(transform.position.x, transform.position.y + distant, transform.position.z);
                     Debug.Log(gameObject.name + " Did Hit - hit distance :" + hit.distance + "   -" + hit.collider.gameObject.name);
                 }
-
             }
-
         }
         else
         {
             //gameobject je pod zemí - nezasáhl
-
             Debug.Log(gameObject.name + " Did not Hit - go top - hit distance :" + hit.distance + "   -" + transform.position.ToString());
             transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
-
             InitHeight();
-
         }
     }
 }
