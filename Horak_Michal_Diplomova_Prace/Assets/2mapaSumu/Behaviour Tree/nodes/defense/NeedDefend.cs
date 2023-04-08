@@ -5,8 +5,6 @@ using UnityEngine;
 public class NeedDefend : Node
 {
     //Uzel, který øeší, zda zvíøe potøebuje chránit samo sebe
-    private Animal character;
-    private float range;
     public NeedDefend(Animal ai)
     {
         this.character = ai;

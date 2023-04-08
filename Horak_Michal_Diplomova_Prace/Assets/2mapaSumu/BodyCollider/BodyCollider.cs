@@ -11,8 +11,6 @@ public class BodyCollider : MonoBehaviour
 
     [SerializeField] Entity entity = null;
 
-    private float radius = 10;
-    private float time = 0.0f;
     private SphereCollider sphereCollider;
     private void Start()
     {
@@ -25,13 +23,16 @@ public class BodyCollider : MonoBehaviour
         Wait(0.2f);
         transform.localPosition = transform.localPosition + Vector3.zero;
     }
-
+    /// <summary>
+    /// Zastaví entitu na X vteøin
+    /// </summary>
+    /// <param name="x">Vteøin</param>
     public void Wait(float x)
     {
-        waiter(x);
+        WaitSeconds(x);
     }
 
-    private IEnumerator waiter(float sec)
+    private IEnumerator WaitSeconds(float sec)
     {
         yield return new WaitForSeconds(sec);
 
@@ -44,12 +45,12 @@ public class BodyCollider : MonoBehaviour
     }
 
 
-    public void setRange(float a)
+    public void setRange(float radius)
     {
 
         if (sphereCollider != null)
         {
-            sphereCollider.radius = a;
+            sphereCollider.radius = radius;
 
 
 
@@ -57,28 +58,20 @@ public class BodyCollider : MonoBehaviour
         else
         {
             sphereCollider = gameObject.GetComponent<SphereCollider>();
-            sphereCollider.radius = a;
+            sphereCollider.radius = radius;
 
         }
-        radius = a;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (entity != null)
-        //{ entity.Vypis("meet" + other.name);
-        //    entity.GetInCollision(other.gameObject);
-        //}
 
         if (other.gameObject.name.Contains("Area"))
         {
-            entity.Vypis("kolize " + other.gameObject.transform.parent.name);
             entity.GetInCollision(other.gameObject.transform.parent.gameObject);
-
         }
         else if (!other.gameObject.name.Contains("x:"))
         {
-            entity.Vypis("AAAAkolize " + other.gameObject.name);
             entity.GetInCollision(other.gameObject);
         }
 
@@ -87,20 +80,13 @@ public class BodyCollider : MonoBehaviour
     {
 
         if (entity != null)
-
         {
-            // entity.Vypis("kolize konec" + other.name);
-            //entity.RemoveFromCollision(other.gameObject);
-
             if (other.gameObject.name.Contains("Area"))
             {
-                entity.Vypis("kolize konec " + other.gameObject.transform.parent.name);
                 entity.RemoveFromCollision(other.gameObject.transform.parent.gameObject);
-
             }
             else if (!other.gameObject.name.Contains("x:"))
             {
-                entity.Vypis("AAAAkolize konec" + other.gameObject.name);
                 entity.RemoveFromCollision(other.gameObject);
             }
         }

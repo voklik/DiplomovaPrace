@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Sleep : Node
 {//Uzel, který slouží pro spuštìní spánku, pøi splnìní požadavcích, nebo ukonèení probíhajícího spánku
-    private Animal character;
     private NavMeshAgent agent;//Potøeba pro zastavení pohybu
 
     public Sleep(NavMeshAgent agent, Animal ai)
@@ -26,7 +25,6 @@ public class Sleep : Node
         }
         else
         {//Charakter jde spát
-            character.Vypis("spím");//TODO SMAZAT
             character.Sleep();
             agent.isStopped = true;
             character.setStav(Stav.Sleeping);

@@ -5,7 +5,6 @@ using UnityEngine;
 public class NeedDrink : Node
 {
     //Uzel chování, který rozhoduje, zda je potøeba se napít
-    private Animal character;
     public NeedDrink(Animal ai)
     {
 
@@ -20,7 +19,6 @@ public class NeedDrink : Node
     {
         if ((character.getThirsty() / character.getThirstyMax() > 0.7) || ((character.getThirsty() / character.getThirstyMax() > 0.1) && character.getStav == Stav.Drinking))
         {
-            character.Vypis("Potøebuji pít");
             character.closeWater();
             if (character.getTargetWater() == null)
             { return NodeState.FAILURE; }

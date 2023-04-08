@@ -8,12 +8,18 @@ public static class CaptionsLibrary
     {
                 //MENU//
         {"btnStart","Zahajit simulaci"},
-        {"btnMenuTitle","Simulátor - Vlk, ovce a travina"},
+        {"btnMenuTitle","Simulátor - Vlk, ovce a travina " +
+            "\n Diplomový projekt"+
+            "\n Autor: Bc. Michal Horák"},
         {"btnMenuExterminate","Ukonèit simulaci"},
         {"btnStartSimulation","Spustit simulaci"},
         {"btnReturn","Vrátit se zpìt"},
         {"btnContinue","Pokraèovat"},
         {"btnReturnToMenu","Vrátit se do menu"},
+                //Ovládání//
+        {"Controls","Kamera se pohybuje pomocí kláves [W],[S],[A],[D] - Pohyb dopøedu, dozadu, vlevo a vpravo." +
+            "\n\nKamera se otáèí pomocí kláves [Q] a [E] - Rotace vlevo a vpravo." +
+            "\n\nKameru lze vrátit do výchozího stavu pomocí klávesy [R]"},
                 //MENU-Entity//
         {"populace","Poèáteèní populace"},
         {"populaceInfo","Kolik jedincù se bude generovat na zaèátku simulace"},
@@ -128,5 +134,61 @@ public static class CaptionsLibrary
             return caption;
         }
         else return "? Nenalezen text - klíè: '" + KeyCaption + "' ?";
+    }
+    public static string GetCaption(Stav stav)
+    {
+        string text = "?";
+        switch (stav)
+        {
+            case Stav.Going:
+                text = "Pohybyje se";
+                break;
+            case Stav.Sleeping:
+                text = "Spí";
+                break;
+            case Stav.Eating:
+                text = "Krmí se";
+                break;
+            case Stav.Drinking:
+                text = "Pije";
+                break;
+            case Stav.Attacking:
+                text = "Útoèí";
+                break;
+            case Stav.Mating:
+                text = "Rozmnožuje se";
+                break;
+            case Stav.Nothing:
+                text = "Nic nedìlá";
+                break;
+            case Stav.Relax:
+                text = "Odpoèívá";
+                break;
+            case Stav.GoingForWater:
+                text = "Jde se napít";
+                break;
+            case Stav.GoingForFood:
+                text = "Jde se krmit";
+                break;
+            case Stav.GoingForPlace:
+                text = "Pohybuje se";
+                break;
+            case Stav.GoingForFight:
+                text = "Útoèí";
+                break;
+            case Stav.GoingforDefend:
+                text = "Brání se";
+                break;
+            case Stav.GoingforDefendPartner:
+                text = "Brání partnera";
+                break;
+            case Stav.FollowParty:
+                text = "Následuje skupinu";
+                break;
+            case Stav.GoRandom:
+                text = "Náhodný pohyb";
+                break;
+        }
+        return text;
     }
 }

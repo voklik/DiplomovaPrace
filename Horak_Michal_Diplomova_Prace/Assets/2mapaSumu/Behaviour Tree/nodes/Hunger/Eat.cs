@@ -29,7 +29,6 @@ public class Eat : Node
         {//Pokraèuje se v jídle
             if ((character.getHunger() / character.getHugerMax() > 0.1 && character.getStav == Stav.Eating))
             {
-                character.Vypis("Food  Jím"); //TODO SMAZAT
                 character.Eat(character.getFoodTarget());
                 character.setStav(Stav.Eating);
                 if (character.getHunger() / character.getHugerMax() < 0.1 && character.getStav == Stav.Eating)

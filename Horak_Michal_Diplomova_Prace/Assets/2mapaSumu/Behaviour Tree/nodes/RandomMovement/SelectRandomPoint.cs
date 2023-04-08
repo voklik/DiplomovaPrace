@@ -31,7 +31,6 @@ public class SelectRandomPoint : Node
 
             if (character.getRandomPointTarget() != null)
             {
-                character.Vypis("jdu na bod" + character.getRandomPointTarget()); //TODO SMAZAT
                 character.setStav(stavProNod);
                 return NodeState.SUCCESS;
                 //??asi nic?? //TODO SMAZAT
@@ -39,19 +38,11 @@ public class SelectRandomPoint : Node
             else
             {
                 if (character.setRandomPointTarget() != null)
-                {   // if (character.CalculateNewPath(character.getRandomPointTarget().transform.position))  //TODO SMAZAT
-                    //   {
-                    character.Vypis("jdu na wandr" + character.getRandomPointTarget());
+                {
                     if (character.getStav != stavProNod)
                         character.setStav(stavProNod);
                     timetoCatch = 0;
                     return NodeState.SUCCESS;
-                    //}
-                    // else
-                    // {
-                    //     character.Vypis("nejdu na wandr");
-                    //    character.resetRandomPointTarget();
-                    // }
                 }
             }
         }

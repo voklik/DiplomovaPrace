@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PartnerIsReadForChildren : Node
-{
-    private Animal character;
-    private float range;
-
-
+{//Uzel, který oznamuje, že partner je pøipraven pro množení.
 
     public PartnerIsReadForChildren(Animal ai)
     {
-
         this.character = ai;
-
     }
 
 
@@ -30,20 +24,16 @@ public class PartnerIsReadForChildren : Node
 
                     if (!partner.getIsPregnant()&& partner.GetCanReproduce()==true)
                     {
-                        //  character.Vypis("Diglity diglity deee" + partner.name);
                         character.setStav(Stav.Mating);
                         return NodeState.SUCCESS;
                     }
-
                     else
                         return NodeState.FAILURE;
                 }
                 else
                 {
                     if (!character.getIsPregnant()&& character.GetCanReproduce() == true)
-
                     {
-                     //   character.Vypis("Diglity diglity deee" + character.getPartner.name);
                         return NodeState.SUCCESS;
                     }
                     else

@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class Drink : Node
 {//Zvíøe právì pije
-    private Animal character;
-
     private NavMeshAgent agent;//Agent je potøeba, aby se zastavil pohyb
 
     public Drink(NavMeshAgent agent, Animal ai)
@@ -30,7 +28,6 @@ public class Drink : Node
 
         else
         {
-            character.Vypis("Piji");
             character.Drink();
             agent.isStopped = true;
             if ((character.getThirsty() / character.getThirstyMax() < 0.1) && (character.getStav == Stav.Drinking || character.getStav == Stav.GoingForWater))
