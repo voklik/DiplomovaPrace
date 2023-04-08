@@ -55,7 +55,6 @@ public class Sequence : Node
                     isAnyNodeRunning = true;
                     _nodeState = NodeState.RUNNING;
                     return _nodeState;
-                    break;
                 case NodeState.SUCCESS:
                     break;
                 case NodeState.FAILURE:

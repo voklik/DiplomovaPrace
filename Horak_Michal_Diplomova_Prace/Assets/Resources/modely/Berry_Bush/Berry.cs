@@ -11,9 +11,9 @@ public class Berry : Plant
     {
         berrySpot = b;
     }
-    // Update is called once per frame
 
-    void OnDestroy()
+    new
+        void OnDestroy()
     {
         berrySpot.BerryIsDead();
         ClearLists();

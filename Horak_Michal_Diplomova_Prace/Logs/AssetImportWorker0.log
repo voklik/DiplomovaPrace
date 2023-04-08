@@ -15,7 +15,7 @@ S:/GIT/DiplomovaPrace/Horak_Michal_Diplomova_Prace
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-30786
+43583
 Successfully changed project path to: S:/GIT/DiplomovaPrace/Horak_Michal_Diplomova_Prace
 S:/GIT/DiplomovaPrace/Horak_Michal_Diplomova_Prace
 Using Asset Import Pipeline V2.
@@ -23,7 +23,7 @@ Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports impo
 
 Please note that FBX files exported from Cinema4D are still supported.
 
-Refreshing native plugins compatible for Editor in 31.18 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 30.87 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.1f1 (270dd8c3da1c)
 [Subsystems] Discovering subsystems at path H:/unity/editor/2020.2.1f1/Editor/Data/Resources/UnitySubsystems
@@ -39,35 +39,35 @@ Initialize mono
 Mono path[0] = 'H:/unity/editor/2020.2.1f1/Editor/Data/Managed'
 Mono path[1] = 'H:/unity/editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'H:/unity/editor/2020.2.1f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56360
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56080
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: H:/unity/editor/2020.2.1f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001326 seconds.
+Registered in 0.001767 seconds.
 Native extension for WindowsStandalone target not found
 Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports importing Cinema 4D files directly, but we're working with Maxon to make the experience better. To import Cinema 4D files, install Maxon's external importer. You can find more information on the Unity Forum: https://on.unity.com/c4d.
 
 Please note that FBX files exported from Cinema4D are still supported.
 
-Refreshing native plugins compatible for Editor in 30.03 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 39.97 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  3.160 seconds
+- Completed reload, in  3.821 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.000910 seconds.
+Registered in 0.001266 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.996 seconds
+- Completed reload, in  1.286 seconds
 Platform modules already initialized, skipping
 Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports importing Cinema 4D files directly, but we're working with Maxon to make the experience better. To import Cinema 4D files, install Maxon's external importer. You can find more information on the Unity Forum: https://on.unity.com/c4d.
 
@@ -80,29 +80,21 @@ Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports impo
 Please note that FBX files exported from Cinema4D are still supported.
 
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.28 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1230 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 76.0 MB.
-System memory in use after: 76.1 MB.
+System memory in use after: 76.0 MB.
 
 Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1691.
-Total: 1.970100 ms (FindLiveObjects: 0.187300 ms CreateObjectMapping: 0.041300 ms MarkObjects: 1.660900 ms  DeleteObjects: 0.079700 ms)
+Total: 1.830800 ms (FindLiveObjects: 0.166400 ms CreateObjectMapping: 0.032500 ms MarkObjects: 1.547000 ms  DeleteObjects: 0.083800 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scenes/Simulation.unity
-  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Simulation.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f67b9381196e664bd86464806d131618') in 0.023257 seconds
-  Import took 0.025498 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.956473 seconds.
-  path: Assets/Scenes/MainMenu.unity
-  artifactKey: Guid(caefabd527b8dad4f903203cc3d25f19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/MainMenu.unity using Guid(caefabd527b8dad4f903203cc3d25f19) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a18a7c5dc90e4c46311d47a4be1514f') in 0.013658 seconds
-  Import took 0.015996 seconds .
+  path: Assets/RotationThing.cs
+  artifactKey: Guid(8df219e8b27e37a4cbbcf95bd36c2fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RotationThing.cs using Guid(8df219e8b27e37a4cbbcf95bd36c2fd6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf3b66432c0b2c81921dc3399acae56e') in 0.048888 seconds
+  Import took 0.052017 seconds .
 
 ========================================================================
 Received Prepare
@@ -111,25 +103,25 @@ Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports impo
 Please note that FBX files exported from Cinema4D are still supported.
 
 Registering precompiled user dll's ...
-Registered in 0.000876 seconds.
+Registered in 0.000814 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.965 seconds
+- Completed reload, in  0.955 seconds
 Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1212 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 76.0 MB.
-System memory in use after: 76.1 MB.
+System memory in use before: 75.9 MB.
+System memory in use after: 76.0 MB.
 
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1693.
-Total: 3.993200 ms (FindLiveObjects: 0.353200 ms CreateObjectMapping: 0.055400 ms MarkObjects: 3.482500 ms  DeleteObjects: 0.099600 ms)
+Total: 1.783100 ms (FindLiveObjects: 0.171200 ms CreateObjectMapping: 0.032100 ms MarkObjects: 1.508500 ms  DeleteObjects: 0.070100 ms)
 
 ========================================================================
 Received Prepare
@@ -138,51 +130,51 @@ Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports impo
 Please note that FBX files exported from Cinema4D are still supported.
 
 Registering precompiled user dll's ...
-Registered in 0.000954 seconds.
+Registered in 0.000964 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  0.917 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1212 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 76.0 MB.
-System memory in use after: 76.1 MB.
-
-Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1695.
-Total: 1.876100 ms (FindLiveObjects: 0.167900 ms CreateObjectMapping: 0.032400 ms MarkObjects: 1.596600 ms  DeleteObjects: 0.078100 ms)
-
-========================================================================
-Received Prepare
-Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports importing Cinema 4D files directly, but we're working with Maxon to make the experience better. To import Cinema 4D files, install Maxon's external importer. You can find more information on the Unity Forum: https://on.unity.com/c4d.
-
-Please note that FBX files exported from Cinema4D are still supported.
-
-Registering precompiled user dll's ...
-Registered in 0.001157 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.29 ms, found 0 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Invoked RoslynAnalysisRunner static constructor.
-RoslynAnalysisRunner will not be running.
-RoslynAnalysisRunner has terminated.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.113 seconds
-Platform modules already initialized, skipping
 Refreshing native plugins compatible for Editor in 0.40 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.927 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.26 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 1212 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 76.0 MB.
-System memory in use after: 76.1 MB.
+System memory in use after: 76.0 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1695.
+Total: 2.133100 ms (FindLiveObjects: 0.174100 ms CreateObjectMapping: 0.032400 ms MarkObjects: 1.840900 ms  DeleteObjects: 0.084600 ms)
+
+========================================================================
+Received Prepare
+Assets/Resources/modely/wolf/lowpolywolf/wolf.c4d: Unity no longer supports importing Cinema 4D files directly, but we're working with Maxon to make the experience better. To import Cinema 4D files, install Maxon's external importer. You can find more information on the Unity Forum: https://on.unity.com/c4d.
+
+Please note that FBX files exported from Cinema4D are still supported.
+
+Registering precompiled user dll's ...
+Registered in 0.001043 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.47 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.070 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1212 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 76.0 MB.
+System memory in use after: 76.0 MB.
 
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1697.
-Total: 2.019600 ms (FindLiveObjects: 0.229800 ms CreateObjectMapping: 0.040000 ms MarkObjects: 1.678700 ms  DeleteObjects: 0.069400 ms)
+Total: 2.178900 ms (FindLiveObjects: 0.222200 ms CreateObjectMapping: 0.033500 ms MarkObjects: 1.841100 ms  DeleteObjects: 0.080600 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

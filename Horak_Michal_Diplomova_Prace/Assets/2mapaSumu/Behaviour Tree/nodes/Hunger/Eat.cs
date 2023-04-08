@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Eat : Node
 {//Uzel, který snižuje hladinu hladu
-    private Animal character;
     private NavMeshAgent agent;
 
     public Eat(NavMeshAgent agent, Animal ai)

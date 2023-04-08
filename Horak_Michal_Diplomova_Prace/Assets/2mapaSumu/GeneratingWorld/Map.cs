@@ -21,7 +21,6 @@ public class Map : MonoBehaviour
     public float[,] heightMap;
     public float baseheight = 5, maxheight = 10;
     public float height_y = 5;
-    private float lastGenerateTime;
     [SerializeField] private float min = 1, max = 0;
     [Header("Water")]
     public GameObject waterPreFab;
@@ -105,16 +104,6 @@ public class Map : MonoBehaviour
         MaterialStorage.Water = water;
     }
 
-    void Update()
-    {
-
-        if (Time.time - lastGenerateTime > 0.1f)
-        {
-            //     lastGenerateTime = Time.time; generateMap();
-        }
-
-
-    }
     void GenerateNoiseMap()
     {
         if (WorldGenerateSettings.Seed != null)

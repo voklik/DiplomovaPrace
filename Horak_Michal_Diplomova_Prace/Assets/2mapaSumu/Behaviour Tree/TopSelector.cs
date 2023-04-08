@@ -158,12 +158,9 @@ public class TopSelector : Node
 
     private void switchBackOnPlace()
     {
-        return;
+        return;//Z technických dùvodù
 
-        Node item;
-
-
-        item = priority2[0];
+        Node item= priority2[0];
         priority2.Remove(item);
         priority2.Insert(item.GetID - 1, item);
         id = original_id;

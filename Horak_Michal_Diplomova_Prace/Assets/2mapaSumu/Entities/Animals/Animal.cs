@@ -558,8 +558,7 @@ public abstract class Animal : Entity
     }
     public void Eat(Entity entity)
     {
-        float dmg;
-        float foodValue = entity.IsEaten(out dmg);
+        float foodValue = entity.IsEaten(out float dmg);
         hunger -= foodValue;
         targetFood = null;
         TakeDMG(dmg);
@@ -726,16 +725,15 @@ public abstract class Animal : Entity
     public Entity getFoodTarget()
     {
         if (targetFood == null)
-        { return null; }
-
-        Animal a;
-        targetFood.TryGetComponent<Animal>(out a);
+        {
+            return null;
+        }
+        targetFood.TryGetComponent<Animal>(out Animal a);
         if (a != null)
             return a;
         else
         {
-            Plant p;
-            targetFood.TryGetComponent<Plant>(out p);
+            targetFood.TryGetComponent<Plant>(out Plant p);
             if (p != null)
                 return p;
             else
@@ -771,30 +769,17 @@ public abstract class Animal : Entity
     Vector3 vektor;
     public void setAgentMovementEnabled(bool x)
     {
-        float speeder = 5;
-        float angular = 30;
-        float accel = 4;
         if (agent.enabled == true)
         {
             if (x == true)
-            {   //agent.speed = 0;
-                // agent.angularSpeed = 0;
-                //  agent.acceleration = 0;
-                // vektor = agent.velocity;
-                // agent.velocity = Vector3.zero;
-                // agent.updatePosition = false;
+            {
                 SwitchWalkableLayer(false);
             }
             else
             {
-                //agent.speed = speeder;
-                //  agent.angularSpeed = angular;
-                //  agent.acceleration = accel;
-                //  agent.velocity = vektor;
-                ///   agent.updatePosition = true;
                 SwitchWalkableLayer(true);
             }
-            //  Debug.Log(gameObject.name + " navmesh " + agent.isOnNavMesh);
+
             agent.isStopped = x;
 
 
@@ -851,36 +836,6 @@ public abstract class Animal : Entity
         else return null;
     }
 
-    private void testTarget()
-    {
-        try
-        {
-            bool targeter = false;
-            if (targetFood != null)
-            {
-                if (isPositionEquel(agent.destination, targetFood.transform.position))
-                {
-                    targeter = true;
-                }
-            }
-            if (targetWater != null)
-            {
-                if (isPositionEquel(agent.destination, targetWater.transform.position))
-                { targeter = true; }
-            }
-            if (target != null)
-            {
-                if (isPositionEquel(agent.destination, target.transform.position))
-                { targeter = true; }
-            }
-            SwitchWalkableLayer(targeter);
-
-        }
-        catch (System.Exception)
-        {
-            Debug.LogError("problem");
-        }
-    }
     public bool IsOneOfState(List<Stav> povoleneStavy)
     {
         if (povoleneStavy != null)
