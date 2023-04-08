@@ -23,24 +23,24 @@ public class SelectRandomPoint : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if ((character.IsOneOfState(prerusitelneStavy) && !character.IsOneOfState(neprerusitelneStavy)) || character.getStav == stavProNod)
+        if ((character.IsOneOfState(prerusitelneStavy) && !character.IsOneOfState(neprerusitelneStavy)) || character.GetStav == stavProNod)
         {
             timetoCatch += Time.deltaTime;
             if (timetoCatch >= timetoCatchLimit)
-            { character.setRandomPointTarget(); character.Vypis("zmìna"); timetoCatch = 0; }
+            { character.SetRandomPointTarget(); character.Vypis("zmìna"); timetoCatch = 0; }
 
-            if (character.getRandomPointTarget() != null)
+            if (character.GetRandomPointTarget() != null)
             {
-                character.setStav(stavProNod);
+                character.SetStav(stavProNod);
                 return NodeState.SUCCESS;
                 //??asi nic?? //TODO SMAZAT
             }
             else
             {
-                if (character.setRandomPointTarget() != null)
+                if (character.SetRandomPointTarget() != null)
                 {
-                    if (character.getStav != stavProNod)
-                        character.setStav(stavProNod);
+                    if (character.GetStav != stavProNod)
+                        character.SetStav(stavProNod);
                     timetoCatch = 0;
                     return NodeState.SUCCESS;
                 }

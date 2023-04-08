@@ -16,7 +16,7 @@ public class NeedDefend : Node
     public override NodeState Evaluate()
     {
         //Existuje nìjaké zvíøe, které mì má jako cíl útoku ?
-        GameObject enemy = character.getAttackingMeClosestEntity();
+        GameObject enemy = character.GetAttackingMeClosestEntity();
         if (enemy != null)
         {
             return NodeState.SUCCESS;

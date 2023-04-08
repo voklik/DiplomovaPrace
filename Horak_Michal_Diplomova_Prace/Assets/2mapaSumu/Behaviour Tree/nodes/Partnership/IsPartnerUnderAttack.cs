@@ -11,7 +11,7 @@ public class IsPartnerUnderAttack : Node
 
     public override NodeState Evaluate()
     {
-        GameObject enemy = character.getAttackingPartnerClosestEntity();
+        GameObject enemy = character.GetAttackingPartnerClosestEntity();
         if (enemy != null)
         {
             return NodeState.SUCCESS;

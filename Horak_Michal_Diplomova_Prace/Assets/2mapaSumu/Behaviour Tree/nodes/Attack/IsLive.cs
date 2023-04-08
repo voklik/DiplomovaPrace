@@ -16,9 +16,9 @@ public class IsLive : Node
     public override NodeState Evaluate()
     {
         //Dotazuji si na svùj cíl jídla
-        if (character.getFoodTarget() != null)
+        if (character.GetFoodTarget() != null)
         {
-            bool target = character.getFoodTarget().GetIsLive();
+            bool target = character.GetFoodTarget().GetIsLive();
             if ((target == false))
             {
                 return NodeState.FAILURE;

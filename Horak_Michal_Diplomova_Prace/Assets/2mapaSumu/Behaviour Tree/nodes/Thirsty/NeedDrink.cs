@@ -17,12 +17,12 @@ public class NeedDrink : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if ((character.getThirsty() / character.getThirstyMax() > 0.7) || ((character.getThirsty() / character.getThirstyMax() > 0.1) && character.getStav == Stav.Drinking))
+        if ((character.GetThirsty() / character.GetThirstyMax() > 0.7) || ((character.GetThirsty() / character.GetThirstyMax() > 0.1) && character.GetStav == Stav.Drinking))
         {
-            character.closeWater();
-            if (character.getTargetWater() == null)
+            character.CloseWater();
+            if (character.GetTargetWater() == null)
             { return NodeState.FAILURE; }
-            character.setStav(Stav.Drinking);
+            character.SetStav(Stav.Drinking);
             return NodeState.SUCCESS;
         }
         else

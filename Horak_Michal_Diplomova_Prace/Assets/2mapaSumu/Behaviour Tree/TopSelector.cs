@@ -92,7 +92,7 @@ public class TopSelector : Node
                 case NodeState.SUCCESS:
                     id = original_id;
                     if (original_id == 0)
-                        switchBackOnPlace();
+                        SwitchBackOnPlace();
                     _nodeState = NodeState.SUCCESS;
                     return _nodeState;
                 case NodeState.FAILURE:
@@ -156,7 +156,7 @@ public class TopSelector : Node
         }
     }
 
-    private void switchBackOnPlace()
+    private void SwitchBackOnPlace()
     {
         return;//Z technických dùvodù
 
@@ -167,7 +167,7 @@ public class TopSelector : Node
 
 
     }
-    public string vypis()
+    public string Vypis()
     {
         string x = "";
         foreach (Node item in priority1)

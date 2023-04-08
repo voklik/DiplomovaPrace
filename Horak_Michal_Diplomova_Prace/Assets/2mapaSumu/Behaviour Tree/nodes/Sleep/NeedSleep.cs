@@ -16,15 +16,15 @@ public class NeedSleep : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if ((character.getSleep() / character.getSleepMax() > 0.7) || (character.getSleep() / character.getSleepMax() > 0.1 && character.getStav == Stav.Sleeping))
+        if ((character.GetSleep() / character.GetSleepMax() > 0.7) || (character.GetSleep() / character.GetSleepMax() > 0.1 && character.GetStav == Stav.Sleeping))
         {
-            character.setStav(Stav.Sleeping);
+            character.SetStav(Stav.Sleeping);
             return NodeState.SUCCESS;
         }
         else
         {
-            if (character.getStav == Stav.Sleeping && character.getSleep() / character.getSleepMax() <= 0.1)
-                character.setStav(Stav.Nothing);
+            if (character.GetStav == Stav.Sleeping && character.GetSleep() / character.GetSleepMax() <= 0.1)
+                character.SetStav(Stav.Nothing);
             return NodeState.FAILURE;
         }
     }

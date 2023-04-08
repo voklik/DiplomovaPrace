@@ -30,7 +30,7 @@ public class GenerateNois
         map = noiseMap;
         return noiseMap;
     }
-    public static float[,] generate(int width, int height, float scale, Vector2 offset, float baseHeight, float hillHeight, float randomSeed)
+    public static float[,] Generate(int width, int height, float scale, Vector2 offset, float baseHeight, float hillHeight, float randomSeed)
     {
 
         width1 = width;

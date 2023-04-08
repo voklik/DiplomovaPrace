@@ -62,7 +62,7 @@ public class InitEntitSet : MonoBehaviour
         switch (Entita)
         {
             case Entita.Vlk:
-                Wolf.setdefault(CreateAnimalDefault(CreateEntityDefault()));
+                Wolf.SetDefault(CreateAnimalDefault(CreateEntityDefault()));
                 break;
             case Entita.Ovce:
                 Sheep.Setdefault(CreateAnimalDefault(CreateEntityDefault()));

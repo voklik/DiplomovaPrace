@@ -16,7 +16,7 @@ public class NodeIsInRange : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if (character.IsInCollisionWith(character.getTarget()))
+        if (character.IsInCollisionWith(character.GetTarget()))
         {
             return NodeState.SUCCESS;
         }

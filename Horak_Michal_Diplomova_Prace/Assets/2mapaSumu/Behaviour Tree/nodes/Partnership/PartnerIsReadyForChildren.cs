@@ -14,17 +14,17 @@ public class PartnerIsReadForChildren : Node
 
     public override NodeState Evaluate()
     {
-        if (character.getPartner != null)
-        {if(character.GetIsMature() && character.getPartner.GetComponent<Animal>().GetIsMature())
+        if (character.GetPartner != null)
+        {if(character.GetIsMature() && character.GetPartner.GetComponent<Animal>().GetIsMature())
             {
                 if (character.GetIsMale())
                 {
 
-                    Animal partner = character.getPartner.GetComponent<Animal>();
+                    Animal partner = character.GetPartner.GetComponent<Animal>();
 
-                    if (!partner.getIsPregnant()&& partner.GetCanReproduce()==true)
+                    if (!partner.GetIsPregnant()&& partner.GetCanReproduce()==true)
                     {
-                        character.setStav(Stav.Mating);
+                        character.SetStav(Stav.Mating);
                         return NodeState.SUCCESS;
                     }
                     else
@@ -32,7 +32,7 @@ public class PartnerIsReadForChildren : Node
                 }
                 else
                 {
-                    if (!character.getIsPregnant()&& character.GetCanReproduce() == true)
+                    if (!character.GetIsPregnant()&& character.GetCanReproduce() == true)
                     {
                         return NodeState.SUCCESS;
                     }

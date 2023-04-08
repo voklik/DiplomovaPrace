@@ -108,7 +108,7 @@ public class Map : MonoBehaviour
     {
         if (WorldGenerateSettings.Seed != null)
         { randomSeed = WorldGenerateSettings.Seed; }
-        heightMap = GenerateNois.generate(width, height, scale, offset, baseheight, maxheight, randomSeed);
+        heightMap = GenerateNois.Generate(width, height, scale, offset, baseheight, maxheight, randomSeed);
         Color[] pixels = new Color[width * height];
         int i = 0;
         for (int x = 0; x < width; x++)

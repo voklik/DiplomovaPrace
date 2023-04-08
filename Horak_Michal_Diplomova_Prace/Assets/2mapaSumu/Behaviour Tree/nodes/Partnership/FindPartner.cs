@@ -14,7 +14,7 @@ public class FindPartner : Node
 
     public override NodeState Evaluate()
     {
-        if (character.getPartner == null && character.GetIsMature())
+        if (character.GetPartner == null && character.GetIsMature())
         {
 
             List<GameObject> list = character.GetMyKind();
@@ -23,10 +23,10 @@ public class FindPartner : Node
                 foreach (GameObject item in list)
                 {
                     Animal animal = item.GetComponent<Animal>();
-                    if (animal.GetIsMale() != character.GetIsMale() && animal.getPartner == null && animal.GetIsMature())
+                    if (animal.GetIsMale() != character.GetIsMale() && animal.GetPartner == null && animal.GetIsMature())
                     {
-                        character.setPartner(animal);
-                        animal.setPartner(character);
+                        character.SetPartner(animal);
+                        animal.SetPartner(character);
                         StatisticSystem.AddStatisticEvent(character.GetStatisticEntity(), "Našel si partnera", animal.GetStatisticEntity());
                         StatisticSystem.AddStatisticEvent(animal.GetStatisticEntity(), "Našel si partnera", character.GetStatisticEntity());
                         return NodeState.SUCCESS;

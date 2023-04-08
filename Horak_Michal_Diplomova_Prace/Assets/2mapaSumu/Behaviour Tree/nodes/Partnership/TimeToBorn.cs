@@ -18,9 +18,9 @@ public class TimeToBorn : Node
     public override NodeState Evaluate()
     {
 
-        if (character.getIsPregnant())
+        if (character.GetIsPregnant())
         {
-            if (character.getTimePregnancy() <= 0.0f)
+            if (character.GetTimePregnancy() <= 0.0f)
             {//nastal èas na porod, tak se vybere random pozice v okruhu rodièky
                 Vector3 teren = new Vector3(Random.Range(1, 3) + character.gameObject.transform.position.x
                     , character.gameObject.transform.position.y,
@@ -30,14 +30,14 @@ public class TimeToBorn : Node
                 children = MaterialStorage.generator.GenerateEntityPopulation(character.GetKind(), Mathf.RoundToInt(Random.Range(1,3)), teren);
                     foreach (Entity item in children)
                     {
-                        character.addChilren(item);
-                        if(character.getPartner!=null)
-                        character.getPartner.GetComponent<Animal>().addChilren(item);
+                        character.AddChilren(item);
+                        if(character.GetPartner!=null)
+                        character.GetPartner.GetComponent<Animal>().AddChilren(item);
                     }
 
-                character.setIsPregnant(false);
+                character.SetIsPregnant(false);
                 character.ResetReproduceCooldowntToPregnant();
-                character.resetTimePregnancy();
+                character.ResetTimePregnancy();
                 return NodeState.SUCCESS;
             }
             else

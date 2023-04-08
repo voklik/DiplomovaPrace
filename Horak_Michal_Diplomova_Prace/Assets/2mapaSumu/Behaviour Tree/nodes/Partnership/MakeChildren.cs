@@ -14,28 +14,28 @@ public class MakeChildren : Node
 
     public override NodeState Evaluate()
     {
-        if (character.getPartner != null)
+        if (character.GetPartner != null)
         {
             if (character.GetIsMale())
             {
-                Animal partner = character.getPartner.GetComponent<Animal>();
-                if (character.getStav == Stav.Mating)
+                Animal partner = character.GetPartner.GetComponent<Animal>();
+                if (character.GetStav == Stav.Mating)
                 {
-                    character.setStav(Stav.Nothing);
+                    character.SetStav(Stav.Nothing);
                 }
-                partner.setIsPregnant(true);
+                partner.SetIsPregnant(true);
                 SpawnHearth();
                 StatisticSystem.AddStatisticEvent(character.GetStatisticEntity(), "Making baby", partner.GetStatisticEntity());
                 return NodeState.SUCCESS;
             }
             else
             {
-                if (character.getPartner.GetComponent<Animal>().getStav == Stav.Mating)
+                if (character.GetPartner.GetComponent<Animal>().GetStav == Stav.Mating)
                 {
-                    character.getPartner.GetComponent<Animal>().setStav(Stav.Nothing);
+                    character.GetPartner.GetComponent<Animal>().SetStav(Stav.Nothing);
                 }
-                StatisticSystem.AddStatisticEvent(character.getPartner.GetComponent<Animal>().GetStatisticEntity(), "Making baby", character.GetStatisticEntity());
-                character.setIsPregnant(true);
+                StatisticSystem.AddStatisticEvent(character.GetPartner.GetComponent<Animal>().GetStatisticEntity(), "Making baby", character.GetStatisticEntity());
+                character.SetIsPregnant(true);
                 SpawnHearth();
                 return NodeState.SUCCESS;
             }

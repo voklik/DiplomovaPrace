@@ -18,21 +18,21 @@ public class Eat : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if (character.getHunger() / character.getHugerMax() < 0.1 && character.getStav == Stav.Eating)
+        if (character.GetHunger() / character.GetHugerMax() < 0.1 && character.GetStav == Stav.Eating)
         {//Pokud se Zvíøe dostalo pod 10% potøeby hladu a v minulém cyklu Update se jedlo, tak se pøestane jíst
             agent.isStopped = true;
-            character.setStav(Stav.Nothing);
+            character.SetStav(Stav.Nothing);
             return NodeState.SUCCESS;
         }
         else
         {//Pokraèuje se v jídle
-            if ((character.getHunger() / character.getHugerMax() > 0.1 && character.getStav == Stav.Eating))
+            if ((character.GetHunger() / character.GetHugerMax() > 0.1 && character.GetStav == Stav.Eating))
             {
-                character.Eat(character.getFoodTarget());
-                character.setStav(Stav.Eating);
-                if (character.getHunger() / character.getHugerMax() < 0.1 && character.getStav == Stav.Eating)
+                character.Eat(character.GetFoodTarget());
+                character.SetStav(Stav.Eating);
+                if (character.GetHunger() / character.GetHugerMax() < 0.1 && character.GetStav == Stav.Eating)
                 {
-                    character.setStav(Stav.Nothing);
+                    character.SetStav(Stav.Nothing);
                     return NodeState.SUCCESS;
                 }
                 return NodeState.RUNNING;

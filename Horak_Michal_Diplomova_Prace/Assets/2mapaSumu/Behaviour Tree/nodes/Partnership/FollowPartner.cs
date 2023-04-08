@@ -17,19 +17,19 @@ public class FollowPartner : Node
     {
 
 
-        Stav laststav = character.getStav;
-        character.setStav(Stav.FollowParty, false);
-        GameObject followed = character.getTarget();
+        Stav laststav = character.GetStav;
+        character.SetStav(Stav.FollowParty, false);
+        GameObject followed = character.GetTarget();
         if (followed != null)
         {
             if (Vector3.Distance(character.transform.position, followed.transform.position) > range)
             {
-                character.setStav(Stav.FollowParty, true);
+                character.SetStav(Stav.FollowParty, true);
                 return NodeState.SUCCESS;
             }
             else
             {
-                character.setAgentMovementEnabled(true);
+                character.SetAgentMovementEnabled(true);
                 character.gameObject.GetComponent<NavMeshAgent>().isStopped = true;
                 return NodeState.FAILURE;
             }
@@ -37,7 +37,7 @@ public class FollowPartner : Node
         }
         else
         {
-            character.setStav(laststav, false);
+            character.SetStav(laststav, false);
             return NodeState.FAILURE;
         }
 

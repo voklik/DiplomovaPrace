@@ -19,11 +19,11 @@ public class Sheep : Animal
         ageForDie = AnimalDefaultValues.EntityDefaultValues.AgeForDie;
         canReproduce = AnimalDefaultValues.EntityDefaultValues.CanReproduce;
         reproduce_cooldown = AnimalDefaultValues.EntityDefaultValues.Reproduce_cooldown;
-        setTimePregnancyDefault(AnimalDefaultValues.PregnancyTimeToBornDefault);
-        setTimeHunger(AnimalDefaultValues.Hunger_perSec);
-        setTimeThirsty(AnimalDefaultValues.Thirsty_perSec);
-        setTimeSleep(AnimalDefaultValues.Sleepnes_perSec);
-        setStrenght(AnimalDefaultValues.Strenght);
+        SetTimePregnancyDefault(AnimalDefaultValues.PregnancyTimeToBornDefault);
+        SetTimeHunger(AnimalDefaultValues.Hunger_perSec);
+        SetTimeThirsty(AnimalDefaultValues.Thirsty_perSec);
+        SetTimeSleep(AnimalDefaultValues.Sleepnes_perSec);
+        SetStrenght(AnimalDefaultValues.Strenght);
     }
     public override void Start()
     {

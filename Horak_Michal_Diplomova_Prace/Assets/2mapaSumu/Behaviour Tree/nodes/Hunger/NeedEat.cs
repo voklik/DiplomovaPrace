@@ -17,21 +17,21 @@ public class NeedEat : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if ((character.getHunger() / character.getHugerMax() > 0.7) || (character.getStav == Stav.Eating && (character.getHunger() / character.getHugerMax() > 0.1)))
+        if ((character.GetHunger() / character.GetHugerMax() > 0.7) || (character.GetStav == Stav.Eating && (character.GetHunger() / character.GetHugerMax() > 0.1)))
         {//Pokud má zvíøe hlad nad 70%, nebo pokud je hlad nad 10% a v minulém cyklu jedl, 
          //tak se zaène øešit potrava/pokraèuje se v øešení potravy
-            character.closeFood();
+            character.CloseFood();
 
-            Stav last = character.getStav;
-            character.setStav(Stav.Eating);
-            if (character.getFoodTarget() != null)
+            Stav last = character.GetStav;
+            character.SetStav(Stav.Eating);
+            if (character.GetFoodTarget() != null)
             {
-                character.setStav(Stav.Eating);
+                character.SetStav(Stav.Eating);
                 return NodeState.SUCCESS;
             }
             else
             {
-                character.setStav(last);
+                character.SetStav(last);
                 return NodeState.FAILURE;
             }
         }

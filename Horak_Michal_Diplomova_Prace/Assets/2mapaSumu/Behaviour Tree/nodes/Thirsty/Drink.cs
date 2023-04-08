@@ -20,9 +20,9 @@ public class Drink : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if ((character.getThirsty() / character.getThirstyMax() < 0.1) && (character.getStav == Stav.Drinking))
+        if ((character.GetThirsty() / character.GetThirstyMax() < 0.1) && (character.GetStav == Stav.Drinking))
         {
-            character.setStav(Stav.Nothing);
+            character.SetStav(Stav.Nothing);
             return NodeState.SUCCESS;
         }
 
@@ -30,9 +30,9 @@ public class Drink : Node
         {
             character.Drink();
             agent.isStopped = true;
-            if ((character.getThirsty() / character.getThirstyMax() < 0.1) && (character.getStav == Stav.Drinking || character.getStav == Stav.GoingForWater))
+            if ((character.GetThirsty() / character.GetThirstyMax() < 0.1) && (character.GetStav == Stav.Drinking || character.GetStav == Stav.GoingForWater))
             {
-                character.setStav(Stav.Nothing);
+                character.SetStav(Stav.Nothing);
                 return NodeState.SUCCESS;
 
             }

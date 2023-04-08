@@ -17,12 +17,12 @@ public class Attack : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        Entity target = character.getFoodTarget();
+        Entity target = character.GetFoodTarget();
         if (target == null)
         {
             return NodeState.FAILURE;
         }
-        target.TakeDMG(character.getStrenght());
+        target.TakeDMG(character.GetStrenght());
         agent.isStopped = true;
         return NodeState.SUCCESS;
     }

@@ -17,18 +17,18 @@ public abstract class Animal : Entity
     [SerializeField] private float max_sleepnes = 100;
     [SerializeField] private float sleepnes_perSec = 0.3f;
     [SerializeField] private float strenght = 20;
-    public void setTimeHunger(float value) { hunger_perSec = value; }
-    public void setTimeThirsty(float value) { thirsty_perSec = value; }
-    public void setTimeSleep(float value) { sleepnes_perSec = value; }
-    public void setStrenght(float value) { strenght = value; }
+    public void SetTimeHunger(float value) { hunger_perSec = value; }
+    public void SetTimeThirsty(float value) { thirsty_perSec = value; }
+    public void SetTimeSleep(float value) { sleepnes_perSec = value; }
+    public void SetStrenght(float value) { strenght = value; }
     [SerializeField] private bool isPregnant = false;
-    public void setIsPregnant(bool pregnancy) { isPregnant = pregnancy; }
-    public bool getIsPregnant() { return isPregnant; }
+    public void SetIsPregnant(bool pregnancy) { isPregnant = pregnancy; }
+    public bool GetIsPregnant() { return isPregnant; }
     [SerializeField] private float pregnancyTimeToBornDefault = 120.0f;
     [SerializeField] private float pregnancyTimeToBorn = 120.0f;
-    public void resetTimePregnancy() { pregnancyTimeToBorn = pregnancyTimeToBornDefault; }
-    public float getTimePregnancy() { return pregnancyTimeToBorn; }
-    public void setTimePregnancyDefault(float time) { pregnancyTimeToBornDefault = time; }
+    public void ResetTimePregnancy() { pregnancyTimeToBorn = pregnancyTimeToBornDefault; }
+    public float GetTimePregnancy() { return pregnancyTimeToBorn; }
+    public void SetTimePregnancyDefault(float time) { pregnancyTimeToBornDefault = time; }
     [SerializeField] private bool isRunning = false;
     [SerializeField] private bool isTargeted = false;
     [SerializeField] private float targetRange = 2.0f;
@@ -42,24 +42,24 @@ public abstract class Animal : Entity
     [SerializeField] private GameObject targetFood = null;
     [SerializeField] private float partnerMaxRange = 20.0f;
 
-    public GameObject getTargetWater() { return targetWater; }
+    public GameObject GetTargetWater() { return targetWater; }
     public float getPartnerMaxRange { get { return partnerMaxRange; } }
 
-    public void setPartnerMaxRange(float _range) { partnerMaxRange = _range; }
+    public void SetPartnerMaxRange(float _range) { partnerMaxRange = _range; }
     public GameObject getTargetAttackingMe { get { return targetAttackingMe; } }
 
-    public void setTargetAttackingMe(Entity enemy) { targetAttackingMe = enemy.gameObject; }
+    public void SetTargetAttackingMe(Entity enemy) { targetAttackingMe = enemy.gameObject; }
     public GameObject getTargetAttackingPartner { get { return targetAttackingPartner; } }
 
-    public void seTtargetAttackingPartner(Entity enemy) { targetAttackingPartner = enemy.gameObject; }
-    public GameObject getPartner { get { return partner; } }
+    public void SetTargetAttackingPartner(Entity enemy) { targetAttackingPartner = enemy.gameObject; }
+    public GameObject GetPartner { get { return partner; } }
 
-    public void setPartner(Entity _NewPartner) { partner = _NewPartner.gameObject; }
+    public void SetPartner(Entity _NewPartner) { partner = _NewPartner.gameObject; }
     [SerializeField] private GameObject partner = null;
     [SerializeField] private GameObject father = null, mother = null;
     [SerializeField] private List<GameObject> childrens = new List<GameObject>();
-    public void addChilren(Entity children) { if (!childrens.Contains(children.gameObject)) childrens.Add(children.gameObject); }
-    public void removeChildren(Entity child) { childrens.Remove(child.gameObject); }
+    public void AddChilren(Entity children) { if (!childrens.Contains(children.gameObject)) childrens.Add(children.gameObject); }
+    public void RemoveChildren(Entity child) { childrens.Remove(child.gameObject); }
 
 
 
@@ -76,20 +76,20 @@ public abstract class Animal : Entity
     [SerializeField] private GameObject closestAnimalSpot = null;
     [SerializeField] private GameObject closestPlantSpot = null;
 
-    public Stav getStav { get { return stav; } }
-    public void setStav(Stav _stav)
+    public Stav GetStav { get { return stav; } }
+    public void SetStav(Stav _stav)
     {
         Vypis("jdu na ze stavu " + stav.ToString() + " na " + _stav.ToString());
 
 
         stav = _stav;
     }
-    public void setStav(Stav _stav, bool resetRandomTarget)
+    public void SetStav(Stav _stav, bool resetRandomTarget)
     {
         Vypis("jdu na ze stavu " + stav.ToString() + " na " + _stav.ToString());
 
         if (this.stav == Stav.GoRandom && _stav != Stav.GoRandom && resetRandomTarget == true)
-        { resetRandomPointTarget(); }
+        { ResetRandomPointTarget(); }
         stav = _stav;
     }
 
@@ -213,7 +213,7 @@ public abstract class Animal : Entity
 
     public void InitHeightReset()
     { InitHeight2(); }
-    private bool isPositionEquel(Vector3 a, Vector3 b)
+    private bool IsPositionEquel(Vector3 a, Vector3 b)
     {
         if (a == b)
             return true;
@@ -228,20 +228,20 @@ public abstract class Animal : Entity
         {
             // setAgentMovementEnabled(true);
             StatsChangeTimeEntity();
-            statsChangeAnimal();
+            StatsChangeAnimal();
             NodeState state = topNode.Evaluate();
-            Vypis(topNode.vypis());
+            Vypis(topNode.Vypis());
             // initHeight();
         }
 
         else if (!isLive && hp < 0)
         {
-            setAgentMovementEnabled(true);
+            SetAgentMovementEnabled(true);
             gameObject.transform.Rotate(-1f, -1f, -1f);
         }
         //  Wait(0.5f);
     }
-    private void statsChangeAnimal()
+    private void StatsChangeAnimal()
     {
         hunger += Time.deltaTime * hunger_perSec;
         if (hunger >= max_hunger)
@@ -300,16 +300,16 @@ public abstract class Animal : Entity
 
 
 
-    public float getStrenght() { return strenght; }
+    public float GetStrenght() { return strenght; }
 
-    public bool getIsRunning() { return isRunning; }
-    public bool getIsTargeted() { return isTargeted; }
-    public float getSleep() { return sleepnes; }
-    public float getSleepMax() { return max_sleepnes; }
-    public float getHunger() { return hunger; }
-    public float getHugerMax() { return max_hunger; }
-    public float getThirsty() { return thirsty; }
-    public float getThirstyMax() { return max_thirsty; }
+    public bool GetIsRunning() { return isRunning; }
+    public bool GetIsTargeted() { return isTargeted; }
+    public float GetSleep() { return sleepnes; }
+    public float GetSleepMax() { return max_sleepnes; }
+    public float GetHunger() { return hunger; }
+    public float GetHugerMax() { return max_hunger; }
+    public float GetThirsty() { return thirsty; }
+    public float GetThirstyMax() { return max_thirsty; }
     public void TheyAreGoForMyMeat(GameObject g)
     {
         if (!TheyAreGoForMe.Contains(g))
@@ -336,7 +336,7 @@ public abstract class Animal : Entity
 
     }
 
-    private void actualyCloseAnimal()
+    private void ActualyCloseAnimal()
     {
         GameObject close = null;
         float distance = int.MaxValue - 2;
@@ -368,7 +368,7 @@ public abstract class Animal : Entity
         //    Vypis("closesttargetfood" + closestAnimalSpot.name);
 
     }
-    private void actualyClosePlant()
+    private void ActualyClosePlant()
     {
         GameObject close = null;
         float distance = int.MaxValue - 2;
@@ -393,7 +393,7 @@ public abstract class Animal : Entity
         }
         closestPlantSpot = close;
     }
-    private void actualyCloseWater()
+    private void ActualyCloseWater()
     {
         GameObject close = null;
         float distance = int.MaxValue - 2;
@@ -419,37 +419,37 @@ public abstract class Animal : Entity
         closestWaterSpot = close;
 
     }
-    public void closeWater()
+    public void CloseWater()
     {
-        actualyCloseWater();
+        ActualyCloseWater();
         if (targetWater != closestWaterSpot && closestWaterSpot != null)
         {
 
             targetWater = closestWaterSpot;
         }
     }
-    public void closeFood()
+    public void CloseFood()
     {
         //  Vypis(animalsSpoted.Count.ToString()+"|"+type);
         //type ;//1-meateater,2-planteater,3-alleater;
         if (typeEater == 1)
         {
             //    Vypis("food" );
-            actualyCloseAnimal();
+            ActualyCloseAnimal();
             targetFood = closestAnimalSpot;
             //    Vypis("targetfood22" + targetFood.name);
         }
         else if (typeEater == 2)
         {
             //     Vypis("food");
-            actualyClosePlant();
+            ActualyClosePlant();
             targetFood = closestPlantSpot;
         }
         else if (typeEater == 3)
         {
             //   Vypis("food");
-            actualyCloseAnimal();
-            actualyClosePlant();
+            ActualyCloseAnimal();
+            ActualyClosePlant();
 
             if (closestAnimalSpot != null && closestPlantSpot == null)
             {
@@ -506,7 +506,7 @@ public abstract class Animal : Entity
         }
     }
 
-    public void setTarget(GameObject g)
+    public void SetTarget(GameObject g)
     {
         if (target == null)
         {
@@ -564,37 +564,25 @@ public abstract class Animal : Entity
         TakeDMG(dmg);
     }
 
-    public float getHungerPercentage() { return (getHunger() / getHugerMax()); }
-    public float getThirstyPercentage() { return (getThirsty() / getThirstyMax()); }
-    public float getSlePercentage() { return (getSleep() / getSleepMax()); }
-    //public void Eat()
-    //{
-    //    SetText("Eat");
-    //    hunger -= 50 * Time.deltaTime;
-    //    if (hunger < 0)
-    //        hunger = 0;
-    //  if(  getHunger() / getHugerMax() < 0.1 && !targetFood.GetComponent<Animal>().isLive)
-    //    {
-    //        animalsSpoted.Remove(targetFood);
-    //        targetFood = null;
-    //    }
-
-    //}
+    public float GetHungerPercentage() { return (GetHunger() / GetHugerMax()); }
+    public float GetThirstyPercentage() { return (GetThirsty() / GetThirstyMax()); }
+    public float GetSlePercentage() { return (GetSleep() / GetSleepMax()); }
+    
     public void Drink()
     {
 
         thirsty -= 50 * Time.deltaTime;
         if (thirsty < 0)
             thirsty = 0;
-        if (getThirsty() / getThirstyMax() < 0.1)
+        if (GetThirsty() / GetThirstyMax() < 0.1)
         { targetWater = null; }
 
     }
-    public float getDistanceToTarget()
+    public float GetDistanceToTarget()
     {
         if ((stav == Stav.GoingForFood || stav == Stav.Eating || stav == Stav.GoingForFight) && targetFood != null)
         {
-            closeFood();
+            CloseFood();
             if (targetFood != null)
                 return Vector3.Distance(gameObject.transform.position, targetFood.transform.position);
 
@@ -610,21 +598,21 @@ public abstract class Animal : Entity
         }
         else if ((stav == Stav.Drinking || stav == Stav.GoingForWater) && targetWater != null)
         {
-            closeWater();
+            CloseWater();
             if (targetWater != null)
                 return Vector3.Distance(gameObject.transform.position, targetWater.transform.position);
             else return -1000;
         }
         else if (stav == Stav.GoingforDefend)
         {
-            if (getAttackingMeClosestEntity() != null)
-                return Vector3.Distance(gameObject.transform.position, getAttackingMeClosestEntity().transform.position);
+            if (GetAttackingMeClosestEntity() != null)
+                return Vector3.Distance(gameObject.transform.position, GetAttackingMeClosestEntity().transform.position);
             else return -1000;
         }
         else if (stav == Stav.GoingforDefend)
         {
-            if (getAttackingPartnerClosestEntity() != null)
-                return Vector3.Distance(gameObject.transform.position, getAttackingPartnerClosestEntity().transform.position);
+            if (GetAttackingPartnerClosestEntity() != null)
+                return Vector3.Distance(gameObject.transform.position, GetAttackingPartnerClosestEntity().transform.position);
             else return -1000;
         }
         else if (stav == Stav.FollowParty)
@@ -662,11 +650,11 @@ public abstract class Animal : Entity
         }
         else return -1000;
     }
-    public GameObject getTarget()
+    public GameObject GetTarget()
     {
         if ((stav == Stav.Eating || stav == Stav.GoingForFood || stav == Stav.GoingForFight) && targetFood != null)
         {
-            closeFood();
+            CloseFood();
 
             if (targetFood != null)
                 return targetFood;
@@ -680,21 +668,21 @@ public abstract class Animal : Entity
         }
         else if ((stav == Stav.Drinking || stav == Stav.GoingForWater) && targetWater != null)
         {
-            closeWater();
+            CloseWater();
             if (targetWater != null)
                 return targetWater;
             else return null;
         }
         else if (stav == Stav.GoingforDefend)
         {
-            if (getAttackingMeClosestEntity() != null)
-                return getAttackingMeClosestEntity();
+            if (GetAttackingMeClosestEntity() != null)
+                return GetAttackingMeClosestEntity();
             else return null;
         }
         else if (stav == Stav.GoingforDefend)
         {
-            if (getAttackingPartnerClosestEntity() != null)
-                return getAttackingPartnerClosestEntity();
+            if (GetAttackingPartnerClosestEntity() != null)
+                return GetAttackingPartnerClosestEntity();
             else return null;
         }
         else if (stav == Stav.FollowParty)
@@ -722,7 +710,7 @@ public abstract class Animal : Entity
         //už neplatí //pro jistotu target a ne null....
         else return null;
     }
-    public Entity getFoodTarget()
+    public Entity GetFoodTarget()
     {
         if (targetFood == null)
         {
@@ -744,7 +732,7 @@ public abstract class Animal : Entity
 
     }
 
-    public void stavNext()
+    public void GetStavNext()
     {
         if (stav == Stav.GoingForFood)
         {
@@ -767,7 +755,7 @@ public abstract class Animal : Entity
 
 
     Vector3 vektor;
-    public void setAgentMovementEnabled(bool x)
+    public void SetAgentMovementEnabled(bool x)
     {
         if (agent.enabled == true)
         {
@@ -785,7 +773,7 @@ public abstract class Animal : Entity
 
         }
     }
-    public GameObject getAttackingMeClosestEntity()
+    public GameObject GetAttackingMeClosestEntity()
     {//ke mì nejbližší nepøítel,co mì napadá;
         GameObject closest = null;
         float distance = int.MaxValue;
@@ -808,7 +796,7 @@ public abstract class Animal : Entity
         targetAttackingMe = closest;
         return targetAttackingMe;
     }
-    public GameObject getAttackingPartnerClosestEntity()
+    public GameObject GetAttackingPartnerClosestEntity()
     {//Ke mì nejbližší nepøítel,co napadá partnera
         if (partner != null)
         {
@@ -849,7 +837,7 @@ public abstract class Animal : Entity
         }
         return false;
     }
-    public GameObject setRandomPointTarget()
+    public GameObject SetRandomPointTarget()
     {
         if (earthSpot.Count != 0)
         {
@@ -882,13 +870,12 @@ public abstract class Animal : Entity
         }
 
     }
-    public GameObject getRandomPointTarget()
+    public GameObject GetRandomPointTarget()
     {
         return targetRandomTerrain;
     }
-    public void resetRandomPointTarget()
+    public void ResetRandomPointTarget()
     {
-        Vypis("jdu na reset");
         targetRandomTerrain = null;
     }
 

@@ -18,16 +18,16 @@ public class Sleep : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        if (character.getSleep() / character.getSleepMax() < 0.10 && character.getStav == Stav.Sleeping)
+        if (character.GetSleep() / character.GetSleepMax() < 0.10 && character.GetStav == Stav.Sleeping)
         {//Pokud charakter se dostal pod 10% procent potøeby spánku a na konci minulého cyklu Update spal, tak se ukonèí spánek 
-            character.setStav(Stav.Nothing);
+            character.SetStav(Stav.Nothing);
             return NodeState.SUCCESS;
         }
         else
         {//Charakter jde spát
             character.Sleep();
             agent.isStopped = true;
-            character.setStav(Stav.Sleeping);
+            character.SetStav(Stav.Sleeping);
             return NodeState.RUNNING;
         }
 

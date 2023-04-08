@@ -18,27 +18,27 @@ public class NodeGoTo : Node
     /// <returns></returns>
     public override NodeState Evaluate()
     {
-        float distance = character.getDistanceToTarget();
+        float distance = character.GetDistanceToTarget();
         if (distance != -1000)//Hodnota -1000 znamená, že to není pøístupné
         {
-            if (character.IsInCollisionWith(character.getTarget()) || distance <= 3.0)//Pokud je kolize, nebo jsem tomu velice blízko
+            if (character.IsInCollisionWith(character.GetTarget()) || distance <= 3.0)//Pokud je kolize, nebo jsem tomu velice blízko
             {
-                character.setAgentMovementEnabled(true);//Vypnu pohyb
+                character.SetAgentMovementEnabled(true);//Vypnu pohyb
                 agent.isStopped = true;
-                if (character.getStav == Stav.GoRandom)
+                if (character.GetStav == Stav.GoRandom)
                 {
-                    character.resetRandomPointTarget();
-                    character.setStav(Stav.Nothing);
+                    character.ResetRandomPointTarget();
+                    character.SetStav(Stav.Nothing);
                 }
                 return NodeState.SUCCESS;
             }
             else
             {//Není pøístupný cíl
-                Vector3 target = character.getTarget().transform.position;
+                Vector3 target = character.GetTarget().transform.position;
 
                 //Zkusím najít cíl znova
                 character.Vypis(target.ToString());
-                if (character.getStav == Stav.GoRandom)
+                if (character.GetStav == Stav.GoRandom)
                 { target = new Vector3(target.x, target.y + 0.0f, target.z); }
                 bool enabled = agent.enabled;
                 agent.SetDestination(target);
@@ -52,16 +52,16 @@ public class NodeGoTo : Node
                 }
                 agent.isStopped = false;
                 agent.enabled = enabled;
-                character.setAgentMovementEnabled(false);
+                character.SetAgentMovementEnabled(false);
 
                 //Dostal jsem se k cíly
-                if (character.IsInCollisionWith(character.getTarget()) || distance <= 3.0f)
+                if (character.IsInCollisionWith(character.GetTarget()) || distance <= 3.0f)
                 {
-                    character.setAgentMovementEnabled(true);
-                    if (character.getStav == Stav.GoRandom)
+                    character.SetAgentMovementEnabled(true);
+                    if (character.GetStav == Stav.GoRandom)
                     {
-                        character.resetRandomPointTarget();
-                        character.setStav(Stav.Nothing);
+                        character.ResetRandomPointTarget();
+                        character.SetStav(Stav.Nothing);
                     }
                     return NodeState.SUCCESS;
                 }
