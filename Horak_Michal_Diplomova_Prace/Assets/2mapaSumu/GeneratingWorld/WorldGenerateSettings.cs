@@ -7,12 +7,9 @@ public class WorldGenerateSettings : MonoBehaviour
     public float x = 35, y = 40;
     public static float baseHeight, BaseMaxHeight;
     public static float Multiplier = 10;
-
     public static float MinHeight = 1, MaxHeinght = 0;
-
     public static int Width, Depth = 0;
     public static float Seed = 435;
-
     public Slider SMultiplier, SWidth, SDepth, SSeed;
 
     public void Awake()
@@ -27,10 +24,8 @@ public class WorldGenerateSettings : MonoBehaviour
     {
         GameObject entita = Resources.Load<GameObject>("Slider") as GameObject;
         GameObject novy = Instantiate(entita, new Vector3(0, 0, 0), Quaternion.identity);
-
         novy.name = "Slider" + nazev;
         novy.transform.Find("Name").GetComponent<Text>().text = popisek;
-        // novy.transform.Find("Name").GetComponent<Text>().text = popisek;
         novy.transform.Find("Name").GetComponent<Text>().fontSize = 20;
         novy.transform.Find("Name").GetComponent<Text>().supportRichText = true;
         novy.transform.Find("Value").GetComponent<Text>().fontSize = 20;
@@ -43,7 +38,6 @@ public class WorldGenerateSettings : MonoBehaviour
         slider.wholeNumbers = true;
         novy.transform.parent = gameObject.transform;
         novy.transform.localPosition = new Vector3(x - 100, y + 420, 0);
-
         y -= 35;
         return slider;
     }
@@ -55,7 +49,6 @@ public class WorldGenerateSettings : MonoBehaviour
 
         novy.name = "Slider" + nazev;
         novy.transform.Find("Name").GetComponent<Text>().text = CaptionsLibrary.GetCaption(popisek);
-        //novy.transform.Find("Name").GetComponent<Text>().text = popisek;
         novy.transform.Find("Name").GetComponent<Text>().fontSize = 20;
         novy.transform.Find("Name").GetComponent<Text>().supportRichText = true;
         novy.transform.Find("Value").GetComponent<Text>().fontSize = 20;
@@ -68,9 +61,7 @@ public class WorldGenerateSettings : MonoBehaviour
             );
         slider.wholeNumbers = false;
         novy.transform.parent = gameObject.transform;
-        // novy.transform.position = new Vector3(0, 0, 0);
         novy.transform.localPosition = new Vector3(x - 100, y + 420, 0);
-        //   novy.transform.position = new Vector3(x, y, 0);
         y -= 35;
         return slider;
     }

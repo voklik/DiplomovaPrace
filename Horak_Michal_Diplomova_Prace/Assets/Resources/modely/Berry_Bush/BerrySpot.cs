@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BerrySpot : MonoBehaviour
 {
+
+    //NEVYUŽITO
     //Tato tøída slouží jako bod, kdese generují plody. Napøíklad bobule na keøi.
     [SerializeField] private GameObject prefabBerry;
     [SerializeField] private GameObject berry = null;
@@ -28,7 +30,6 @@ public class BerrySpot : MonoBehaviour
                 SpawnBerry();
                 leftTimeForNewBerry = 0.0f;
             }
-
         }
     }
 
@@ -42,8 +43,7 @@ public class BerrySpot : MonoBehaviour
     {
         berry = Instantiate(prefabBerry, transform.position, Quaternion.identity);
         berry.transform.parent = gameObject.transform;
-        berry.transform.localPosition = transform.localPosition; //new Vector3(0.0f, 0.0f, 0.0f);
-        // berry.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        berry.transform.localPosition = transform.localPosition;
         berry.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
         berry.GetComponent<Berry>().SetBerrySpot(this);
         berry.name = "berry";

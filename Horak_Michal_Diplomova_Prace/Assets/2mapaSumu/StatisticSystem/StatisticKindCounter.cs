@@ -6,7 +6,6 @@ public class StatisticKindCoutner
 {
     private string Kind;
     private int CountLive, CountDead;
-
     public StatisticKindCoutner(string kind, int countLive, int countdead)
     {
         Kind = kind;

@@ -27,8 +27,6 @@ public class Sheep : Animal
     }
     public override void Start()
     {
-      
-      
         typeEntity = 1;
         kind = "sheep";
         typeEater = 2;
@@ -36,7 +34,6 @@ public class Sheep : Animal
             InitKind();
         base.Start();
     }
-
     public override void Update()
     {
         base.Update();

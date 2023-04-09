@@ -4,9 +4,7 @@ public class ItemID
   * Zajišuje rovnomìrné zastoupení samcù a samic v populaci
     */
     private string text;
-
     private int number;
-
     private bool wasLastMale;
 
     public ItemID(string text, int number, bool wasLastMale)

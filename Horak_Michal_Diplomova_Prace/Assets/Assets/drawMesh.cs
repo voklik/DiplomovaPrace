@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class drawMesh : MonoBehaviour {
-
+    //NEVYUŽITO - zanecháno z důvodu, že tato složka byla importována z marketplace
     Mesh m;
     MeshFilter mf;
 

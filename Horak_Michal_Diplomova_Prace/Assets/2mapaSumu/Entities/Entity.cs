@@ -83,7 +83,6 @@ public class Entity : MonoBehaviour
     [SerializeField] protected BodyCollider bodyCollider;
     protected float ReproduceCooldowntToPregnant = 0;          //Odpoèet k porodu
     protected float ReproduceCooldowntToPregnantDefault = 60; // Mezièas, kdy samice nemùže být tìhotná.
-
     protected private NavMeshAgent agent;
 
     //potøebuji i prázdné metody start a update, pro pøepsání v potomcích, protože ve výchozím stavu nejsou virtual
@@ -99,11 +98,13 @@ public class Entity : MonoBehaviour
     {
         //Metoda, která vrací text. Tento text je využit v oknì s informace o jednotlivci.
         string text = "";
-        Debug.LogWarning("Info");
-        text += kind + "f " + name + " " + age + " ";
-        text += (isMale) ? "samec" : "samice";
-        text += (typeEntity == 1) ? "zvíøe" : text += (typeEntity == 2) ? "rostlina" : "error";
-        text += (typeEntity == 1) ? (typeEater == 1) ? "masožravec" : text += (typeEater == 2) ? "rostlinožrout" : "všežrout" : "";
+        text += kind + " " + name;
+        text += " \n" + CaptionsLibrary.GetCaption("Age") + " " + Mathf.Round(age * 10) / 10 + "\n";
+        text += CaptionsLibrary.GetCaption("Adult") + " " + ((isMature) ? CaptionsLibrary.GetCaption("Yes") + " " : CaptionsLibrary.GetCaption("No") + " ") + CaptionsLibrary.GetCaption("AdultInAge") + " " + mature_age + "\n";
+        text += (isMale) ? CaptionsLibrary.GetCaption("Male") + " " : CaptionsLibrary.GetCaption("Female");
+        text += " \n" + CaptionsLibrary.GetCaption("Animal") + "\n";
+        text += (typeEntity == 1) ? (typeEater == 1) ? CaptionsLibrary.GetCaption("Meateater") : (typeEater == 2) ? CaptionsLibrary.GetCaption("Planteater") : CaptionsLibrary.GetCaption("Alleater") : "?";
+        text += "\n" + CaptionsLibrary.GetCaption("HP") + " : " + hp + " / " + max_hp + "\n";
         return text;
     }
 
@@ -125,7 +126,9 @@ public class Entity : MonoBehaviour
 
     public bool GetIsMature()
     {
-        if (age < mature_age) return false; else return true;
+        if (age < mature_age)
+            return false;
+        else return true;
     }
 
     public string GetKind()
@@ -247,7 +250,6 @@ public class Entity : MonoBehaviour
         //Ten, kdo znal tuto entitu, zemøel. Toto slouží k tomu, aby se nevyskytovali nully v seznamech
         Entity e = gameObject.GetComponent<Entity>();
         iWasSpottedBy.Remove(g);
-
         if (g.tag == "plant")
         {
             plantSpoted.Remove(g);
@@ -281,7 +283,6 @@ public class Entity : MonoBehaviour
                     {//pokud jde o zvíøe a jsem všehožrout èi rostlinožrout
                         if (g.tag == "plant" && (this.typeEater == 2 || this.typeEater == 3))
                         {
-                            Debug.Log(gameObject.name + " behaaaa");
                             Vypis(" zpozoroval " + g.name);
                             if (!plantSpoted.Contains(g))
                                 plantSpoted.Add(g);
@@ -290,7 +291,6 @@ public class Entity : MonoBehaviour
                         //pokud jde o zvíøe a jsem masožrout èi všehožrout
                         else if (g.tag == "animal" && (this.typeEater == 1 || this.typeEater == 3))
                         {
-                            Debug.Log(gameObject.name + " ahoj");
                             Vypis(" zpozoroval " + g.name);
                             if (!animalsSpoted.Contains(g))
                                 animalsSpoted.Add(g);
@@ -307,7 +307,10 @@ public class Entity : MonoBehaviour
                         a.IwasSpottedBy(gameObject);
                     }
                 }
-                else { Debug.LogWarning("error typeEntity=0"); }
+                else
+                {
+                    Debug.LogWarning("error typeEntity=0");
+                }
             }
             else
             {
@@ -315,7 +318,6 @@ public class Entity : MonoBehaviour
                     myKindSpotted.Add(g);
                 a.IwasSpottedBy(gameObject);
             }
-
         }
         else if (g.tag == "water" && this.typeEntity == 1)
         {//pokud jsem zvíøe a jedná se o bod vody
@@ -368,7 +370,6 @@ public class Entity : MonoBehaviour
         {
             dmg = hp_poison;
         }
-
         return foodValue;
     }
 
@@ -430,9 +431,7 @@ public class Entity : MonoBehaviour
 
     protected private void Wait(float x)
     {
-        StartCoroutine(
-                //Metoda, která slouží pro to, aby entita poèkala nìjaký èas
-                WaitSeconds(x));
+        StartCoroutine(WaitSeconds(x));//Metoda, která slouží pro to, aby entita poèkala nìjaký èas
     }
 
     protected private IEnumerator WaitSeconds(float sec)

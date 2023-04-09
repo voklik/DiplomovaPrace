@@ -14,7 +14,6 @@ public abstract class Plant : Entity
     {
         typeEntity = 2;
         Init();
-
         gameObject.GetComponentInChildren<Rigidbody>().useGravity = true;
         gameObject.GetComponentInChildren<Rigidbody>().angularDrag = 100;
     }
@@ -24,7 +23,6 @@ public abstract class Plant : Entity
         {
             StatsChangeTimeEntity();
         }
-
         Reproduce();
         transform.rotation = Quaternion.Euler(0, 0, 0);
         Wait(0.5f);

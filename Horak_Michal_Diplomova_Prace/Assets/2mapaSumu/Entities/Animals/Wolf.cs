@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wolf : Animal
 {
-   public static AnimalDefaultValues AnimalDefaultValues;
+    public static AnimalDefaultValues AnimalDefaultValues;
     public static void SetDefault(AnimalDefaultValues _AnimalDefaultValues)
     { AnimalDefaultValues = _AnimalDefaultValues; }
     public void InitKind()
@@ -24,24 +24,18 @@ public class Wolf : Animal
         SetTimeHunger(AnimalDefaultValues.Hunger_perSec);
         SetTimeThirsty(AnimalDefaultValues.Thirsty_perSec);
         SetTimeSleep(AnimalDefaultValues.Sleepnes_perSec);
-
-
-
-
-
     }
     public override void Start()
     {
         typeEntity = 1;
         kind = "wolf";
-      if(AnimalDefaultValues!=null)
-        InitKind();
+        if (AnimalDefaultValues != null)
+            InitKind();
         base.Start();
-      
     }
     public override void Update()
     {
         base.Update();
     }
-  
+
 }

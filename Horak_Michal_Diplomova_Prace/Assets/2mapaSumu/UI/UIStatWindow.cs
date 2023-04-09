@@ -21,7 +21,7 @@ public class UIStatWindow : MonoBehaviour
     public void SetWindowStatisticsEvent()
     {
         //Vypiš události entit > narození, nalezení partnera, smrt a atd.
-        
+
         if (TextField != null)
         {
             TextField.text = StatisticSystem.StatisticEventLog();
@@ -71,7 +71,6 @@ public class UIStatWindow : MonoBehaviour
 
     private void SetHeight()
     {
-
         //Zaøizuje to, že po zmìnì stránky se scroluje na zaèátek
         Container.transform.localPosition = new Vector3(Container.transform.localPosition.x, -5000, Container.transform.localPosition.z);
     }

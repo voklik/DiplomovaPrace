@@ -10,7 +10,10 @@ public class PauseSystem : MonoBehaviour
 
     public void PauseResumeTime()
     {
-        if (isPaused) { ResumeGame(); }
+        if (isPaused)
+        {
+            ResumeGame();
+        }
         else PauseGame();
     }
 

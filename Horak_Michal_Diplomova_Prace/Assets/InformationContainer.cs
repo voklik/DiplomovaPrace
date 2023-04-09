@@ -9,7 +9,6 @@ public class InformationContainer : MonoBehaviour
     /// </summary>
     public void MouseEnter()
     {
-        Debug.Log("info");//TODO SMAZAT TESTOVANI
         InformationInfoBox.Show(text);
     }
     /// <summary>

@@ -8,7 +8,6 @@ public class StatisticEvent
     string Time;
     string Thing;
     int ID;
-
     public StatisticEntity GetFromEntity() { return FromEntity; }
     public StatisticEntity GetTargetEntity() { return TargetEntity; }
     public string GetTime() { return Time; }
@@ -44,10 +43,5 @@ public class StatisticEvent
         { text += "Target ( " + TargetEntity.ToString() + " ) "; }
 
         return text;
-    }
-
-    public string getExcelRow()
-    {
-        return "Excel statistic default null";
     }
 }

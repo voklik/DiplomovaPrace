@@ -33,11 +33,7 @@ public class GenerateObject : MonoBehaviour
                 }
                 else
                     news.Add(GenerateEntity(entita, teren, kind));
-
-
             }
-
-
         }
         return news;
     }
@@ -52,7 +48,6 @@ public class GenerateObject : MonoBehaviour
 
             if (novy == null)
                 Debug.LogError("nenalezeno " + kind);
-
             bool ismale;
             int id = CheckID(kind, out ismale);
             novy.name = kind + "-" + +id;
@@ -78,15 +73,10 @@ public class GenerateObject : MonoBehaviour
         {
             GameObject teren = MaterialStorage.Teren[Random.Range(3, MaterialStorage.Teren.Count - 1)];
             float y = teren.GetComponent<Teren>().GetDetail().vertex1.y + 2.0f;
-
-
-
-
             return new Vector3(x, y, z);
         }
         catch (System.Exception)
         {
-
             return GetPosition();
         }
 

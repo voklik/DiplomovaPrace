@@ -5,9 +5,7 @@ using UnityEngine.UI;
 
 public class FpsControl : MonoBehaviour
 {
-    /*Metoda, která slouží pro vypoèet poètu framù za vteøinu
-     * 
-     */
+    //Metoda, která slouží pro vypoèet poètu framù za vteøinu
 
     void Start()
     {

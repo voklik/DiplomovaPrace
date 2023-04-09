@@ -8,18 +8,12 @@ public class InformationInfoBox : MonoBehaviour
      *a když ano, tak by to bylo nepøehledné a ošklivé.
     */
     public static InformationInfoBox InformationInfoBoxStatic;// promìnná je statická, protože existuje pouze jedno informaèní okno ve scénì.
-    void Start()
-    {
-        //  InformationInfoBoxStatic = this;
-    }
     void OnEnable()
     {
-        Debug.Log("PrintOnEnable: script was enabled");
         InformationInfoBoxStatic = this;
     }
     void OnDisable()
     {
-        Debug.Log("PrintOnDisable: script was disabled");
     }
     /// <summary>
     /// Zobrazit text v InfoBoxu

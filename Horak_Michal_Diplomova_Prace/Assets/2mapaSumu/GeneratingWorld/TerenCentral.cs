@@ -5,8 +5,6 @@ public class TerenCentral : MonoBehaviour
 {
     //Tøída, která slouží jako seznam listù pro Terény
     public static readonly List<GameObject> teren = new List<GameObject>();
-
-    // Start is called before the first frame update
     public static void addTerrain(GameObject g)
     {
         teren.Add(g);
@@ -30,10 +28,9 @@ public class TerenCentral : MonoBehaviour
         {
             teren.Remove(g);
         }
-        catch (System.Exception)
+        catch (System.Exception e)
         {
-
-            throw;
+            Debug.Log(e.Message);
         }
     }
 }

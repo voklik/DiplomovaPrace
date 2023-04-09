@@ -53,7 +53,6 @@ public class StatisticSystem : MonoBehaviour
         {
             CounterOfKinds.Add(new StatisticKindCoutner(entita.GetKind(), 0, 1));
             CounterOverTimes.Add(new StatisticKindCounterOverTime(new StatisticKindCoutner(entita.GetKind(), 0, 1), time.ToString()));
-
         }
         ListOfEntit.Remove(entita);
     }
@@ -72,7 +71,6 @@ public class StatisticSystem : MonoBehaviour
             text += item.ToString() + "\n";
         }
         return text;
-
     }
     public static string StatisticKindLog()
     {
@@ -82,7 +80,6 @@ public class StatisticSystem : MonoBehaviour
             text += item.GetKind() + " Live: " + item.GetCountLive() + " Dead: " + item.GetCountDead() + "\n";
         }
         return text;
-
     }
     public static string StatisticLiveAnimal()
     {
@@ -94,7 +91,6 @@ public class StatisticSystem : MonoBehaviour
                 text += item.GetEntityInformation() + "\n\n";
         }
         return text;
-
     }
     public static string StatisticLivePlants()
     {
@@ -113,7 +109,6 @@ public class StatisticSystem : MonoBehaviour
         {
             Debug.LogError(item.ToString());
         }
-
     }
 
     public static float GetTime()

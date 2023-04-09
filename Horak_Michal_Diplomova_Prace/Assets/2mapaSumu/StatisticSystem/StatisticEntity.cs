@@ -6,7 +6,6 @@ public class StatisticEntity
 {
 
     string Name, Kind;
-
     public StatisticEntity(string name, string kind)
     {
         Name = name;

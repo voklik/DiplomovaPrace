@@ -25,7 +25,7 @@ public class AnimalSettingWindow : MonoBehaviour
         {
             Init.TypeEater = GenerateSliderI("potrava", "potrava", "potravaInfo", 3, 1, 3);
         }
-        Init.AgeForMatured = GenerateSliderI("matureAge", "matureAge", "matureAgeInfo", 30, 0, 100);
+        Init.AgeForMatured = GenerateSliderI("matureAge", "matureAge", "matureAgeInfo", 30, 5, 100);
         Init.AgeForDie = GenerateSliderI("dieAge", "dieAge", "dieAgeInfo", 120, 0, 100);
         Init.Max_hp = GenerateSliderI("maxHp", "maxHp", "maxHpInfo", 100, 0, 150);
         Init.Regen_hp = GenerateSliderF("regenHp", "regenHp", "regenHpInfo", 1, 0, 10);

@@ -66,7 +66,6 @@
     <Compile Include="Assets\2mapaSumu\others\AnimalDefaultValues.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\2mapaSumu\Behaviour Tree\Sequence.cs" />
-    <Compile Include="Assets\2mapaSumu\toRemove\destr.cs" />
     <Compile Include="Assets\2mapaSumu\Behaviour Tree\nodes\Partnership\MakeChildren.cs" />
     <Compile Include="Assets\AnimalSettingWindow.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -162,7 +161,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\2mapaSumu\toRemove\MouseControl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-    <Compile Include="Assets\2mapaSumu\toRemove\tooltipSystem\testera.cs" />
     <Compile Include="Assets\2mapaSumu\Behaviour Tree\TopSelector.cs" />
     <Compile Include="Assets\2mapaSumu\UI\CaptionsLibrary.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />

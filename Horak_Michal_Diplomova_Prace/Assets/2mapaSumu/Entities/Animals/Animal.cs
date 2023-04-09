@@ -64,18 +64,13 @@ public abstract class Animal : Entity
 
 
     //for radar decision
-    //zmìnit na množiny
     [SerializeField] protected private List<GameObject> foodSpoted = new List<GameObject>();
-
-
     [SerializeField] private List<GameObject> plantspoted = new List<GameObject>();
-
     [SerializeField] private List<GameObject> TheyAreGoForMe = new List<GameObject>();
-
     [SerializeField] private GameObject closestWaterSpot = null;
     [SerializeField] private GameObject closestAnimalSpot = null;
     [SerializeField] private GameObject closestPlantSpot = null;
-
+    [SerializeField] private TopSelector topNode;
     public Stav GetStav { get { return stav; } }
     public void SetStav(Stav _stav)
     {
@@ -96,7 +91,7 @@ public abstract class Animal : Entity
 
 
 
-    [SerializeField] private TopSelector topNode;
+
 
 
     private void ConstructBehahaviourTree()
@@ -189,16 +184,10 @@ public abstract class Animal : Entity
     {
 
         Init();
-        //   InitHeight2();
-        //  kind = "animal";
-        //  typeEater = 2;//only for animals 1-meateater,2-planteater,3-alleater;
         if (TryGetComponent(out NavMeshAgent ag))
         {
             typeEntity = 1;
             agent = ag;
-
-
-
         }
         else
         {
@@ -209,7 +198,6 @@ public abstract class Animal : Entity
         gameObject.GetComponentInChildren<TargetCollider>().SetRange(range);
         ConstructBehahaviourTree();
     }
-    //  Vypis(agent.destination.ToString());
 
     public void InitHeightReset()
     { InitHeight2(); }
@@ -221,17 +209,12 @@ public abstract class Animal : Entity
     }
     public override void Update()
     {
-
-
-
         if ((isLive && hp > 0))
         {
-            // setAgentMovementEnabled(true);
             StatsChangeTimeEntity();
             StatsChangeAnimal();
             NodeState state = topNode.Evaluate();
             Vypis(topNode.Vypis());
-            // initHeight();
         }
 
         else if (!isLive && hp < 0)
@@ -239,7 +222,6 @@ public abstract class Animal : Entity
             SetAgentMovementEnabled(true);
             gameObject.transform.Rotate(-1f, -1f, -1f);
         }
-        //  Wait(0.5f);
     }
     private void StatsChangeAnimal()
     {
@@ -276,32 +258,29 @@ public abstract class Animal : Entity
             }
         }
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="x">True = povolit pohyb, False = zakázat pohyb=</param>
     private void SwitchWalkableLayer(bool x)
     {
         if (x == false)
         {
             int areaMask = agent.areaMask;
-
-            // areaMask -= 1 << NavMesh.GetAreaFromName("Walkable");
             areaMask = 4;//NavMesh.GetAreaFromName("Jump");//turn on all
             agent.areaMask = areaMask;
-            //  Debug.LogError("no");
-            // agent.SetDestination(new Vector3 (15,transform.position.y,15));
         }
         else
         {
             int areaMask = agent.areaMask;
             areaMask = 1;// NavMesh.GetAreaFromName("Walkable");
-            //  areaMask -= 1 << NavMesh.GetAreaFromName("Jump");//turn on all
             agent.areaMask = areaMask;
-            //       Debug.LogError("ok");
         }
     }
 
 
 
     public float GetStrenght() { return strenght; }
-
     public bool GetIsRunning() { return isRunning; }
     public bool GetIsTargeted() { return isTargeted; }
     public float GetSleep() { return sleepnes; }
@@ -347,8 +326,6 @@ public abstract class Animal : Entity
             {
                 close = item;
                 distance = Vector3.Distance(gameObject.transform.position, item.transform.position);
-                //    if(closestAnimalSpot!=null)
-                //    Vypis("closesttargetfood" + closestAnimalSpot.name);
             }
             else
             {
@@ -358,15 +335,10 @@ public abstract class Animal : Entity
                 {
                     distance = distanceTemp;
                     close = item;
-                    //  if (closestAnimalSpot != null)
-                    //    Vypis("closesttargetfood" + closestAnimalSpot.name);
                 }
             }
         }
         closestAnimalSpot = close;
-        // if (closestAnimalSpot != null)
-        //    Vypis("closesttargetfood" + closestAnimalSpot.name);
-
     }
     private void ActualyClosePlant()
     {
@@ -407,7 +379,6 @@ public abstract class Animal : Entity
             }
             else
             {
-
                 distanceTemp = Vector3.Distance(gameObject.transform.position, item.transform.position);
                 if (distanceTemp < distance)
                 {
@@ -424,50 +395,40 @@ public abstract class Animal : Entity
         ActualyCloseWater();
         if (targetWater != closestWaterSpot && closestWaterSpot != null)
         {
-
             targetWater = closestWaterSpot;
         }
     }
     public void CloseFood()
     {
-        //  Vypis(animalsSpoted.Count.ToString()+"|"+type);
-        //type ;//1-meateater,2-planteater,3-alleater;
         if (typeEater == 1)
         {
-            //    Vypis("food" );
             ActualyCloseAnimal();
             targetFood = closestAnimalSpot;
-            //    Vypis("targetfood22" + targetFood.name);
         }
         else if (typeEater == 2)
         {
-            //     Vypis("food");
             ActualyClosePlant();
             targetFood = closestPlantSpot;
         }
         else if (typeEater == 3)
         {
-            //   Vypis("food");
             ActualyCloseAnimal();
             ActualyClosePlant();
 
             if (closestAnimalSpot != null && closestPlantSpot == null)
             {
                 targetFood = closestAnimalSpot;
-                //     Vypis("targetfood22" + targetFood.name);
                 return;
             }
             if (closestAnimalSpot == null && closestPlantSpot != null)
             {
                 targetFood = closestPlantSpot;
-                //   Vypis("targetfood22" + targetFood.name);
                 return;
             }
             if (closestAnimalSpot != null && closestPlantSpot != null)
             {
                 float distanceAnimal = Vector3.Distance(gameObject.transform.position, closestAnimalSpot.transform.position);
                 float distancePlant = Vector3.Distance(gameObject.transform.position, closestPlantSpot.transform.position);
-
 
                 if (distanceAnimal < distancePlant)
                 {
@@ -477,14 +438,10 @@ public abstract class Animal : Entity
                 {
                     targetFood = closestPlantSpot;
                 }
-                Vypis("targetfood22" + targetFood.name);
                 return;
             }
-
         }
     }
-
-
 
 
     public bool CalculateNewPath(Vector3 target)
@@ -497,11 +454,10 @@ public abstract class Animal : Entity
         agent.enabled = wasstate;
         if (navMeshPath.status != NavMeshPathStatus.PathComplete)
         {
-            //    Debug.Log("cesta nenalezena");
             return false;
         }
         else
-        {//  Debug.Log("New path calculated");
+        {
             return true;
         }
     }
@@ -512,7 +468,6 @@ public abstract class Animal : Entity
         {
             if (g.gameObject.tag == "animal")
             {
-
                 if (!target.GetComponent<Animal>().GetKind().Equals(GetKind()))
                 {
                     target = g.gameObject;
@@ -522,18 +477,12 @@ public abstract class Animal : Entity
                 {
                     Debug.Log("Target  kanibalismus");
                 }
-                // target = g.gameObject;
-                // Debug.Log("Target located" + g.gameObject.name);
             }
-
-
         }
         else
         {
-
             if (g.gameObject.tag == "animal")
             {
-
                 if (!target.GetComponent<Animal>().GetKind().Equals(GetKind()))
                 {   //implementovat to , když cíl je blíž
                     target = g.gameObject;
@@ -543,15 +492,12 @@ public abstract class Animal : Entity
                 {
                     Debug.Log("Target  kanibalismus");
                 }
-
             }
         }
     }
 
     public void Sleep()
     {
-
-
         sleepnes -= 50 * Time.deltaTime;
         if (sleepnes < 0)
             sleepnes = 0;
@@ -570,13 +516,11 @@ public abstract class Animal : Entity
 
     public void Drink()
     {
-
         thirsty -= 50 * Time.deltaTime;
         if (thirsty < 0)
             thirsty = 0;
         if (GetThirsty() / GetThirstyMax() < 0.1)
         { targetWater = null; }
-
     }
     public float GetDistanceToTarget()
     {
@@ -585,13 +529,10 @@ public abstract class Animal : Entity
             CloseFood();
             if (targetFood != null)
                 return Vector3.Distance(gameObject.transform.position, targetFood.transform.position);
-
-
             else return -1000;
         }
         else if ((stav == Stav.GoingForPlace || stav == Stav.Going) && target != null)
         {
-
             if (target != null)
                 return Vector3.Distance(gameObject.transform.position, target.transform.position);
             else return -1000;
@@ -629,7 +570,6 @@ public abstract class Animal : Entity
         {
             if (targetRandomTerrain != null)
             {
-
                 return Vector3.Distance(gameObject.transform.position, targetRandomTerrain.transform.position);
             }
             else return -1000;
@@ -638,14 +578,12 @@ public abstract class Animal : Entity
         {
             if (partner != null)
             {
-
                 return Vector3.Distance(gameObject.transform.position, partner.transform.position);
             }
             else return -1000;
         }
         else if (stav == Stav.Nothing)
         {
-            Vypis("ptá se po cíli a nic nedìlá!!");
             return -1000;
         }
         else return -1000;
@@ -655,7 +593,6 @@ public abstract class Animal : Entity
         if ((stav == Stav.Eating || stav == Stav.GoingForFood || stav == Stav.GoingForFight) && targetFood != null)
         {
             CloseFood();
-
             if (targetFood != null)
                 return targetFood;
             else return null;
@@ -707,7 +644,6 @@ public abstract class Animal : Entity
                 return partner;
             else return null;
         }
-        //už neplatí //pro jistotu target a ne null....
         else return null;
     }
     public Entity GetFoodTarget()
@@ -726,7 +662,7 @@ public abstract class Animal : Entity
                 return p;
             else
             {
-                Vypis("cil k sezrani nenalezen"); return null;
+                return null;
             }
         }
 
@@ -750,10 +686,7 @@ public abstract class Animal : Entity
         {
             stav = Stav.Drinking;
         }
-
     }
-
-
     Vector3 vektor;
     public void SetAgentMovementEnabled(bool x)
     {
@@ -767,10 +700,7 @@ public abstract class Animal : Entity
             {
                 SwitchWalkableLayer(true);
             }
-
             agent.isStopped = x;
-
-
         }
     }
     public GameObject GetAttackingMeClosestEntity()
@@ -790,9 +720,7 @@ public abstract class Animal : Entity
                     closest = item;
                 }
             }
-
         }
-
         targetAttackingMe = closest;
         return targetAttackingMe;
     }
@@ -815,9 +743,7 @@ public abstract class Animal : Entity
                         closest = item;
                     }
                 }
-
             }
-
             targetAttackingPartner = closest;
             return targetAttackingPartner;
         }
@@ -841,7 +767,6 @@ public abstract class Animal : Entity
     {
         if (earthSpot.Count != 0)
         {
-
             for (int i = 0; i < 5; i++)
             {
                 try
@@ -853,19 +778,13 @@ public abstract class Animal : Entity
                 }
                 catch (System.Exception)
                 {
-
-
                 }
             }
-
-            Vypis("nenalezen vhodný bod");
             //nelezeno nic vhodného
             return null;
-        }//prázdný seznam
-
-        else
+        }
+        else//prázdný seznam
         {
-            Vypis("žádný  bod");
             return null;
         }
 
@@ -882,7 +801,6 @@ public abstract class Animal : Entity
     public override string GetEntityInformation()
     {
         string text = "";
-        //   Debug.LogWarning("Info");
         text += kind + " " + name;
         text += " \n" + CaptionsLibrary.GetCaption("Age") + " " + Mathf.Round(age * 10) / 10 + "\n";
         text += CaptionsLibrary.GetCaption("Adult") + " " + ((isMature) ? CaptionsLibrary.GetCaption("Yes") + " " : CaptionsLibrary.GetCaption("No") + " ") + CaptionsLibrary.GetCaption("AdultInAge") + " " + mature_age + "\n";
@@ -910,21 +828,16 @@ public abstract class Animal : Entity
             foreach (GameObject item in childrens)
             {
                 potomci += " " + gameObject.name + ", ";
-
             }
         }
         else potomci = CaptionsLibrary.GetCaption("None");
         text += (isMale) ? CaptionsLibrary.GetCaption("FemalePartner") + " " + par : CaptionsLibrary.GetCaption("MalePartner") + " " + par;
-
-
         text += "\n" + CaptionsLibrary.GetCaption("Father") + " : " + otec + "\n";
         text += CaptionsLibrary.GetCaption("Mother") + " : " + matka + "\n";
         text += CaptionsLibrary.GetCaption("Children") + " : " + potomci + "\n";
         text += CaptionsLibrary.GetCaption("State") + " : " + CaptionsLibrary.GetCaption(stav) + "\n";
         return text;
     }
-
-
 }
 
 
