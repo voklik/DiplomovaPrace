@@ -81,7 +81,6 @@ public class Map : MonoBehaviour
         }
         nav.buildHeightMesh = true;
         nav.BuildNavMesh();
-        camera.AddComponent<CameraControl>();
         gameObject.GetComponent<GenerateObject>().GenerateEntityPopulation("wolf", wolfPopulation, Vector3.zero);
         gameObject.GetComponent<GenerateObject>().GenerateEntityPopulation("grass", grassPopulation, Vector3.zero);
         gameObject.GetComponent<GenerateObject>().GenerateEntityPopulation("sheep", sheepPopulation, Vector3.zero);

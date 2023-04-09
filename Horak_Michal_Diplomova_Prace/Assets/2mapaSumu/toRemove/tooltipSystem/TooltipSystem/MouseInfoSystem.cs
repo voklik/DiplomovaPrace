@@ -21,7 +21,6 @@ public class MouseInfoSystem : MonoBehaviour
                 LineRenderer lineRenderer = GetComponent<LineRenderer>();
                 if (Physics.Raycast(ray, out RaycastHit hit, 100, (1 << LayerMask.NameToLayer("Animal"))))// | (1 << LayerMask.NameToLayer("Plant")))))
                 {
-                    //Debug.DrawLine(ray.origin, hit.transform.position, Color.green, 2, true);
                     try
                     {
                         Entity e = null;

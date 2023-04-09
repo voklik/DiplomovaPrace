@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
@@ -25,6 +27,7 @@ public class CameraControl : MonoBehaviour
 
     void Update()
     {
+
         Vector3 pos = transform.position;
         if (Input.GetKey("w"))// || Input.mousePosition.y >= Screen.height - PanBorderThickness)
         { pos.z += PanSpeed * Time.unscaledDeltaTime; }
@@ -62,13 +65,17 @@ public class CameraControl : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, -10, PanLimit.y + 10);
         transform.position = pos;
 
+
+#if UNITY_EDITOR
+
+
         if (SceneView.lastActiveSceneView != null)
         {
             pos.z -= 10.0f;
             SceneView.lastActiveSceneView.pivot = pos;
             SceneView.lastActiveSceneView.Repaint();
         }
-
+#endif
 
     }
 
