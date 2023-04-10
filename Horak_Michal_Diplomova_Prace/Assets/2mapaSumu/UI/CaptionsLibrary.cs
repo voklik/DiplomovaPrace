@@ -19,7 +19,7 @@ public static class CaptionsLibrary
                 //Ovládání//
         {"Controls","Kamera se pohybuje pomocí kláves [W],[S],[A],[D] - Pohyb dopøedu, dozadu, vlevo a vpravo." +
             "\n\nKamera se otáèí pomocí kláves [Q] a [E] - Rotace vlevo a vpravo." +
-            "\n\nKameru lze vrátit do výchozího stavu pomocí klávesy [R]"},
+            "\n\nKameru lze vrátit do výchozího stavu pomocí klávesy [R]. Koleèko myši urèuje výšku kamery."},
                 //MENU-Entity//
         {"populace","Poèáteèní populace"},
         {"populaceInfo","Kolik jedincù se bude generovat na zaèátku simulace"},
